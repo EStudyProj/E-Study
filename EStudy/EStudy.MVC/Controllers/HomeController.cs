@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EStudy.MVC.Models;
+using EStudy.Application.Interfaces.MVC;
 
 namespace EStudy.MVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUserService userService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUserService _userService)
         {
             _logger = logger;
+            userService = _userService;
         }
 
         public IActionResult Index()
@@ -27,11 +30,11 @@ namespace EStudy.MVC.Controllers
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet("Users")]
+        public async Task<IActionResult> GetUsers()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var users = await userService.GetAllUsers();
+            return View(users);
         }
     }
 }

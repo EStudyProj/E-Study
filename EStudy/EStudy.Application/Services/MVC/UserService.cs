@@ -25,6 +25,7 @@ namespace EStudy.Application.Services.MVC
             return users.Select(d => new UserViewModel
             {
                 Id = d.Id,
+                CreatedAt = d.CreatedAt,
                 Firstname = d.Firstname
             }).ToList();
         }

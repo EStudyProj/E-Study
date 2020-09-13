@@ -14,7 +14,5 @@ namespace EStudy.Infrastructure.Data.Repositories
             this.db = db;
         }
 
-
-
     }
 }
