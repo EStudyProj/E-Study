@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EStudy.Application\EStudy.Application.csproj" />
+    <ProjectReference Include="..\EStudy.Infrastructure.IoC\EStudy.Infrastructure.IoC.csproj" />
   </ItemGroup>
 
 </Project>

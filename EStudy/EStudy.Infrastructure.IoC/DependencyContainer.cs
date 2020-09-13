@@ -12,7 +12,6 @@ namespace EStudy.Infrastructure.IoC
     {
         public static void RegisterMVCServices(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
         }

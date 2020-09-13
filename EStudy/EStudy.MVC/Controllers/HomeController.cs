@@ -13,12 +13,10 @@ namespace EStudy.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IUserService userService;
 
-        public HomeController(ILogger<HomeController> logger, IUserService _userService)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            userService = _userService;
         }
 
         public IActionResult Index()
@@ -29,12 +27,6 @@ namespace EStudy.MVC.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-        [HttpGet("Users")]
-        public async Task<IActionResult> GetUsers()
-        {
-            var users = await userService.GetAllUsers();
-            return View(users);
         }
     }
 }

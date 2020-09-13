@@ -10,7 +10,7 @@ namespace EStudy.Infrastructure.Data.Context
         public const string LocalConn = "Server=(localdb)\\MSSQLLocalDB;Database=EStudyDb;Trusted_Connection=True;";
         public const string ServerConn = "";
         public DbSet<User> Users { get; set; }
-        public EStudyContext(DbContextOptions options) : base(options) { }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -12,12 +12,12 @@ namespace EStudy.Infrastructure.Data.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private readonly EStudyContext db;
-        private readonly DbSet<TEntity> dbSet;
-        protected Repository(EStudyContext _db)
+        public readonly EStudyContext db;
+        public readonly DbSet<TEntity> dbSet;
+        public Repository()
         {
-            db = _db;
-            dbSet = _db.Set<TEntity>();
+            db = new EStudyContext();
+            dbSet = db.Set<TEntity>();
         }
 
         public async Task<int> CountAsync()
