@@ -48,6 +48,11 @@ namespace EStudy.Infrastructure.Data.Repositories
             return await SaveAsync();
         }
 
+        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, int, TEntity>> selector)
+        {
+            return await db.Set<TEntity>().AsNoTracking().Select(selector).ToListAsync();
+        }
+
         public async Task<TEntity> GetByWhereAsTrackingAsync(Expression<Func<TEntity, bool>> match)
         {
             return await db.Set<TEntity>().FirstOrDefaultAsync(match);

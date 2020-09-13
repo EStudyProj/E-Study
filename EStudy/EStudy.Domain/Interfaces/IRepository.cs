@@ -24,6 +24,7 @@ namespace EStudy.Domain.Interfaces
         Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, object>> orderBy, Expression<Func<TEntity, int, TEntity>> selector, bool OrderByAscending);
         Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, object>> orderBy, bool OrderByAscending, int count, int offset);
         Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, object>> orderBy, Expression<Func<TEntity, int, TEntity>> selector, bool OrderByAscending, int count, int offset);
+        Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, int, TEntity>> selector);
         Task<int> CountAsync();
         Task<int> CountAsync(Expression<Func<TEntity, bool>> match);
         Task<bool> IsExistAsync(Expression<Func<TEntity, bool>> match);
