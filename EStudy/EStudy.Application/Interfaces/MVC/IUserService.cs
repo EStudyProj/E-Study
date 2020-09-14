@@ -8,6 +8,6 @@ namespace EStudy.Application.Interfaces.MVC
 {
     public interface IUserService
     {
-        Task<List<UserViewModel>> GetAllUsers();
+
     }
 }

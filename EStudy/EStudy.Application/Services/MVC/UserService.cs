@@ -18,16 +18,5 @@ namespace EStudy.Application.Services.MVC
             userRepos = _userRepos;
         }
 
-
-        public async Task<List<UserViewModel>> GetAllUsers()
-        {
-            var users = await userRepos.GetListByWhereAsync(d => d.CreatedAt.Year == DateTime.Now.Year);
-            return users.Select(d => new UserViewModel
-            {
-                Id = d.Id,
-                CreatedAt = d.CreatedAt,
-                Firstname = d.Firstname
-            }).ToList();
-        }
     }
 }
