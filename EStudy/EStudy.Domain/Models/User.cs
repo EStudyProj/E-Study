@@ -58,6 +58,9 @@ namespace EStudy.Domain.Models
         public double Raiting { get; set; }
         public DegreeType Degree { get; set; } //Науковий ступінь
         public AcademicStatusType AcademicStatus { get; set; } //Вчене звання
+        [MaxLength(5000)]
+        public string ChangeHistory { get; set; }
+
 
 
 
@@ -73,8 +76,6 @@ namespace EStudy.Domain.Models
         [MinLength(3), MaxLength(30)]
         public string EditedFromIPAddress { get; set; }
         public int? LastEditedByUserId { get; set; }
-
-
     }
 
     public enum Role
