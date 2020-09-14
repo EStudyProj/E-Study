@@ -33,10 +33,10 @@ namespace EStudy.Domain.Models
         public bool IsShowEmail { get; set; } = true;
         [MinLength(10), MaxLength(300)]
         public string PhotoPath { get; set; }
-        [Required, MinLength(3), MaxLength(30)]
-        public string Role { get; set; }
-        [Required, MinLength(3), MaxLength(20)]
-        public string UserStatus { get; set; }
+        [Required]
+        public Role Role { get; set; }
+        [Required]
+        public UserStatus UserStatus { get; set; }
         [MinLength(2), MaxLength(25)]
         public string Chair { get; set; }
         [Required, MinLength(8), MaxLength(150)]
@@ -68,30 +68,25 @@ namespace EStudy.Domain.Models
         [MinLength(3), MaxLength(30)]
         public string EditedFromIPAddress { get; set; }
         public int? LastEditedByUserId { get; set; }
-        [MinLength(5), MaxLength(50)]
-        public string Degree { get; set; } //Науковий ступінь
-        [MinLength(4), MaxLength(30)]
-        public string AcademicStatus { get; set; } //Вчене звання
+        public DegreeType Degree { get; set; } //Науковий ступінь
+        public AcademicStatusType AcademicStatus { get; set; } //Вчене звання
     }
 
     public enum Role
     {
-        Developer,
         Admin,
-        Rector,
         DirectorOfInsitute,
         AssistantDirectorOfInsitute,
         HeadOfDepartment,
         AssistantHeadOfDepartment,
         Teacher,
-        Headman,
         Student
     }
 
     public enum UserStatus
     {
         Teacher,
-        Parent,
+        //Parent,
         Student
     }
 
