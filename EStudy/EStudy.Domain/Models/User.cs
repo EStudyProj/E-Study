@@ -8,16 +8,10 @@ namespace EStudy.Domain.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        [Required, MinLength(3), MaxLength(30)]
-        public string CreatedFromIPAddress { get; set; }
-        [Required]
-        public int CreatedByUserId { get; set; }
         [Required, MinLength(2), MaxLength(50)]
         public string Firstname { get; set; }
         [Required, MinLength(3), MaxLength(50)]
-        public string Middlename { get; set; }
+        public string Patronymic { get; set; }
         [Required, MinLength(2), MaxLength(50)]
         public string Lastname { get; set; }
         public DateTime? Born { get; set; }
@@ -59,17 +53,28 @@ namespace EStudy.Domain.Models
         public bool IsVerified { get; set; } = false;
         [Required, MinLength(10), MaxLength(300)]
         public string LinkVerify { get; set; }
+        public DateTime? DateVerified { get; set; }
         [Range(0.0, 5.0)]
         public double Raiting { get; set; }
-        public DateTime? DateVerified { get; set; }
+        public DegreeType Degree { get; set; } //Науковий ступінь
+        public AcademicStatusType AcademicStatus { get; set; } //Вчене звання
+
+
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        [Required, MinLength(3), MaxLength(30)]
+        public string CreatedFromIPAddress { get; set; }
+        [Required]
+        public int CreatedByUserId { get; set; }
         [Required]
         public bool IsEdit { get; set; } = false;
         public DateTime? DateLastEdit { get; set; }
         [MinLength(3), MaxLength(30)]
         public string EditedFromIPAddress { get; set; }
         public int? LastEditedByUserId { get; set; }
-        public DegreeType Degree { get; set; } //Науковий ступінь
-        public AcademicStatusType AcademicStatus { get; set; } //Вчене звання
+
+
     }
 
     public enum Role
