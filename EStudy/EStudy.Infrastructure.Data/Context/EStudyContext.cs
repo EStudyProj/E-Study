@@ -15,6 +15,7 @@ namespace EStudy.Infrastructure.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new IHEConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 
