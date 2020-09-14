@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Extensions">
+      <HintPath>..\Libraries\Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
