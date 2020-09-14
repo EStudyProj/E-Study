@@ -1,6 +1,7 @@
 ﻿using EStudy.Application.Interfaces.MVC;
 using EStudy.Application.Services.MVC;
 using EStudy.Domain.Interfaces;
+using EStudy.Infrastructure.Data;
 using EStudy.Infrastructure.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,6 +13,9 @@ namespace EStudy.Infrastructure.IoC
     {
         public static void RegisterMVCServices(this IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITestEntityRepository, TestEntityRepository>();
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
 

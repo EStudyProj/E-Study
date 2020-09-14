@@ -13,10 +13,11 @@ namespace EStudy.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IIHEService iHEService;
+        public HomeController(ILogger<HomeController> logger, IIHEService _iHEService)
         {
             _logger = logger;
+            iHEService = _iHEService;
         }
 
         public IActionResult Index()

@@ -11,16 +11,17 @@ namespace EStudy.Infrastructure.Data
     {
         private IIHERepository iheRepos;
         private IUserRepository userRepos;
-
-        public UnitOfWork(IIHERepository _iheRepos, IUserRepository _userRepos)
+        private ITestEntityRepository testEntityRepos;
+        public UnitOfWork(IIHERepository _iheRepos, IUserRepository _userRepos, ITestEntityRepository _testEntityRepos)
         {
             iheRepos = _iheRepos;
             userRepos = _userRepos;
+            testEntityRepos = _testEntityRepos;
         }
 
 
         public IIHERepository IHEs => iheRepos;
-
         public IUserRepository Users => userRepos;
+        public ITestEntityRepository Tests => testEntityRepos;
     }
 }

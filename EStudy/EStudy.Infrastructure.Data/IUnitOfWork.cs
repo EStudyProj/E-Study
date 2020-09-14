@@ -10,5 +10,6 @@ namespace EStudy.Infrastructure.Data
     {
         IIHERepository IHEs { get; }
         IUserRepository Users { get; }
+        ITestEntityRepository Tests { get; }
     }
 }
