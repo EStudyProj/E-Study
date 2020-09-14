@@ -11,6 +11,7 @@ namespace EStudy.Infrastructure.Data.Context
         public const string LocalConn = "Server=(localdb)\\MSSQLLocalDB;Database=EStudyDb;Trusted_Connection=True;";
         public const string ServerConn = "";
         public DbSet<User> Users { get; set; }
+        public DbSet<IHE> IHEs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
