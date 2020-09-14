@@ -10,6 +10,5 @@ namespace EStudy.Infrastructure.Data
     {
         IIHERepository IHEs { get; }
         IUserRepository Users { get; }
-        Task<string> SaveAsync();
     }
 }
