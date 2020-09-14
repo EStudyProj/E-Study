@@ -3,7 +3,7 @@ using EStudy.Domain.Models;
 
 namespace EStudy.Infrastructure.Data.Repositories
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class IHERepository : Repository<IHE>, IIHERepository
     {
 
     }
