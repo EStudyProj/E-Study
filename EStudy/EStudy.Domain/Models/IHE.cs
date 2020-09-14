@@ -59,7 +59,7 @@ namespace EStudy.Domain.Models
         [Required, MinLength(2), MaxLength(50)]
         public string Locality { get; set; }
         [Required]
-        public RegionName Region { get; set; }
+        public string Region { get; set; }
         [MinLength(3), MaxLength(6)]
         public string PostalCode { get; set; }
         [MinLength(5), MaxLength(50)]
