@@ -22,22 +22,6 @@ namespace EStudy.Application.Services.MVC
             {
                 Guid = Guid.NewGuid().ToString()
             });
-            await unitOfWork.Tests.CreateAsync(new TestEntity
-            {
-                Guid = Guid.NewGuid().ToString()
-            });
-            await unitOfWork.Tests.CreateAsync(new TestEntity
-            {
-                Guid = Guid.NewGuid().ToString()
-            });
-            await unitOfWork.Tests.CreateAsync(new TestEntity
-            {
-                Guid = Guid.NewGuid().ToString()
-            });
-            await unitOfWork.Tests.CreateAsync(new TestEntity
-            {
-                Guid = Guid.NewGuid().ToString()
-            });
         }
 
         public async Task<List<TestEntity>> GetAll()

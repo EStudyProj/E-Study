@@ -17,6 +17,8 @@ namespace EStudy.Infrastructure.IoC
             services.AddScoped<ITestEntityRepository, TestEntityRepository>();
             services.AddScoped<ITestService, TestService>();
 
+
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
 
