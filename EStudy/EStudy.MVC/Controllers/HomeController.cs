@@ -35,5 +35,12 @@ namespace EStudy.MVC.Controllers
         {
             return Ok(await testService.GetAll());
         }
+
+        [HttpGet("create")]
+        public async Task<IActionResult> Create()
+        {
+            await testService.CreateTestData();
+            return Ok();
+        }
     }
 }

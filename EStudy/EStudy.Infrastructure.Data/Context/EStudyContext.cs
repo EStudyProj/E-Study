@@ -12,6 +12,7 @@ namespace EStudy.Infrastructure.Data.Context
         public const string ServerConn = "";
         public DbSet<User> Users { get; set; }
         public DbSet<IHE> IHEs { get; set; }
+        public DbSet<TestEntity> TestEntities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

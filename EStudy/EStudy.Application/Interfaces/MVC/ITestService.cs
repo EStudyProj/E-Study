@@ -9,5 +9,6 @@ namespace EStudy.Application.Interfaces.MVC
     public interface ITestService
     {
         Task<List<TestEntity>> GetAll();
+        Task CreateTestData();
     }
 }

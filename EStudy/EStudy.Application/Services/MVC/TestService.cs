@@ -16,6 +16,30 @@ namespace EStudy.Application.Services.MVC
             unitOfWork = _unitOfWork;
         }
 
+        public async Task CreateTestData()
+        {
+            await unitOfWork.Tests.CreateAsync(new TestEntity
+            {
+                Guid = Guid.NewGuid().ToString()
+            });
+            await unitOfWork.Tests.CreateAsync(new TestEntity
+            {
+                Guid = Guid.NewGuid().ToString()
+            });
+            await unitOfWork.Tests.CreateAsync(new TestEntity
+            {
+                Guid = Guid.NewGuid().ToString()
+            });
+            await unitOfWork.Tests.CreateAsync(new TestEntity
+            {
+                Guid = Guid.NewGuid().ToString()
+            });
+            await unitOfWork.Tests.CreateAsync(new TestEntity
+            {
+                Guid = Guid.NewGuid().ToString()
+            });
+        }
+
         public async Task<List<TestEntity>> GetAll()
         {
             return await unitOfWork.Tests.GetAllAsync();

@@ -13,5 +13,7 @@ namespace EStudy.Domain.Models
         public DateTime Date { get; set; } = DateTime.Now;
         [Required, MaxLength(20)]
         public string Code { get; set; } = Generator.GetUniqCodeUpper();
+        [Required]
+        public string Guid { get; set; }
     }
 }
