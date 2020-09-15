@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EStudy.Application.ViewModels.TestEntity;
 using EStudy.Application.ViewModels.User;
 using EStudy.Domain.Models;
 using System;
@@ -12,6 +13,7 @@ namespace EStudy.Application
         {
             CreateMap<User, UserViewModel>();
             CreateMap<User, UserShortViewModel>();
+            CreateMap<TestEntity, TestEntityViewModel>();
         }
     }
 }

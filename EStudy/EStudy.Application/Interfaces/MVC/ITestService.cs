@@ -1,4 +1,5 @@
-﻿using EStudy.Domain.Models;
+﻿using EStudy.Application.ViewModels.TestEntity;
+using EStudy.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace EStudy.Application.Interfaces.MVC
 {
     public interface ITestService
     {
-        Task<List<TestEntity>> GetAll();
+        Task<List<TestEntityViewModel>> GetAll();
         Task CreateTestData();
     }
 }

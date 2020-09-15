@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EStudy.Infrastructure.IoC;
+using EStudy.MVC.AppStart;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +24,7 @@ namespace EStudy.MVC
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapperCustom();
             services.RegisterMVCServices();
             services.AddControllersWithViews();
         }

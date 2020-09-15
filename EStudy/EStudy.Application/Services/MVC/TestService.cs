@@ -1,4 +1,6 @@
-﻿using EStudy.Application.Interfaces.MVC;
+﻿using AutoMapper;
+using EStudy.Application.Interfaces.MVC;
+using EStudy.Application.ViewModels.TestEntity;
 using EStudy.Domain.Models;
 using EStudy.Infrastructure.Data;
 using System;
@@ -10,10 +12,12 @@ namespace EStudy.Application.Services.MVC
 {
     public class TestService : ITestService
     {
-        private IUnitOfWork unitOfWork;
-        public TestService(IUnitOfWork _unitOfWork)
+        private readonly IUnitOfWork unitOfWork;
+        private readonly IMapper mapper;
+        public TestService(IUnitOfWork _unitOfWork, IMapper _mapper)
         {
             unitOfWork = _unitOfWork;
+            mapper = _mapper;
         }
 
         public async Task CreateTestData()
@@ -24,9 +28,10 @@ namespace EStudy.Application.Services.MVC
             });
         }
 
-        public async Task<List<TestEntity>> GetAll()
+        public async Task<List<TestEntityViewModel>> GetAll()
         {
-            return await unitOfWork.Tests.GetAllAsync();
+            var elements = await unitOfWork.Tests.GetAllAsync();
+            return mapper.Map<List<TestEntityViewModel>>(elements);
         }
     }
 }
