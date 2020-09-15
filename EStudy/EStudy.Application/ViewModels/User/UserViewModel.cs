@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-namespace EStudy.Application.ViewModels
+namespace EStudy.Application.ViewModels.User
 {
     public class UserViewModel
     {
