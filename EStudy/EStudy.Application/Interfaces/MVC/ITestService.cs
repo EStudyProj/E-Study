@@ -8,6 +8,6 @@ namespace EStudy.Application.Interfaces.MVC
 {
     public interface ITestService
     {
-        Task<TestEntity> GetAll();
+        Task<List<TestEntity>> GetAll();
     }
 }

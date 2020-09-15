@@ -16,7 +16,7 @@ namespace EStudy.Application.Services.MVC
             unitOfWork = _unitOfWork;
         }
 
-        public async Task<TestEntity> GetAll()
+        public async Task<List<TestEntity>> GetAll()
         {
             return await unitOfWork.Tests.GetAllAsync();
         }
