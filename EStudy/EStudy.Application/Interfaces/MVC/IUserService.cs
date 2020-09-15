@@ -1,4 +1,5 @@
 ﻿using EStudy.Application.ViewModels;
+using EStudy.Application.ViewModels.User;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,8 @@ namespace EStudy.Application.Interfaces.MVC
 {
     public interface IUserService
     {
-
+        Task<UserViewModel> GetUserById(int Id);
+        Task<List<UserViewModel>> GetAllTeachers();
+        Task<List<UserViewModel>> GetAllStudents();
     }
 }
