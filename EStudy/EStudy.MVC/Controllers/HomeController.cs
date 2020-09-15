@@ -13,11 +13,11 @@ namespace EStudy.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private IIHEService iHEService;
-        public HomeController(ILogger<HomeController> logger, IIHEService _iHEService)
+        private ITestService testService;
+        public HomeController(ILogger<HomeController> logger, ITestService _testService)
         {
             _logger = logger;
-            iHEService = _iHEService;
+            testService = _testService;
         }
 
         public IActionResult Index()
@@ -28,6 +28,12 @@ namespace EStudy.MVC.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [HttpGet("tests")]
+        public async Task<IActionResult> GetTests()
+        {
+            return Ok(await testService.GetAll());
         }
     }
 }
