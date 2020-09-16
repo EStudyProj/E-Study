@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EStudy.Infrastructure.IoC;
 using EStudy.MVC.AppStart;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,12 @@ namespace EStudy.MVC
         {
             services.AddAutoMapperCustom();
             services.RegisterMVCServices();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Login");
+                    options.LogoutPath = new Microsoft.AspNetCore.Http.PathString("/Logout");
+                });
             services.AddControllersWithViews();
         }
 
