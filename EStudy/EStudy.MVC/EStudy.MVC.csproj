@@ -18,4 +18,14 @@
     <ProjectReference Include="..\EStudy.Infrastructure.IoC\EStudy.Infrastructure.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Images\user.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
