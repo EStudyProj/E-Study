@@ -7,15 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EStudy.MVC.Models;
 using EStudy.Application.Interfaces.MVC;
+using EStudy.Application.ViewModels.User;
 
 namespace EStudy.MVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
+        private IUserService userService;
+        public HomeController(ILogger<HomeController> logger, IUserService _userService)
         {
             _logger = logger;
+            userService = _userService;
         }
 
         public IActionResult Index()
@@ -27,6 +30,17 @@ namespace EStudy.MVC.Controllers
         public IActionResult LoginUser()
         {
             return View();
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> LoginUser(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Дані не валідні");
+                return View(model);
+            }
+
         }
     }
 }
