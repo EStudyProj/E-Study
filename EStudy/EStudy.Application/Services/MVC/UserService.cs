@@ -25,13 +25,13 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<List<UserShortViewModel>> GetAllStudents()
         {
-            var students = await UnitOfWork.Users.GetListByWhereAsync(d => d.UserStatus == UserStatus.Student);
+            var students = await UnitOfWork.Users.GetListByWhereAsync(d => d.UserStatus == UserStatus.Student, e => new User { Id = e.Id, Firstname = e.Firstname, Patronymic = e.Patronymic, Lastname = e.Lastname, Username = e.Username, UserStatus = e.UserStatus, Phone = e.Phone });
             return mapper.Map<List<UserShortViewModel>>(students);
         }
 
         public async Task<List<UserShortViewModel>> GetAllTeachers()
         {
-            var teachers = await UnitOfWork.Users.GetListByWhereAsync(d => d.UserStatus == UserStatus.Teacher);
+            var teachers = await UnitOfWork.Users.GetListByWhereAsync(d => d.UserStatus == UserStatus.Teacher, e => new User { Id = e.Id, Firstname = e.Firstname, Patronymic = e.Patronymic, Lastname = e.Lastname, Username = e.Username, UserStatus = e.UserStatus, Phone = e.Phone });
             return mapper.Map<List<UserShortViewModel>>(teachers);
         }
 
@@ -49,13 +49,13 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<List<UserShortViewModel>> GetUsersByEmail(string email)
         {
-            var usersdb = await UnitOfWork.Users.GetListByWhereAsync(d => d.Email == email);
+            var usersdb = await UnitOfWork.Users.GetListByWhereAsync(d => d.Email == email, e => new User { Id = e.Id, Firstname = e.Firstname, Patronymic = e.Patronymic, Lastname = e.Lastname, Username = e.Username, UserStatus = e.UserStatus, Phone = e.Phone });
             return mapper.Map<List<UserShortViewModel>>(usersdb);
         }
 
         public async Task<List<UserShortViewModel>> GetUsersByPhone(string phone)
         {
-            var usersdb = await UnitOfWork.Users.GetListByWhereAsync(d => d.Phone == phone);
+            var usersdb = await UnitOfWork.Users.GetListByWhereAsync(d => d.Phone == phone, e => new User { Id = e.Id, Firstname = e.Firstname, Patronymic = e.Patronymic, Lastname = e.Lastname, Username = e.Username, UserStatus = e.UserStatus, Phone = e.Phone });
             return mapper.Map<List<UserShortViewModel>>(usersdb);
         }
     }
