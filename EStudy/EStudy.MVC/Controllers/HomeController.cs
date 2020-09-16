@@ -32,6 +32,8 @@ namespace EStudy.MVC.Controllers
         [HttpGet("login")]
         public IActionResult LoginUser()
         {
+            if (User.Identity.IsAuthenticated)
+                return LocalRedirect("/");
             return View();
         }
 
@@ -61,12 +63,48 @@ namespace EStudy.MVC.Controllers
                 return View(model);
             }
             await Authenticate(user);
-            return LocalRedirect("");
+            return LocalRedirect("/");
         }
 
 
 
-        [NonAction]
+        [HttpGet("register")]
+        public IActionResult RegisterUser()
+        {
+            return View();
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> RegisterUser(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Дані не валідні");
+                return View(model);
+            }
+            model.IPAddress = HttpContext.Connection.RemoteIpAddress.ToString();
+            model.UserEditId = default;
+            var res = await userService.TestRegisterUser(model);
+            if (res != "OK")
+            {
+                ModelState.AddModelError("", res);
+                return View(model);
+            }
+            return View("RegisterEnd");
+        }
+
+        
+
+
+
+
+
+        [HttpGet("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return LocalRedirect("~/Login");
+        }
         private async Task Authenticate(LoginViewModel model)
         {
             var claims = new List<Claim>
@@ -75,17 +113,10 @@ namespace EStudy.MVC.Controllers
                 new Claim(ClaimTypes.Role, model.Role),
                 new Claim(ClaimTypes.Email, model.Username),
                 new Claim(ClaimTypes.NameIdentifier, model.Id.ToString()),
-                new Claim("Photo", model.Photo),
                 new Claim("Status", model.UserStatus)
             };
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
-        }
-
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return LocalRedirect("Login");
         }
     }
 }

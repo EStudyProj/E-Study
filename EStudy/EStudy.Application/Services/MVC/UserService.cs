@@ -120,6 +120,8 @@ namespace EStudy.Application.Services.MVC
                 Lastname = model.Lastname,
                 UserStatus = UserStatus.Student,
                 Role = Role.Student,
+                CreatedByUserId = model.UserEditId,
+                CreatedFromIPAddress = model.IPAddress,
                 LinkVerify = Generator.GetString(250),
                 Username = Generator.GetString(10),
                 Login = model.Login,
