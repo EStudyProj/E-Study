@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 using EStudy.MVC.Models;
 using EStudy.Application.Interfaces.MVC;
 using EStudy.Application.ViewModels.User;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace EStudy.MVC.Controllers
 {
@@ -33,14 +36,56 @@ namespace EStudy.MVC.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> LoginUser(RegisterViewModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LoginUser(AuthViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 ModelState.AddModelError("", "Дані не валідні");
                 return View(model);
             }
+            var user = await userService.LoginUser(model);
+            if (user.NotFoundByLogin)
+            {
+                ModelState.AddModelError("", "Користувача з таким email не знайдено");
+                return View(model);
+            }
+            if (user.InvalidPassword)
+            {
+                ModelState.AddModelError("", "Логін або пароль не правильні");
+                return View(model);
+            }
+            if (user.AccountNotVerified)
+            {
+                ModelState.AddModelError("", "Ваш аккаунт не підтвердженно");
+                return View(model);
+            }
+            await Authenticate(user);
+            return LocalRedirect("");
+        }
 
+
+
+        [NonAction]
+        private async Task Authenticate(LoginViewModel model)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, model.Firstname+" "+model.Lastname),
+                new Claim(ClaimTypes.Role, model.Role),
+                new Claim(ClaimTypes.Email, model.Username),
+                new Claim(ClaimTypes.NameIdentifier, model.Id.ToString()),
+                new Claim("Photo", model.Photo),
+                new Claim("Status", model.UserStatus)
+            };
+            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return LocalRedirect("Login");
         }
     }
 }
