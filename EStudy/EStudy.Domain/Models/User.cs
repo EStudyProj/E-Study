@@ -17,7 +17,7 @@ namespace EStudy.Domain.Models
         public DateTime? Born { get; set; }
         [MinLength(1), MaxLength(300)]
         public string Description { get; set; }
-        [Required, MinLength(4), MaxLength(24)]
+        [Required, MinLength(4), MaxLength(35)]
         public string Username { get; set; }
         [MinLength(5), MaxLength(30)]
         public string Phone { get; set; }

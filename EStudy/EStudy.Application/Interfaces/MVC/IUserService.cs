@@ -18,6 +18,6 @@ namespace EStudy.Application.Interfaces.MVC
         Task<string> ChangeUsername(UserEditUsernameModel model);
         Task<string> ChangeNames(UserEditNamesModel model);
         Task<LoginViewModel> LoginUser(AuthViewModel model);
-        Task<string> RegisterUser(RegisterViewModel model);
+        Task<string> TestRegisterUser(RegisterViewModel model);
     }
 }

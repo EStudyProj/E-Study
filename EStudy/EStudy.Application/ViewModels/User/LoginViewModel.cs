@@ -15,5 +15,6 @@ namespace EStudy.Application.ViewModels.User
 
         public bool NotFoundByLogin { get; set; } = false;
         public bool InvalidPassword { get; set; } = false;
+        public bool AccountNotVerified { get; set; } = false;
     }
 }

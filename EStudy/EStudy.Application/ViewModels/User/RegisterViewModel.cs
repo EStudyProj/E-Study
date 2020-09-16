@@ -17,6 +17,8 @@ namespace EStudy.Application.ViewModels.User
         public string Login { get; set; }
         [Required, MinLength(8), MaxLength(50)]
         public string Password { get; set; }
+        [MinLength(4), MaxLength(35)]
+        public string Username { get; set; }
         public Role Role { get; set; }
         public UserStatus UserStatus { get; set; }
     }

@@ -93,6 +93,8 @@ namespace EStudy.Application.Services.MVC
             var user = await UnitOfWork.Users.GetByWhereAsync(d => d.Login == model.Login);
             if (user == null)
                 return new LoginViewModel { NotFoundByLogin = true };
+            if (!user.IsVerified)
+                return new LoginViewModel { AccountNotVerified = true };
             if (!PasswordManager.VerifyPasswordHash(model.Password, user.PasswordHash))
                 return new LoginViewModel { InvalidPassword = true };
             return new LoginViewModel
@@ -105,6 +107,26 @@ namespace EStudy.Application.Services.MVC
                 Role = user.Role.ToString(),
                 Photo = user.PhotoPath
             };
+        }
+
+        public async Task<string> TestRegisterUser(RegisterViewModel model)
+        {
+            if (await UnitOfWork.Users.IsExistAsync(d => d.Login == model.Login))
+                return "This mail is already taken";
+            var user = new User
+            {
+                Firstname = model.Firstname,
+                Patronymic = model.Patronymic,
+                Lastname = model.Lastname,
+                UserStatus = UserStatus.Student,
+                Role = Role.Student,
+                LinkVerify = Generator.GetString(250),
+                Username = Generator.GetString(10),
+                Login = model.Login,
+                PasswordHash = PasswordManager.GeneratePasswordHash(model.Password),
+                IsVerified = true
+            };
+            return await UnitOfWork.Users.CreateAsync(user);
         }
     }
 }
