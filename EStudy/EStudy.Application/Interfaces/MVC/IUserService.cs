@@ -10,7 +10,10 @@ namespace EStudy.Application.Interfaces.MVC
     public interface IUserService
     {
         Task<UserViewModel> GetUserById(int Id);
+        Task<UserViewModel> GetUserByUsername(string username);
         Task<List<UserShortViewModel>> GetAllTeachers();
         Task<List<UserShortViewModel>> GetAllStudents();
+        Task<List<UserShortViewModel>> GetUsersByEmail(string email);
+        Task<List<UserShortViewModel>> GetUsersByPhone(string phone);
     }
 }
