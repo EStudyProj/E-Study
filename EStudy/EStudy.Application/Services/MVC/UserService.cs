@@ -6,6 +6,7 @@ using EStudy.Domain.Interfaces;
 using EStudy.Domain.Models;
 using EStudy.Infrastructure.Data;
 using System;
+using Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -85,6 +86,25 @@ namespace EStudy.Application.Services.MVC
         {
             var usersdb = await UnitOfWork.Users.GetListByWhereAsync(d => d.Phone == phone, e => new User { Id = e.Id, Firstname = e.Firstname, Patronymic = e.Patronymic, Lastname = e.Lastname, Username = e.Username, UserStatus = e.UserStatus, Phone = e.Phone });
             return mapper.Map<List<UserShortViewModel>>(usersdb);
+        }
+
+        public async Task<LoginViewModel> LoginUser(AuthViewModel model)
+        {
+            var user = await UnitOfWork.Users.GetByWhereAsync(d => d.Login == model.Login);
+            if (user == null)
+                return new LoginViewModel { NotFoundByLogin = true };
+            if (!PasswordManager.VerifyPasswordHash(model.Password, user.PasswordHash))
+                return new LoginViewModel { InvalidPassword = true };
+            return new LoginViewModel
+            {
+                Id = user.Id,
+                Username = user.Username,
+                UserStatus = user.UserStatus.ToString(),
+                Firstname = user.Firstname,
+                Lastname = user.Lastname,
+                Role = user.Role.ToString(),
+                Photo = user.PhotoPath
+            };
         }
     }
 }

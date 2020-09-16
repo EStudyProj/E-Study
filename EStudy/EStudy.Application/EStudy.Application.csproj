@@ -17,6 +17,9 @@
     <Reference Include="ChangeTracker">
       <HintPath>..\Libraries\ChangeTracker.dll</HintPath>
     </Reference>
+    <Reference Include="Extensions">
+      <HintPath>..\Libraries\Extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

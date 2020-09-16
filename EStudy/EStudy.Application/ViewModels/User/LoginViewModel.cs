@@ -12,5 +12,8 @@ namespace EStudy.Application.ViewModels.User
         public string Role { get; set; }
         public string UserStatus { get; set; }
         public string Photo { get; set; }
+
+        public bool NotFoundByLogin { get; set; } = false;
+        public bool InvalidPassword { get; set; } = false;
     }
 }
