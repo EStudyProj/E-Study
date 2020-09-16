@@ -23,6 +23,19 @@ namespace EStudy.Application.Services.MVC
             mapper = _mapper;
         }
 
+        public async Task<string> ChangeNames(UserEditNamesModel model)
+        {
+            var userdb = await UnitOfWork.Users.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (userdb == null)
+                return "User by id not found";
+            if (!userdb.CanEdit)
+                return "Name for edit is lock";
+            userdb.Firstname = model.Firstname;
+            userdb.Patronymic = model.Patronymic;
+            userdb.Lastname = model.Lastname;
+            return await UnitOfWork.Users.EditAsync(userdb);
+        }
+
         public async Task<string> ChangeUsername(UserEditUsernameModel model)
         {
             if (await UnitOfWork.Users.IsExistAsync(d => d.Username == model.Username))
