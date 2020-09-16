@@ -48,7 +48,7 @@ namespace EStudy.Infrastructure.Data.Repositories
             return await SaveAsync();
         }
 
-        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, int, TEntity>> selector)
+        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, TEntity>> selector)
         {
             return await db.Set<TEntity>().AsNoTracking().Select(selector).ToListAsync();
         }
@@ -78,7 +78,7 @@ namespace EStudy.Infrastructure.Data.Repositories
             return await db.Set<TEntity>().AsNoTracking().Where(match).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, int, TEntity>> selector)
+        public async Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, TEntity>> selector)
         {
             return await db.Set<TEntity>().AsNoTracking().Where(match).Select(selector).ToListAsync();
         }
@@ -88,7 +88,7 @@ namespace EStudy.Infrastructure.Data.Repositories
             return await db.Set<TEntity>().AsNoTracking().Where(match).Take(count).Skip(offset).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, int, TEntity>> selector, int count, int offset)
+        public async Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, TEntity>> selector, int count, int offset)
         {
             return await db.Set<TEntity>().AsNoTracking().Where(match).Select(selector).Take(count).Skip(offset).ToListAsync();
         }
@@ -100,7 +100,7 @@ namespace EStudy.Infrastructure.Data.Repositories
             return await db.Set<TEntity>().AsNoTracking().Where(match).OrderByDescending(orderBy).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, object>> orderBy, Expression<Func<TEntity, int, TEntity>> selector, bool OrderByAscending)
+        public async Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, object>> orderBy, Expression<Func<TEntity, TEntity>> selector, bool OrderByAscending)
         {
             if (OrderByAscending)
                 return await db.Set<TEntity>().AsNoTracking().Where(match).Select(selector).OrderBy(orderBy).ToListAsync();
@@ -114,7 +114,7 @@ namespace EStudy.Infrastructure.Data.Repositories
             return await db.Set<TEntity>().AsNoTracking().Where(match).OrderByDescending(orderBy).Take(count).Skip(offset).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, object>> orderBy, Expression<Func<TEntity, int, TEntity>> selector, bool OrderByAscending, int count, int offset)
+        public async Task<List<TEntity>> GetListByWhereAsync(Expression<Func<TEntity, bool>> match, Expression<Func<TEntity, object>> orderBy, Expression<Func<TEntity, TEntity>> selector, bool OrderByAscending, int count, int offset)
         {
             if (OrderByAscending)
                 return await db.Set<TEntity>().AsNoTracking().Where(match).Select(selector).OrderBy(orderBy).Take(count).Skip(offset).ToListAsync();
