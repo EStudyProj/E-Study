@@ -40,5 +40,23 @@ namespace EStudy.Application.Services.MVC
             var userdb = await UnitOfWork.Users.GetByWhereAsync(d => d.Id == Id);
             return mapper.Map<UserViewModel>(userdb);
         }
+
+        public async Task<UserViewModel> GetUserByUsername(string username)
+        {
+            var userdb = await UnitOfWork.Users.GetByWhereAsync(d => d.Username == username);
+            return mapper.Map<UserViewModel>(userdb);
+        }
+
+        public async Task<List<UserShortViewModel>> GetUsersByEmail(string email)
+        {
+            var usersdb = await UnitOfWork.Users.GetListByWhereAsync(d => d.Email == email);
+            return mapper.Map<List<UserShortViewModel>>(usersdb);
+        }
+
+        public async Task<List<UserShortViewModel>> GetUsersByPhone(string phone)
+        {
+            var usersdb = await UnitOfWork.Users.GetListByWhereAsync(d => d.Phone == phone);
+            return mapper.Map<List<UserShortViewModel>>(usersdb);
+        }
     }
 }
