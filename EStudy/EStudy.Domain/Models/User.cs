@@ -21,11 +21,9 @@ namespace EStudy.Domain.Models
         public string Username { get; set; }
         [MinLength(5), MaxLength(30)]
         public string Phone { get; set; }
-        [Required]
         public bool IsShowPhone { get; set; } = true;
         [MinLength(7), MaxLength(100)]
         public string Email { get; set; }
-        [Required]
         public bool IsShowEmail { get; set; } = true;
         [MinLength(10), MaxLength(300)]
         public string PhotoPath { get; set; }
@@ -51,7 +49,7 @@ namespace EStudy.Domain.Models
         public bool CanEdit { get; set; } = true;
         [Required]
         public bool IsVerified { get; set; } = false;
-        [Required, MinLength(10), MaxLength(300)]
+        [MinLength(10), MaxLength(300)]
         public string LinkVerify { get; set; }
         public DateTime? DateVerified { get; set; }
         [Range(0.0, 5.0)]
