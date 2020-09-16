@@ -23,6 +23,21 @@ namespace EStudy.Application.Services.MVC
             mapper = _mapper;
         }
 
+        public async Task<string> ChangeUsername(UserEditUsernameModel model)
+        {
+            if (await UnitOfWork.Users.IsExistAsync(d => d.Username == model.Username))
+                return "Username is not avaliable";
+            var user = await UnitOfWork.Users.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (user == null)
+                return "User by id not found";
+            user.Username = model.Username;
+            user.IsEdit = false;
+            user.DateLastEdit = DateTime.Now;
+            user.LastEditedByUserId = model.UserEditId;
+            user.EditedFromIPAddress = model.IPAddress;
+            return await UnitOfWork.Users.EditAsync(user);
+        }
+
         public async Task<List<UserShortViewModel>> GetAllStudents()
         {
             var students = await UnitOfWork.Users.GetListByWhereAsync(d => d.UserStatus == UserStatus.Student, e => new User { Id = e.Id, Firstname = e.Firstname, Patronymic = e.Patronymic, Lastname = e.Lastname, Username = e.Username, UserStatus = e.UserStatus, Phone = e.Phone });

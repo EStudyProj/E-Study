@@ -13,4 +13,10 @@
     <ProjectReference Include="..\EStudy.Infrastructure.Data\EStudy.Infrastructure.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ChangeTracker">
+      <HintPath>..\Libraries\ChangeTracker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
