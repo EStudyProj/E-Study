@@ -23,7 +23,8 @@ namespace EStudy.MVC.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet("login")]
+        public IActionResult LoginUser()
         {
             return View();
         }
