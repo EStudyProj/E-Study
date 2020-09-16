@@ -71,6 +71,8 @@ namespace EStudy.MVC.Controllers
         [HttpGet("register")]
         public IActionResult RegisterUser()
         {
+            if (User.Identity.IsAuthenticated)
+                return LocalRedirect("/");
             return View();
         }
 
