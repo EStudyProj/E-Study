@@ -15,6 +15,8 @@ namespace EStudy.Domain.Models
         [Required, MinLength(2), MaxLength(50)]
         public string Lastname { get; set; }
         public DateTime? Born { get; set; }
+        [MinLength(1), MaxLength(300)]
+        public string Description { get; set; }
         [Required, MinLength(4), MaxLength(24)]
         public string Username { get; set; }
         [MinLength(5), MaxLength(30)]
@@ -45,8 +47,6 @@ namespace EStudy.Domain.Models
         public string StudentTicketNumber { get; set; }
         [MinLength(3), MaxLength(25)]
         public string TeacherCode { get; set; }
-        [MinLength(1), MaxLength(300)]
-        public string Description { get; set; }
         [Required]
         public bool CanEdit { get; set; } = true;
         [Required]
