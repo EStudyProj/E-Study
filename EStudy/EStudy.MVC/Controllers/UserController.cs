@@ -27,5 +27,19 @@ namespace EStudy.MVC.Controllers
                 return View("Error");
             return View(user);
         }
+
+
+
+        [HttpGet("settings")]
+        public IActionResult Settings()
+        {
+            return View();
+        }
+
+        [HttpGet("Edit")]
+        public IActionResult Edit(int? Id)
+        {
+            return View();
+        }
     }
 }
