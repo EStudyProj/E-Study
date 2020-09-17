@@ -7,16 +7,23 @@
 <h1>Користувач з Id @Model.Id</h1>
 
 <div>
-    @if (Model.PhotoPath == null)
+    <p><strong>Ім'я: </strong>@Model.Firstname</p>
+    <p><strong>По-батькові: </strong>@Model.Patronymic</p>
+    <p><strong>Прізвище: </strong>@Model.Lastname</p>
+    <p><strong>Приєднався: </strong>@Model.CreatedAt</p>
+    <p><strong>Username: </strong>@Model.Username</p>
+    <p><strong>Status: </strong>@Model.UserStatus</p>
+    @if (Model.Born != null)
     {
-        <div class="container">
-            <img src="Images/user.png" width="250" height="250"/>
-        </div>
+        <p><strong>Дата народження: </strong>@Model.Born</p>
     }
-    else
+    @if (Model.Email != null)
     {
-        <div class="container">
-            <img src="@Model.PhotoPath" />
-        </div>
+        <p><strong>Дата народження: </strong>@Model.Email</p>
     }
+    @if (Model.Phone != null)
+    {
+        <p><strong>Дата народження: </strong>@Model.Phone</p>
+    }
+    <p><strong>Підтверджений користувач: </strong><input type="checkbox" value="@Model.IsVerified" /></p>
 </div>
