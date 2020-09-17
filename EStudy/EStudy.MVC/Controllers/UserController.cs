@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EStudy.Application.Interfaces.MVC;
+using EStudy.Application.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -29,19 +30,63 @@ namespace EStudy.MVC.Controllers
             return View(user);
         }
 
-        [HttpGet("settings")]
-        [Authorize]
+        [HttpGet("Settings")]
         public IActionResult Settings()
         {
             return View();
         }
 
         [HttpGet("Edit")]
-        [Authorize]
-        public IActionResult Edit(int? Id)
+        public async Task<IActionResult> Edit(int? Id)
         {
-            ViewBag.Id = Id;
-            return View();
+            UserViewModel editUser = new UserViewModel();
+            if (Id == null)
+            {
+                editUser = await userService.GetUserById(GetCurrentId());
+                ViewBag.Id = 0;
+            }
+            else
+            {
+                editUser = await userService.GetUserById(Convert.ToInt32(Id));
+                ViewBag.Id = Id;
+            }
+            if (editUser == null)
+                return View("Error");
+            return View(new UserEditNamesModel
+            {
+                Firstname = editUser.Firstname,
+                Patronymic = editUser.Patronymic,
+                Lastname = editUser.Lastname
+            });
+        }
+
+        [HttpPost("Edit")]
+        public async Task<IActionResult> Edit(UserEditNamesModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("","Дані не валідні");
+                return View();
+            }
+
+            int currentId = Convert.ToInt32(User.Claims.FirstOrDefault(d => d.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value);
+            if (model.Id == default)
+                model.Id = currentId;
+            model.IPAddress = HttpContext.Connection.RemoteIpAddress.ToString();
+            model.UserEditId = currentId;
+            var res = await userService.ChangeNames(model);
+            if (res == "OK")
+                return View("Settings");
+            else
+            {
+                ModelState.AddModelError("", res);
+                return View(model);
+            }
+        }
+
+        public int GetCurrentId()
+        {
+            return Convert.ToInt32(User.Claims.FirstOrDefault(d => d.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value);
         }
     }
 }
