@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EStudy.Application.Interfaces.MVC;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -28,17 +29,18 @@ namespace EStudy.MVC.Controllers
             return View(user);
         }
 
-
-
         [HttpGet("settings")]
+        [Authorize]
         public IActionResult Settings()
         {
             return View();
         }
 
         [HttpGet("Edit")]
+        [Authorize]
         public IActionResult Edit(int? Id)
         {
+            ViewBag.Id = Id;
             return View();
         }
     }
