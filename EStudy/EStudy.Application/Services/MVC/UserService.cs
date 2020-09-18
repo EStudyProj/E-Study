@@ -24,6 +24,20 @@ namespace EStudy.Application.Services.MVC
             mapper = _mapper;
         }
 
+        public async Task<string> ChangeDescription(UserEditDescriptionModel model)
+        {
+            var user = await UnitOfWork.Users.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (user == null)
+                return "User by id not found";
+            user.Description = model.Description;
+            user.Born = model.Born;
+            user.LastEditedByUserId = model.UserEditId;
+            user.IsEdit = true;
+            user.DateLastEdit = DateTime.Now;
+            user.EditedFromIPAddress = model.IPAddress;
+            return await UnitOfWork.Users.EditAsync(user);
+        }
+
         public async Task<string> ChangeInfo(UserEditInfoModel model)
         {
             var user = await UnitOfWork.Users.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
