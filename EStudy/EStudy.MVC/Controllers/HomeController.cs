@@ -98,7 +98,8 @@ namespace EStudy.MVC.Controllers
         [HttpGet("Me")]
         public async Task<IActionResult> GetMe()
         {
-
+            var user = await userService.GetUserById(GetCurrentId());
+            return View(user);
         }
 
 
@@ -122,6 +123,11 @@ namespace EStudy.MVC.Controllers
             };
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+        }
+
+        public int GetCurrentId()
+        {
+            return Convert.ToInt32(User.Claims.FirstOrDefault(d => d.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value);
         }
     }
 }

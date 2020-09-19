@@ -24,6 +24,8 @@ namespace EStudy.MVC.Controllers
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetUser(int Id)
         {
+            if (Id == GetCurrentId())
+                return LocalRedirect("~/Me");
             var user = await userService.GetUserById(Id);
             if (user == null)
                 return View("Error");
