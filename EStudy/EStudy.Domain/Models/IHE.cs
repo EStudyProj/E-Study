@@ -75,6 +75,7 @@ namespace EStudy.Domain.Models
         public string PhoneLibrary { get; set; } //Телефон бібліотеки
         [MaxLength(5000)]
         public string ChangeHistory { get; set; }
+        public List<Department> Departments { get; set; }
     }
 
     public enum TypeIHE
