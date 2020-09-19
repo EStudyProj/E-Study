@@ -45,7 +45,6 @@ namespace EStudy.Domain.Models
         public string StudentCode { get; set; } = Generator.GetString(12);
         [MinLength(10), MaxLength(1000)]
         public string History { get; set; }
-        public int HeadOfIheId { get; set; }
         public int? PartOfIHE { get; set; }
         [MinLength(5), MaxLength(1000)]
         public string Description { get; set; }
