@@ -105,7 +105,7 @@ namespace EStudy.MVC.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return LocalRedirect("~/Login");
+            return LocalRedirect("~/");
         }
         private async Task Authenticate(LoginViewModel model)
         {

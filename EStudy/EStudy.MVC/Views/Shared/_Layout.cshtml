@@ -8,47 +8,56 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-action="Index">E-Study</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="User/@User.Claims.FirstOrDefault(d => d.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value">@User.Identity.Name</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="User" asp-action="Settings">Settings</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="~/Logout">Logout</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="/Login">Увійти</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="/Register">Зареєструватися</a>
-                            </li>
-                        }
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="~/">E-Study</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <form class="navbar-nav mr-lg-3">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Group">Група</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Group">Предмети</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Group">Розклад</a>
+                        </li>
                     </ul>
-                </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ...
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="~/User/@User.Claims.FirstOrDefault(d => d.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value">Акаунт</a>
+                            <button class="dropdown-item" type="button">Налаштування</button>
+                            <a class="dropdown-item" href="~/Logout">Вийти</a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Login">Login</a>
+                        </li>
+                    </ul>
+                }
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="container">
+            <br />
+            <br />
+            <br />
             @RenderBody()
         </main>
-    </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">

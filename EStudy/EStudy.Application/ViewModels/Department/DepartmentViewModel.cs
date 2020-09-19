@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EStudy.Application.ViewModels.IHE;
+using System;
 using System.Collections.Generic;
 using System.Text;
 namespace EStudy.Application.ViewModels.Department
