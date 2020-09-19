@@ -12,16 +12,19 @@ namespace EStudy.Infrastructure.Data
         private IIHERepository iheRepos;
         private IUserRepository userRepos;
         private ITestEntityRepository testEntityRepos;
-        public UnitOfWork(IIHERepository _iheRepos, IUserRepository _userRepos, ITestEntityRepository _testEntityRepos)
+        private IDepartmentRepository departRepos;
+        public UnitOfWork(IIHERepository _iheRepos, IUserRepository _userRepos, ITestEntityRepository _testEntityRepos, IDepartmentRepository _departRepos)
         {
             iheRepos = _iheRepos;
             userRepos = _userRepos;
             testEntityRepos = _testEntityRepos;
+            departRepos = _departRepos;
         }
 
 
         public IIHERepository IHEs => iheRepos;
         public IUserRepository Users => userRepos;
         public ITestEntityRepository Tests => testEntityRepos;
+        public IDepartmentRepository Departments => departRepos;
     }
 }
