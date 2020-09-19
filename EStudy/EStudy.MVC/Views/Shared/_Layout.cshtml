@@ -25,10 +25,10 @@
                             <a class="nav-link" href="~/Group">Група</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="~/Group">Предмети</a>
+                            <a class="nav-link" href="~/Subject">Предмети</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="~/Group">Розклад</a>
+                            <a class="nav-link" href="~/Schedule">Розклад</a>
                         </li>
                     </ul>
                     <div class="btn-group">
@@ -36,8 +36,8 @@
                             ...
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="~/User/@User.Claims.FirstOrDefault(d => d.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value">Акаунт</a>
-                            <button class="dropdown-item" type="button">Налаштування</button>
+                            <a class="dropdown-item" href="~/Me">Акаунт</a>
+                            <a class="dropdown-item" href="~/User/Settings">Налаштування</a>
                             <a class="dropdown-item" href="~/Logout">Вийти</a>
                         </div>
                     </div>

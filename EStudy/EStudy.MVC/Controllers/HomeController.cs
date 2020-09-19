@@ -95,8 +95,11 @@ namespace EStudy.MVC.Controllers
             return View("RegisterEnd");
         }
 
-        
+        [HttpGet("Me")]
+        public async Task<IActionResult> GetMe()
+        {
 
+        }
 
 
 
