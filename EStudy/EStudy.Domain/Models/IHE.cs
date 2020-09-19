@@ -56,9 +56,9 @@ namespace EStudy.Domain.Models
         public string EditedFromIPAddress { get; set; }
         [MinLength(4), MaxLength(150)]
         public string AddressInfo { get; set; }
-        [Required, MinLength(2), MaxLength(50)]
+        [MinLength(3), MaxLength(50)]
         public string Locality { get; set; }
-        [Required]
+        [MinLength(5), MaxLength(50)]
         public string Region { get; set; }
         [MinLength(3), MaxLength(6)]
         public string PostalCode { get; set; }
