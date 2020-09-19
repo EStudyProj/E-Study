@@ -14,12 +14,14 @@ namespace EStudy.Infrastructure.Data.Context
         public DbSet<User> Users { get; set; }
         public DbSet<IHE> IHEs { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Specialty> Specialties { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new IHEConfiguration());
             modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
+            modelBuilder.ApplyConfiguration(new SpecialtyConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 
