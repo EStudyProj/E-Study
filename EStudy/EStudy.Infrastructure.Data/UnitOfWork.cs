@@ -13,12 +13,14 @@ namespace EStudy.Infrastructure.Data
         private IUserRepository userRepos;
         private ITestEntityRepository testEntityRepos;
         private IDepartmentRepository departRepos;
-        public UnitOfWork(IIHERepository _iheRepos, IUserRepository _userRepos, ITestEntityRepository _testEntityRepos, IDepartmentRepository _departRepos)
+        private ISpecialtyRepository specRepos;
+        public UnitOfWork(IIHERepository _iheRepos, IUserRepository _userRepos, ITestEntityRepository _testEntityRepos, IDepartmentRepository _departRepos, ISpecialtyRepository _specRepos)
         {
             iheRepos = _iheRepos;
             userRepos = _userRepos;
             testEntityRepos = _testEntityRepos;
             departRepos = _departRepos;
+            specRepos = _specRepos;
         }
 
 
@@ -26,5 +28,6 @@ namespace EStudy.Infrastructure.Data
         public IUserRepository Users => userRepos;
         public ITestEntityRepository Tests => testEntityRepos;
         public IDepartmentRepository Departments => departRepos;
+        public ISpecialtyRepository Specialties => specRepos;
     }
 }

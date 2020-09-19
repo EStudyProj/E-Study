@@ -27,6 +27,9 @@ namespace EStudy.Infrastructure.IoC
 
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IDepartmentService, DepartmentService>();
+
+            services.AddScoped<ISpecialtyRepository, SpecialtyRepository>();
+            services.AddScoped<ISpecialtyService, SpecialtyService>();
         }
 
         public static void RegisterAPIServices(this IServiceCollection services)
