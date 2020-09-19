@@ -33,5 +33,6 @@ namespace EStudy.Domain.Models
         public string IpFromLastEdit { get; set; }
         public int IHEId { get; set; }
         public IHE IHE { get; set; }
+        public List<Specialty> Specialties { get; set; }
     }
 }
