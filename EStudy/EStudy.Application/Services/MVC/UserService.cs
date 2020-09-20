@@ -94,6 +94,12 @@ namespace EStudy.Application.Services.MVC
             return mapper.Map<List<UserShortViewModel>>(teachers);
         }
 
+        public async Task<List<UserShortViewModel>> GetLastUsers()
+        {
+            var users = await UnitOfWork.Users.GetLastUsers();
+            return mapper.Map<List<UserShortViewModel>>(users);
+        }
+
         public async Task<UserViewModel> GetUserById(int Id)
         {
             var userdb = await UnitOfWork.Users.GetByWhereAsync(d => d.Id == Id);

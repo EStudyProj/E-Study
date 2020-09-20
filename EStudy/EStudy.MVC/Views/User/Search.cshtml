@@ -106,7 +106,14 @@ else
                                {
                                     <tr>
                                         <td>
-                                            <img src="@it.Photo" alt="" width="50" height="50">
+                                            @if (it.Photo != null)
+                                            {
+                                                <img src="@it.Photo" alt="" width="50" height="50">
+                                            }
+                                            else
+                                            {
+                                                <img src="/Images/user.png" alt="" width="50" height="50">
+                                            }
                                             <a href="~/User/@it.Id" class="user-link">@it.Lastname @it.Firstname</a>
                                             <a class="user-subhead">Username: @it.Username</a>
                                         </td>

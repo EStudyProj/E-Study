@@ -35,7 +35,12 @@ namespace EStudy.MVC.Controllers
         [HttpGet("Search")]
         public async Task<IActionResult> Search(string name, int count = 10, int offset = 0)
         {
-            return View(await userService.SearchUsers(name, count, offset));
+            List<UserShortViewModel> users;
+            if (string.IsNullOrEmpty(name))
+                users = await userService.GetLastUsers();
+            else
+                users = await userService.SearchUsers(name, count, offset);
+            return View(users);
         }
 
         [HttpGet("Settings")]
