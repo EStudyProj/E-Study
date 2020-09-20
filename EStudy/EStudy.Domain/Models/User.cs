@@ -58,7 +58,8 @@ namespace EStudy.Domain.Models
         public AcademicStatusType AcademicStatus { get; set; } //Вчене звання
         [MaxLength(5000)]
         public string ChangeHistory { get; set; }
-
+        public int? GroupId { get; set; }
+        public Group Group { get; set; }
 
 
 
