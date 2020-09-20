@@ -32,6 +32,12 @@ namespace EStudy.MVC.Controllers
             return View(user);
         }
 
+        [HttpGet("Search")]
+        public async Task<IActionResult> Search(string name, int count = 10, int offset = 0)
+        {
+            return View(await userService.SearchUsers(name, count, offset));
+        }
+
         [HttpGet("Settings")]
         public IActionResult Settings()
         {

@@ -15,6 +15,7 @@ namespace EStudy.Application.Interfaces.MVC
         Task<List<UserShortViewModel>> GetAllStudents();
         Task<List<UserShortViewModel>> GetUsersByEmail(string email);
         Task<List<UserShortViewModel>> GetUsersByPhone(string phone);
+        Task<List<UserShortViewModel>> SearchUsers(string name, int count, int offset);
         Task<string> ChangeUsername(UserEditUsernameModel model);
         Task<string> ChangeNames(UserEditNamesModel model);
         Task<string> ChangeInfo(UserEditInfoModel model);

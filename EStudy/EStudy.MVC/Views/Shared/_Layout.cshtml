@@ -14,9 +14,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <form class="navbar-nav mr-lg-3">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <form class="navbar-nav mr-lg-3" asp-controller="User" asp-action="Search" method="get">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="name">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Знайти</button>
                 </form>
                 @if (User.Identity.IsAuthenticated)
                 {

@@ -139,6 +139,12 @@ namespace EStudy.Application.Services.MVC
             };
         }
 
+        public async Task<List<UserShortViewModel>> SearchUsers(string name, int count, int offset)
+        {
+            var users = await UnitOfWork.Users.GetListByWhereAsync(d => d.Firstname.Contains(name) || d.Lastname.Contains(name), count, offset);
+            return mapper.Map<List<UserShortViewModel>>(users);
+        }
+
         public async Task<string> TestRegisterUser(RegisterViewModel model)
         {
             if (await UnitOfWork.Users.IsExistAsync(d => d.Login == model.Login))
