@@ -13,5 +13,6 @@ namespace EStudy.Infrastructure.Data
         ITestEntityRepository Tests { get; }
         IDepartmentRepository Departments { get; }
         ISpecialtyRepository Specialties { get; }
+        IGroupRepository Groups { get; }
     }
 }

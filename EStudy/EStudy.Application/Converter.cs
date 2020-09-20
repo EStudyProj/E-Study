@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EStudy.Application.ViewModels.Department;
+using EStudy.Application.ViewModels.Group;
 using EStudy.Application.ViewModels.IHE;
 using EStudy.Application.ViewModels.TestEntity;
 using EStudy.Application.ViewModels.User;
@@ -18,6 +19,8 @@ namespace EStudy.Application
             CreateMap<TestEntity, TestEntityViewModel>();
             CreateMap<IHE, IHEViewModel>().ForMember(d => d.Departments, d => d.MapFrom(x => x.Departments));
             CreateMap<Department, DepartmentViewModel>().ForMember(d => d.IHE, d => d.MapFrom(s => s.IHE));
+            CreateMap<Group, GroupViewModel>().ForMember(g => g.Students, e => e.MapFrom(s => s.Students))
+                .ForMember(d => d.Specialty, s => s.MapFrom(e => e.Specialty));
         }
     }
 }

@@ -15,6 +15,7 @@ namespace EStudy.Infrastructure.Data.Context
         public DbSet<IHE> IHEs { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Specialty> Specialties { get; set; }
+        public DbSet<Group> Groups { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +23,7 @@ namespace EStudy.Infrastructure.Data.Context
             modelBuilder.ApplyConfiguration(new IHEConfiguration());
             modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
             modelBuilder.ApplyConfiguration(new SpecialtyConfiguration());
+            modelBuilder.ApplyConfiguration(new GroupConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 
