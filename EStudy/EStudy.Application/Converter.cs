@@ -14,7 +14,7 @@ namespace EStudy.Application
         public Converter()
         {
             CreateMap<User, UserViewModel>();
-            CreateMap<User, UserShortViewModel>();
+            CreateMap<User, UserShortViewModel>().ForMember(d => d.Photo, s => s.MapFrom(e => e.PhotoPath));
             CreateMap<TestEntity, TestEntityViewModel>();
             CreateMap<IHE, IHEViewModel>().ForMember(d => d.Departments, d => d.MapFrom(x => x.Departments));
             CreateMap<Department, DepartmentViewModel>().ForMember(d => d.IHE, d => d.MapFrom(s => s.IHE));

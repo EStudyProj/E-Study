@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EStudy.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 namespace EStudy.Application.ViewModels.User
@@ -10,7 +11,7 @@ namespace EStudy.Application.ViewModels.User
         public string Patronymic { get; set; }
         public string Lastname { get; set; }
         public string Username { get; set; }
-        public int UserStatus { get; set; }
+        public UserStatus UserStatus { get; set; }
         public string Photo { get; set; }
     }
 }
