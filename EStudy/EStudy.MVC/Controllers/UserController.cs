@@ -94,7 +94,14 @@ namespace EStudy.MVC.Controllers
 
         public int GetCurrentId()
         {
-            return Convert.ToInt32(User.Claims.FirstOrDefault(d => d.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value);
+            try
+            {
+                return Convert.ToInt32(User.Claims.FirstOrDefault(d => d.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value);
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }
