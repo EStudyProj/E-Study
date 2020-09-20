@@ -659,18 +659,18 @@
                     <div class="col-sm-8">
                         <div class="profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                Ім'я:
-                            </div>
-                            <div class="profile-user-details-value">
-                                @Model.Firstname
-                            </div>
-                        </div>
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
                                 Прізвище:
                             </div>
                             <div class="profile-user-details-value">
                                 @Model.Lastname
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Ім'я:
+                            </div>
+                            <div class="profile-user-details-value">
+                                @Model.Firstname
                             </div>
                         </div>
                         <div class="profile-user-details clearfix">
@@ -703,18 +703,19 @@
                                 </div>
                             </div>
                         }
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
-                                Info
+                        @if (Model.Description != null)
+                        {
+                            <div class="profile-user-details clearfix">
+                                <div class="profile-user-details-label">
+                                    Опис
+                                </div>
+                                <div class="profile-user-details-value">
+                                    @Model.Description
+                                </div>
                             </div>
-                            <div class="profile-user-details-value">
-                                @Model.Description
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </div>

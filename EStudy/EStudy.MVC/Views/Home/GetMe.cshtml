@@ -761,7 +761,7 @@
             <div class="main-box clearfix">
                 <div class="profile-header">
                     <h3><span>Інформація про користувача</span></h3>
-                    <a href="#" class="btn btn-primary edit-profile">
+                    <a href="~/User/Settings" class="btn btn-primary edit-profile">
                         <i class="fa fa-pencil-square fa-lg"></i> Редагувати профіль
                     </a>
                 </div>
@@ -770,18 +770,18 @@
                     <div class="col-sm-8">
                         <div class="profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                Ім'я:
-                            </div>
-                            <div class="profile-user-details-value">
-                                @Model.Firstname
-                            </div>
-                        </div>
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
                                 Прізвище:
                             </div>
                             <div class="profile-user-details-value">
                                 @Model.Lastname
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Ім'я:
+                            </div>
+                            <div class="profile-user-details-value">
+                                @Model.Firstname
                             </div>
                         </div>
                         <div class="profile-user-details clearfix">
@@ -814,19 +814,19 @@
                                 </div>
                             </div>
                         }
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
-                                Address
+                        @if (Model.Description != null)
+                        {
+                            <div class="profile-user-details clearfix">
+                                <div class="profile-user-details-label">
+                                    Опис
+                                </div>
+                                <div class="profile-user-details-value">
+                                    @Model.Description
+                                </div>
                             </div>
-                            <div class="profile-user-details-value">
-                                10880 Malibu Point,
-                                <br> Malibu, Calif., 90265
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
