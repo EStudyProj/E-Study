@@ -8,6 +8,7 @@ namespace EStudy.Application.Interfaces.MVC
 {
     public interface IGroupService
     {
+        Task<string> CreateGroup(GroupCreateModel model);
         Task<GroupViewModel> GetGroup(int Id);
         Task<List<GroupViewModel>> GetGroupsByName(string name);
         Task<List<GroupViewModel>> GetGroupsByName(string name, bool IsReleased);
