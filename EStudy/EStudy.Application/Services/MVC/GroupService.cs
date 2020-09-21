@@ -54,5 +54,10 @@ namespace EStudy.Application.Services.MVC
             var groups = await unitOfWork.Groups.GetListByWhereAsync(d => d.GroupName.Contains(name) && d.Released == IsReleased);
             return mapper.Map<List<GroupViewModel>>(groups);
         }
+
+        public async Task<GroupViewModel> GetMyGroup(int UserId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

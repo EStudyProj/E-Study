@@ -10,6 +10,7 @@ namespace EStudy.Application.Interfaces.MVC
     {
         Task<string> CreateGroup(GroupCreateModel model);
         Task<GroupViewModel> GetGroup(int Id);
+        Task<GroupViewModel> GetMyGroup(int UserId);
         Task<List<GroupViewModel>> GetGroupsByName(string name);
         Task<List<GroupViewModel>> GetGroupsByName(string name, bool IsReleased);
     }
