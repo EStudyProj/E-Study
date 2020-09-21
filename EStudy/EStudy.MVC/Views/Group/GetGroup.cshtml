@@ -1,12 +1,10 @@
 ﻿@model EStudy.Application.ViewModels.Group.GroupViewModel
 
 @{
-    ViewData["Title"] = "GetGroup";
+    ViewData["Title"] = $"{Model.GroupName}";
 }
 
-<h1>GetGroup</h1>
-
-<h3>Are you sure you want to delete this?</h3>
+<h1>Група - @Model.GroupName</h1>
 <div>
     <h4>GroupViewModel</h4>
     <hr />
