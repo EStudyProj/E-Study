@@ -57,7 +57,8 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<GroupViewModel> GetMyGroup(int UserId)
         {
-            throw new NotImplementedException();
+            var group = await unitOfWork.Groups.GetMyGroupsWithStudents(UserId);
+            return mapper.Map<GroupViewModel>(group);
         }
     }
 }

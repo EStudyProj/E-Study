@@ -9,5 +9,6 @@ namespace EStudy.Domain.Interfaces
     public interface IGroupRepository : IRepository<Group>
     {
         Task<Group> GetGroupWithStudents(int Id);
+        Task<Group> GetMyGroupsWithStudents(int UserId);
     }
 }

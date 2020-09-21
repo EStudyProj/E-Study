@@ -1,4 +1,5 @@
-﻿using EStudy.Domain.Models;
+﻿using EStudy.Application.ViewModels.Group;
+using EStudy.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,5 +30,6 @@ namespace EStudy.Application.ViewModels.User
         public AcademicStatusType AcademicStatus { get; set; } //Вчене звання
         public bool IsEdit { get; set; }
         public DateTime? DateLastEdit { get; set; }
+        public GroupViewModel Group { get; set; }
     }
 }
