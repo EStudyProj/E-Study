@@ -16,9 +16,9 @@ namespace EStudy.Domain.Models
         public int CreatedByUserId { get; set; }
         [Required, MinLength(3), MaxLength(100)]
         public string Name { get; set; }
-        [MinLength(2), MaxLength(20)]
+        [Required, MinLength(2), MaxLength(20)]
         public string Shifr { get; set; }
-        [MinLength(2), MaxLength(6)]
+        [Required, MinLength(2), MaxLength(6)]
         public string CodeSpec { get; set; }
         [MinLength(5), MaxLength(100)]
         public TypeDiploma Qualification { get; set; } //здобув кваліфікацію
