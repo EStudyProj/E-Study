@@ -8,12 +8,6 @@ namespace EStudy.Domain.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        [Required, MinLength(3), MaxLength(30)]
-        public string CreatedFromIPAddress { get; set; }
-        [Required]
-        public int CreatedByUserId { get; set; }
         [Required, MinLength(3), MaxLength(100)]
         public string Name { get; set; }
         [Required, MinLength(2), MaxLength(20)]
@@ -26,14 +20,25 @@ namespace EStudy.Domain.Models
         public string EducationalProgram { get; set; } //освітня програма
         [MinLength(5), MaxLength(250)]
         public string ProfessionalQualification { get; set; } //професійна кваліфікація
+        public int DepartmentId { get; set; }
+        public Department Department { get; set; }
+
+
+
+
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        [Required, MinLength(3), MaxLength(30)]
+        public string CreatedFromIPAddress { get; set; }
+        [Required]
+        public int CreatedByUserId { get; set; }
         [Required]
         public bool IsEdit { get; set; } = false;
         public DateTime? DateLastEdit { get; set; }
-        public int? LastEditUserId { get; set; }
         [MinLength(3), MaxLength(30)]
-        public string LastEditFromIpAddress { get; set; }
-        public int DepartmentId { get; set; }
-        public Department Department { get; set; }
+        public string EditedFromIPAddress { get; set; }
+        public int? LastEditedByUserId { get; set; }
     }
 
     public enum TypeDiploma

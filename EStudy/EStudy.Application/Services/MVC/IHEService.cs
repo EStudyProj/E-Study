@@ -32,7 +32,7 @@ namespace EStudy.Application.Services.MVC
                 TypeIHE = GetType(model.IHEType),
                 AreaIHE = model.AreaIHE,
                 LevelOfAccreditation = model.LevelOfAccreditation,
-                CreatedById = model.UserEditId,
+                CreatedByUserId = model.UserEditId,
                 CreatedFromIPAddress = model.IPAddress
             };
             return await unitOfWork.IHEs.CreateAsync(ihe);

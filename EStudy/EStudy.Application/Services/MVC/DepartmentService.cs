@@ -27,7 +27,7 @@ namespace EStudy.Application.Services.MVC
             var department = new Department
             {
                 CreatedFromIPAddress = model.IPAddress,
-                CreatedById = model.UserEditId,
+                CreatedByUserId = model.UserEditId,
                 Name = model.Name,
                 Shifr = model.Shifr,
                 HeadById = model.HeadById,

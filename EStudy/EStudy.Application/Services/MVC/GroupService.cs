@@ -28,7 +28,7 @@ namespace EStudy.Application.Services.MVC
             var group = new Group
             {
                 CreatedFromIPAddress = model.IPAddress,
-                CreatedById = model.UserEditId,
+                CreatedByUserId = model.UserEditId,
                 GroupName = model.GroupName,
                 IndexItemToChanged = model.IndexItemToChanged,
                 CodeForConnect = Generator.GetString(10),

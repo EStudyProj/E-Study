@@ -8,12 +8,6 @@ namespace EStudy.Domain.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        [Required, MinLength(3), MaxLength(30)]
-        public string CreatedFromIPAddress { get; set; }
-        [Required]
-        public int CreatedById { get; set; }
         [Required, MinLength(2), MaxLength(20)]
         public string GroupName { get; set; }
         [Required]
@@ -33,14 +27,25 @@ namespace EStudy.Domain.Models
         [Required]
         public bool IsShowEmail { get; set; } = true;
         public int? ClassHeadId { get; set; }
-        [Required]
-        public bool IsEdit { get; set; } = false;
-        public DateTime? DateLastEdit { get; set; }
-        public int? LastEditUserId { get; set; }
-        [MinLength(3), MaxLength(30)]
-        public string LastEditFromIPAddress { get; set; }
         public int SpecialtyId { get; set; }
         public Specialty Specialty { get; set; }
         public List<User> Students { get; set; }
+
+
+
+
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        [Required, MinLength(3), MaxLength(30)]
+        public string CreatedFromIPAddress { get; set; }
+        [Required]
+        public int CreatedByUserId { get; set; }
+        [Required]
+        public bool IsEdit { get; set; } = false;
+        public DateTime? DateLastEdit { get; set; }
+        [MinLength(3), MaxLength(30)]
+        public string EditedFromIPAddress { get; set; }
+        public int? LastEditedByUserId { get; set; }
     }
 }
