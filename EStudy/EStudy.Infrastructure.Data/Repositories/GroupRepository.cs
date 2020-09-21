@@ -20,14 +20,7 @@ namespace EStudy.Infrastructure.Data.Repositories
         {
             var user = await db.Users.AsNoTracking().Select(d => new User { Id = d.Id, GroupId = d.GroupId }).FirstOrDefaultAsync(d => d.Id == UserId);
             return await db.Groups.AsNoTracking()
-                .Include(d => d.Students.Select(d => new User
-                {
-                    Id = d.Id,
-                    Firstname = d.Firstname,
-                    Lastname = d.Lastname,
-                    PhotoPath = d.PhotoPath,
-                    Username = d.Username
-                }))
+                .Include(d => d.Students)
                 .FirstOrDefaultAsync(d => d.Id == user.GroupId);
         }
     }

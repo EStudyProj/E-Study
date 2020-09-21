@@ -38,8 +38,8 @@ namespace EStudy.MVC.Controllers
             return View(group);
         }
 
-
-        public int GetCurrentId()
+        [NonAction]
+        private int GetCurrentId()
         {
             try
             {
