@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EStudy.MVC.Controllers
 {
+    [Route("Group")]
     public class GroupController : Controller
     {
         private readonly ILogger<GroupController> _logger;
@@ -18,6 +19,16 @@ namespace EStudy.MVC.Controllers
             groupService = _groupService;
         }
 
+        [HttpGet("{Id?}")]
+        public async Task<IActionResult> GetGroup(int? Id)
+        {
+            if (Id == null)
+                return LocalRedirect("~/");
+            var group = await groupService.GetGroup(Convert.ToInt32(Id));
+            if (group == null)
+                return View("Error");
+            return View(group);
+        }
 
     }
 }
