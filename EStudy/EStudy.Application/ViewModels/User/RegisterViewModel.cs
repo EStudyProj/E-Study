@@ -22,5 +22,7 @@ namespace EStudy.Application.ViewModels.User
         public string Username { get; set; }
         public Role Role { get; set; }
         public UserStatus UserStatus { get; set; }
+        [MinLength(6), MaxLength(16)]
+        public string Code { get; set; }
     }
 }

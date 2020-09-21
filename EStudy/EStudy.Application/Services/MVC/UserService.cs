@@ -172,5 +172,55 @@ namespace EStudy.Application.Services.MVC
             };
             return await UnitOfWork.Users.CreateAsync(user);
         }
+
+        public async Task<string> RegisterStudent(RegisterViewModel model)
+        {
+            if (await UnitOfWork.Users.IsExistAsync(d => d.Login == model.Login))
+                return "This mail is already taken";
+            var ihe = await UnitOfWork.IHEs.GetByWhereAsync(d => d.StudentCode == model.Code);
+            if (ihe == null)
+                return "Ihe by code not found";
+            var user = new User
+            {
+                Firstname = model.Firstname,
+                Patronymic = model.Patronymic,
+                Lastname = model.Lastname,
+                UserStatus = UserStatus.Student,
+                Role = Role.Student,
+                CreatedByUserId = model.UserEditId,
+                CreatedFromIPAddress = model.IPAddress,
+                LinkVerify = Generator.GetString(250),
+                Username = Generator.GetString(10),
+                Login = model.Login,
+                PasswordHash = PasswordManager.GeneratePasswordHash(model.Password),
+                IsVerified = false
+            };
+            return await UnitOfWork.Users.CreateAsync(user);
+        }
+
+        public async Task<string> RegisterTeacher(RegisterViewModel model)
+        {
+            if (await UnitOfWork.Users.IsExistAsync(d => d.Login == model.Login))
+                return "This mail is already taken";
+            var ihe = await UnitOfWork.IHEs.GetByWhereAsync(d => d.TeacherCode == model.Code);
+            if (ihe == null)
+                return "Ihe by code not found";
+            var user = new User
+            {
+                Firstname = model.Firstname,
+                Patronymic = model.Patronymic,
+                Lastname = model.Lastname,
+                UserStatus = UserStatus.Teacher,
+                Role = Role.Teacher,
+                CreatedByUserId = model.UserEditId,
+                CreatedFromIPAddress = model.IPAddress,
+                LinkVerify = Generator.GetString(250),
+                Username = Generator.GetString(10),
+                Login = model.Login,
+                PasswordHash = PasswordManager.GeneratePasswordHash(model.Password),
+                IsVerified = false
+            };
+            return await UnitOfWork.Users.CreateAsync(user);
+        }
     }
 }
