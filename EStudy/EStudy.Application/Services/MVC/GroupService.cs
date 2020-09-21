@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using EStudy.Application.Interfaces.MVC;
 using EStudy.Application.ViewModels.Group;
+using EStudy.Domain.Models;
 using EStudy.Infrastructure.Data;
+using Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,6 +19,22 @@ namespace EStudy.Application.Services.MVC
         {
             unitOfWork = _unitOfWork;
             mapper = _mapper;
+        }
+
+        public async Task<string> CreateGroup(GroupCreateModel model)
+        {
+            if (!await unitOfWork.Specialties.IsExistAsync(d => d.Id == model.SpecialtyId))
+                return "Specialty by id not found";
+            var group = new Group
+            {
+                CreatedFromIPAddress = model.IPAddress,
+                CreatedById = model.UserEditId,
+                GroupName = model.GroupName,
+                IndexItemToChanged = model.IndexItemToChanged,
+                CodeForConnect = Generator.GetString(10),
+                SpecialtyId = model.SpecialtyId
+            };
+            return await unitOfWork.Groups.CreateAsync(group);
         }
 
         public async Task<GroupViewModel> GetGroup(int Id)
