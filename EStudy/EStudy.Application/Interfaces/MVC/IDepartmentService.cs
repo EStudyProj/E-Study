@@ -8,6 +8,7 @@ namespace EStudy.Application.Interfaces.MVC
 {
     public interface IDepartmentService
     {
+        Task<string> CreateDepartment(DepartmentCreateModel model);
         Task<List<DepartmentViewModel>> GetDepartmentsByIHEId(int IheId);
         Task<DepartmentViewModel> GetDepartmentById(int Id);
     }
