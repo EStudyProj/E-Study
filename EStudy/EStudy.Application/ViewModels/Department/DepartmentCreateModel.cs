@@ -6,7 +6,7 @@ namespace EStudy.Application.ViewModels.Department
 {
     public class DepartmentCreateModel : EditModel
     {
-        [Required, MinLength(4), MaxLength(24)]
+        [Required, MinLength(4), MaxLength(60)]
         public string Name { get; set; }
         [Required, MinLength(2), MaxLength(100)]
         public string Shifr { get; set; }

@@ -8,9 +8,9 @@ namespace EStudy.Domain.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required, MinLength(4), MaxLength(24)]
+        [Required, MinLength(4), MaxLength(60)]
         public string Name { get; set; }
-        [MinLength(4), MaxLength(24)]
+        [MinLength(4), MaxLength(60)]
         public string InstituteName { get; set; }
         [Required, MinLength(2), MaxLength(100)]
         public string Shifr { get; set; }
