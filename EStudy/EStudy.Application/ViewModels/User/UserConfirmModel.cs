@@ -8,7 +8,7 @@ namespace EStudy.Application.ViewModels.User
     {
         [Required]
         public int Type { get; set; }
-        [MinLength(100), MaxLength(120)]
+        [Required, MinLength(100), MaxLength(120)]
         public string LinkVerify { get; set; }
         [MinLength(6), MaxLength(12)]
         public string ConnectGroup { get; set; }

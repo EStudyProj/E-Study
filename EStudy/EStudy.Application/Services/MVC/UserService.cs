@@ -222,5 +222,33 @@ namespace EStudy.Application.Services.MVC
             };
             return await UnitOfWork.Users.CreateAsync(user);
         }
+
+        public async Task<string> ConfirmAccount(UserConfirmModel model)
+        {
+            if (model.Type == 0)
+            {
+                var user = await UnitOfWork.Users.GetByWhereAsTrackingAsync(d => d.LinkVerify == model.LinkVerify);
+                if (user == null)
+                    return "Link is invalid";
+                user.IsVerified = true;
+                user.DateVerified = DateTime.Now;
+                return await UnitOfWork.Users.EditAsync(user);
+            }
+            if (model.Type == 1)
+            {
+                var group = await UnitOfWork.Groups.GetByWhereAsync(d => d.CodeForConnect == model.ConnectGroup);
+                if (group == null)
+                    return "Group by code not found";
+                var user = await UnitOfWork.Users.GetByWhereAsTrackingAsync(d => d.LinkVerify == model.LinkVerify);
+                if (user == null)
+                    return "Link is invalid";
+                user.IsVerified = true;
+                user.DateVerified = DateTime.Now;
+                user.GroupId = group.Id;
+                return await UnitOfWork.Users.EditAsync(user);
+            }
+            else
+                return "Type is invalid";
+        }
     }
 }
