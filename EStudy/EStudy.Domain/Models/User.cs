@@ -49,7 +49,7 @@ namespace EStudy.Domain.Models
         public bool CanEdit { get; set; } = true;
         [Required]
         public bool IsVerified { get; set; } = false;
-        [MinLength(10), MaxLength(300)]
+        [MinLength(100), MaxLength(120)]
         public string LinkVerify { get; set; }
         public DateTime? DateVerified { get; set; }
         [Range(0.0, 5.0)]
