@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EStudy.Application.Interfaces.MVC;
 using EStudy.Application.ViewModels.Department;
+using EStudy.Domain.Models;
 using EStudy.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,20 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<string> CreateDepartment(DepartmentCreateModel model)
         {
-            throw new NotImplementedException();
+            if (!await unitOfWork.IHEs.IsExistAsync(d => d.Id == model.IHEId))
+                return "IHE by id not found";
+            var department = new Department
+            {
+                CreatedFromIPAddress = model.IPAddress,
+                CreatedById = model.UserEditId,
+                Name = model.Name,
+                Shifr = model.Shifr,
+                HeadById = model.HeadById,
+                Phone = model.Phone,
+                Description = model.Description,
+                IHEId = model.IHEId
+            };
+            return await unitOfWork.Departments.CreateAsync(department);
         }
 
         public async Task<DepartmentViewModel> GetDepartmentById(int Id)

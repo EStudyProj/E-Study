@@ -11,9 +11,9 @@ namespace EStudy.Domain.Models
         [Required]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         [Required, MinLength(3), MaxLength(30)]
-        public string CreatedFromIpAddress { get; set; }
+        public string CreatedFromIPAddress { get; set; }
         [Required]
-        public int CreatedByUserId { get; set; }
+        public int CreatedById { get; set; }
         [Required, MinLength(4), MaxLength(24)]
         public string Name { get; set; }
         [MinLength(4), MaxLength(24)]
