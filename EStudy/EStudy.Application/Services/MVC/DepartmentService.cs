@@ -19,6 +19,11 @@ namespace EStudy.Application.Services.MVC
             mapper = _mapper;
         }
 
+        public async Task<string> CreateDepartment(DepartmentCreateModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<DepartmentViewModel> GetDepartmentById(int Id)
         {
             var depart = await unitOfWork.Departments.GetByWhereAsync(d => d.Id == Id);

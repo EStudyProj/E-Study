@@ -16,6 +16,7 @@ namespace EStudy.Application.ViewModels.Department
         public string Phone { get; set; }
         [Required, MinLength(10), MaxLength(300)]
         public string Description { get; set; }
+        [Required]
         public int IHEId { get; set; }
     }
 }
