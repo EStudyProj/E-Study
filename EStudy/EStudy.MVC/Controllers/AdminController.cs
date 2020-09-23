@@ -14,6 +14,7 @@ namespace EStudy.MVC.Controllers
         public AdminController(ILogger<AdminController> _logger)
             => logger = _logger;
 
+
         [HttpGet("")]
         public IActionResult AdminPanel()
         {
