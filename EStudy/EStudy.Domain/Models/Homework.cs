@@ -13,7 +13,7 @@ namespace EStudy.Domain.Models
         public int ComplateByStudentId { get; set; }
         [MinLength(5), MaxLength(5000)]
         public string Text { get; set; }
-        public int? TeacherSetId { get; set; }
+        public int TeacherSetId { get; set; }
         public long TaskId { get; set; }
         public Task Task { get; set; }
         public List<Mark> Marks { get; set; }
