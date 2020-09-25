@@ -15,5 +15,6 @@ namespace EStudy.Infrastructure.Data
         ISpecialtyRepository Specialties { get; }
         IGroupRepository Groups { get; }
         ISubjectRepository Subjects { get; }
+        IGroupSubjectRepository GroupSubjects { get; }
     }
 }
