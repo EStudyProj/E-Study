@@ -30,7 +30,7 @@ namespace EStudy.Domain.Models
         public int SpecialtyId { get; set; }
         public Specialty Specialty { get; set; }
         public List<User> Students { get; set; }
-
+        public List<GroupSubject> GroupSubjects { get; set; }
 
 
 

@@ -18,12 +18,16 @@ namespace EStudy.Domain.Models
         public int TeacherId { get; set; }
         [Required]
         public bool WithExam { get; set; } = false;
+        [Required]
         public int MaxMarkUpToExam { get; set; }
+        [Required]
         public int MaxMarkOnExam { get; set; }
+        [Required]
         public int CommonHours { get; set; }
-        public int? HoursPracticalTasks { get; set; }
-        public int? HoursSeminarTasks { get; set; }
-        public int? HoursLectures { get; set; }
+        public int HoursPracticalTasks { get; set; }
+        public int HoursSeminarTasks { get; set; }
+        public int HoursLectures { get; set; }
+        [Required]
         public TypeSubject TypeSubject { get; set; }
         [MinLength(5), MaxLength(1000)]
         public string Literature { get; set; }
@@ -32,7 +36,7 @@ namespace EStudy.Domain.Models
         [Required]
         public int NumberSemesters { get; set; }
         //public List<Lesson> Lessons { get; set; }
-        //public List<GroupSubject> GroupSubjects { get; set; }
+        public List<GroupSubject> GroupSubjects { get; set; }
 
 
 
