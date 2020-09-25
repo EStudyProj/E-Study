@@ -13,5 +13,6 @@ namespace EStudy.Application.Interfaces.MVC
         Task<GroupViewModel> GetMyGroup(int UserId);
         Task<List<GroupViewModel>> GetGroupsByName(string name);
         Task<List<GroupViewModel>> GetGroupsByName(string name, bool IsReleased);
+        Task<List<GroupViewModel>> GetGroupsBySubjectId(int Id);
     }
 }

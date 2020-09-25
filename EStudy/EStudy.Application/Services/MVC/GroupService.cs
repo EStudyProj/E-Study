@@ -55,6 +55,12 @@ namespace EStudy.Application.Services.MVC
             return mapper.Map<List<GroupViewModel>>(groups);
         }
 
+        public async Task<List<GroupViewModel>> GetGroupsBySubjectId(int Id)
+        {
+            var groups = await unitOfWork.GroupSubjects.GetGroupsBySubjectId(Id);
+            return mapper.Map<List<GroupViewModel>>(groups);
+        }
+
         public async Task<GroupViewModel> GetMyGroup(int UserId)
         {
             var group = await unitOfWork.Groups.GetMyGroupsWithStudents(UserId);

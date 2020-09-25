@@ -10,5 +10,6 @@ namespace EStudy.Application.Interfaces.MVC
     {
         Task<SubjectViewModel> GetSubjectById(int Id);
         Task<List<SubjectViewModel>> GetSubjectsByName(string name);
+        Task<List<SubjectViewModel>> GetSubjectsByGroupId(int Id);
     }
 }

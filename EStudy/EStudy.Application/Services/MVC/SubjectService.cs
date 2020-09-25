@@ -25,6 +25,12 @@ namespace EStudy.Application.Services.MVC
             return mapper.Map<SubjectViewModel>(subj);
         }
 
+        public async Task<List<SubjectViewModel>> GetSubjectsByGroupId(int Id)
+        {
+            var subjs = await unitOfWork.GroupSubjects.GetSubjectsByGroupId(Id);
+            return mapper.Map<List<SubjectViewModel>>(subjs);
+        }
+
         public async Task<List<SubjectViewModel>> GetSubjectsByName(string name)
         {
             var subjs = await unitOfWork.Subjects.GetListByWhereAsync(d => d.Name.Contains(name));
