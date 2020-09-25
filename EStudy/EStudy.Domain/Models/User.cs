@@ -60,7 +60,7 @@ namespace EStudy.Domain.Models
         public string ChangeHistory { get; set; }
         public int? GroupId { get; set; }
         public Group Group { get; set; }
-
+        public List<Diploma> Diplomas { get; set; }
 
 
 

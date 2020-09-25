@@ -38,7 +38,9 @@ namespace EStudy.Application.Services.MVC
                 Role = Role.Admin,
                 UserStatus = UserStatus.Teacher,
                 Login = "a@estudy.com",
-                PasswordHash = PasswordManager.GeneratePasswordHash("Admin"),
+                PasswordHash = PasswordManager.GeneratePasswordHash("AdminAdmin"),
+                IsVerified = true,
+                DateVerified = DateTime.Now,
                 CreatedByUserId = 1,
                 CreatedFromIPAddress = "34.43.119.37"
             };
@@ -188,6 +190,8 @@ namespace EStudy.Application.Services.MVC
                 Login = "yaroslav.mudryk@gmail.com",
                 PasswordHash = PasswordManager.GeneratePasswordHash("Yaroslav266210"),
                 GroupId = group1.Id,
+                IsVerified = true,
+                DateVerified = DateTime.Now,
                 CreatedByUserId = 1,
                 CreatedFromIPAddress = "34.43.119.37"
             };
@@ -206,6 +210,8 @@ namespace EStudy.Application.Services.MVC
                 Login = "nikita.jove28@gmail.com",
                 PasswordHash = PasswordManager.GeneratePasswordHash("Nikita266210"),
                 GroupId = group1.Id,
+                IsVerified = true,
+                DateVerified = DateTime.Now,
                 CreatedByUserId = 1,
                 CreatedFromIPAddress = "34.43.119.37"
             };
@@ -222,15 +228,39 @@ namespace EStudy.Application.Services.MVC
                 Role = Role.Student,
                 UserStatus = UserStatus.Student,
                 Login = "brekhov@gmail.com",
-                PasswordHash = PasswordManager.GeneratePasswordHash("Misha26"),
+                PasswordHash = PasswordManager.GeneratePasswordHash("Misha0803"),
                 GroupId = group2.Id,
+                IsVerified = true,
+                DateVerified = DateTime.Now,
                 CreatedByUserId = 1,
                 CreatedFromIPAddress = "34.43.119.37"
             };
             var userRes3 = await unitOfWork.Users.CreateAsync(student3);
             if (userRes3 != "OK")
                 return "Created data crashed at creating Student 3";
-            
+
+
+
+            var diploma = new Diploma
+            {
+                TypeDiploma = TypeDiploma.BachelorsDegree,
+                SeriesDiploma = "EF",
+                NumberDiploma = "192092",
+                PresentedAt = DateTime.Parse("25.06.2020"),
+                Firstname = "Ярослав",
+                Patronymic = "Юрійович",
+                Lastname = "Мудрик",
+                IHEFullName = "Державний університет телекомунікацій",
+                Specialty = "Інженерія програмного забезпечення",
+                EducationalProgram = "ШРТГА",
+                ProfessionalQualification = "Бакалавр",
+                NameOfRector = "Толубко В.Б.",
+                IsRed = true,
+                UserId = 2,
+                CreatedByUserId = 1,
+                CreatedFromIPAddress = "34.43.119.37"
+            };
+            await unitOfWork.Diplomas.CreateAsync(diploma);
             return "OK";
         }
 

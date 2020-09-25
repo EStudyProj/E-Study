@@ -16,5 +16,6 @@ namespace EStudy.Infrastructure.Data
         IGroupRepository Groups { get; }
         ISubjectRepository Subjects { get; }
         IGroupSubjectRepository GroupSubjects { get; }
+        IDiplomaRepository Diplomas { get; }
     }
 }

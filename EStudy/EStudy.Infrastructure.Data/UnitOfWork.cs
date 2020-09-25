@@ -17,7 +17,7 @@ namespace EStudy.Infrastructure.Data
         private IGroupRepository groupRepos;
         private ISubjectRepository subjRepos;
         private IGroupSubjectRepository groupsubjRepos;
-
+        private IDiplomaRepository diplomaRepos;
         public UnitOfWork(IIHERepository _iheRepos,
             IUserRepository _userRepos,
             ITestEntityRepository _testEntityRepos,
@@ -25,7 +25,8 @@ namespace EStudy.Infrastructure.Data
             ISpecialtyRepository _specRepos,
             IGroupRepository _groupRepos,
             ISubjectRepository _subjRepos,
-            IGroupSubjectRepository _groupsubjRepos)
+            IGroupSubjectRepository _groupsubjRepos,
+            IDiplomaRepository _diplomaRepos)
         {
             iheRepos = _iheRepos;
             userRepos = _userRepos;
@@ -35,6 +36,7 @@ namespace EStudy.Infrastructure.Data
             groupRepos = _groupRepos;
             subjRepos = _subjRepos;
             groupsubjRepos = _groupsubjRepos;
+            diplomaRepos = _diplomaRepos;
         }
 
         public IIHERepository IHEs => iheRepos;
@@ -45,5 +47,6 @@ namespace EStudy.Infrastructure.Data
         public IGroupRepository Groups => groupRepos;
         public ISubjectRepository Subjects=> subjRepos;
         public IGroupSubjectRepository GroupSubjects => groupsubjRepos;
+        public IDiplomaRepository Diplomas => diplomaRepos;
     }
 }

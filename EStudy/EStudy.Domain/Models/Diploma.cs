@@ -42,7 +42,8 @@ namespace EStudy.Domain.Models
         public bool InPass { get; set; } = false;
         [Required, MinLength(15), MaxLength(25)]
         public string UniqCode { get; set; } = Generator.GetUniqCodeUpper();
-
+        public int UserId { get; set; }
+        public User User { get; set; }
 
 
 
