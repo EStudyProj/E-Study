@@ -38,7 +38,9 @@ namespace EStudy.Application.Services.MVC
                 Role = Role.Admin,
                 UserStatus = UserStatus.Teacher,
                 Login = "a@estudy.com",
-                PasswordHash = PasswordManager.GeneratePasswordHash("Admin")
+                PasswordHash = PasswordManager.GeneratePasswordHash("Admin"),
+                CreatedByUserId = 1,
+                CreatedFromIPAddress = "34.43.119.37"
             };
             await unitOfWork.Users.CreateAsync(admin);
 

@@ -3,6 +3,18 @@
 }
 
 
-<div class="">
-
+<div>
+    <a asp-controller="Admin" asp-action="CreateDb">Create DB</a>
 </div>
+<div>
+    <a asp-controller="Admin" asp-action="CreateData">Create data</a>
+</div>
+<div>
+    <a asp-controller="Admin" asp-action="DropDb">Drop DB</a>
+</div>
+@if (ViewBag.Res != null)
+{
+    <p>
+        @ViewBag.Res
+    </p>
+}
