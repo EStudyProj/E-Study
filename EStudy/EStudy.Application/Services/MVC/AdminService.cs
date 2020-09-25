@@ -19,29 +19,19 @@ namespace EStudy.Application.Services.MVC
             mapper = _mapper;
         }
 
-        public async Task<GroupViewModel> GetFullInfoByDepartmentId(int Id)
+        public async Task<bool> CreateDatabase()
         {
-            throw new NotImplementedException();
+            return await unitOfWork.Users.CreateDatabaseAsync();
         }
 
-        public async Task<GroupViewModel> GetFullInfoByGroupId(int Id)
+        public async Task<string> CreateTestData()
         {
-            throw new NotImplementedException();
+            return "OK";
         }
 
-        public async Task<GroupViewModel> GetFullInfoByIHEId(int Id)
+        public async Task<bool> DropDatabase()
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<GroupViewModel> GetFullInfoBySpecialtyId(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<GroupViewModel> GetFullInfoByUserId(int Id)
-        {
-            throw new NotImplementedException();
+            return await unitOfWork.Users.DropDatabaseAsync();
         }
     }
 }

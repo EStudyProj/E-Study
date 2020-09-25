@@ -29,6 +29,8 @@ namespace EStudy.Domain.Interfaces
         Task<int> CountAsync();
         Task<int> CountAsync(Expression<Func<TEntity, bool>> match);
         Task<bool> IsExistAsync(Expression<Func<TEntity, bool>> match);
+        Task<bool> CreateDatabaseAsync();
+        Task<bool> DropDatabaseAsync();
         Task<string> SaveAsync();
     }
 }

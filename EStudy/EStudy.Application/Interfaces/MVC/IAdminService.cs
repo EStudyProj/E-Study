@@ -8,10 +8,8 @@ namespace EStudy.Application.Interfaces.MVC
 {
     public interface IAdminService
     {
-        Task<GroupViewModel> GetFullInfoByGroupId(int Id);
-        Task<GroupViewModel> GetFullInfoByIHEId(int Id);
-        Task<GroupViewModel> GetFullInfoByUserId(int Id);
-        Task<GroupViewModel> GetFullInfoBySpecialtyId(int Id);
-        Task<GroupViewModel> GetFullInfoByDepartmentId(int Id);
+        Task<string> CreateTestData();
+        Task<bool> CreateDatabase();
+        Task<bool> DropDatabase();
     }
 }

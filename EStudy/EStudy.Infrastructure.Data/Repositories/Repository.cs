@@ -36,6 +36,16 @@ namespace EStudy.Infrastructure.Data.Repositories
             return await SaveAsync();
         }
 
+        public async Task<bool> CreateDatabaseAsync()
+        {
+            return await db.Database.EnsureCreatedAsync();
+        }
+
+        public async Task<bool> DropDatabaseAsync()
+        {
+            return await db.Database.EnsureDeletedAsync();
+        }
+
         public async Task<string> EditAsync(TEntity entity)
         {
             db.Set<TEntity>().Update(entity);
