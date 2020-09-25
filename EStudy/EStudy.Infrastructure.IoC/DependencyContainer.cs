@@ -36,6 +36,8 @@ namespace EStudy.Infrastructure.IoC
 
             services.AddScoped<ISubjectRepository, SubjectRepository>();
             services.AddScoped<ISubjectService, SubjectService>();
+
+            services.AddScoped<IGroupSubjectRepository, GroupSubjectRepository>();
         }
 
         public static void RegisterAPIServices(this IServiceCollection services)
