@@ -10,6 +10,6 @@ namespace EStudy.Application.Interfaces.MVC
     public interface ITestService
     {
         Task<List<TestEntityViewModel>> GetAll();
-        Task CreateTestData();
+        System.Threading.Tasks.Task CreateTestData();
     }
 }

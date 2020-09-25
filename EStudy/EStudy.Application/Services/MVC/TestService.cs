@@ -20,7 +20,7 @@ namespace EStudy.Application.Services.MVC
             mapper = _mapper;
         }
 
-        public async Task CreateTestData()
+        public async System.Threading.Tasks.Task CreateTestData()
         {
             await unitOfWork.Tests.CreateAsync(new TestEntity
             {
