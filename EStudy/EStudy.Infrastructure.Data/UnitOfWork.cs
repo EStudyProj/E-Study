@@ -15,7 +15,8 @@ namespace EStudy.Infrastructure.Data
         private IDepartmentRepository departRepos;
         private ISpecialtyRepository specRepos;
         private IGroupRepository groupRepos;
-        public UnitOfWork(IIHERepository _iheRepos, IUserRepository _userRepos, ITestEntityRepository _testEntityRepos, IDepartmentRepository _departRepos, ISpecialtyRepository _specRepos, IGroupRepository _groupRepos)
+        private ISubjectRepository subjRepos;
+        public UnitOfWork(IIHERepository _iheRepos, IUserRepository _userRepos, ITestEntityRepository _testEntityRepos, IDepartmentRepository _departRepos, ISpecialtyRepository _specRepos, IGroupRepository _groupRepos, ISubjectRepository _subjRepos)
         {
             iheRepos = _iheRepos;
             userRepos = _userRepos;
@@ -23,6 +24,7 @@ namespace EStudy.Infrastructure.Data
             departRepos = _departRepos;
             specRepos = _specRepos;
             groupRepos = _groupRepos;
+            subjRepos = _subjRepos;
         }
 
         public IIHERepository IHEs => iheRepos;
@@ -31,5 +33,6 @@ namespace EStudy.Infrastructure.Data
         public IDepartmentRepository Departments => departRepos;
         public ISpecialtyRepository Specialties => specRepos;
         public IGroupRepository Groups => groupRepos;
+        public ISubjectRepository Subjects=> subjRepos;
     }
 }

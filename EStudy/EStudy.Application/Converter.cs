@@ -2,6 +2,7 @@
 using EStudy.Application.ViewModels.Department;
 using EStudy.Application.ViewModels.Group;
 using EStudy.Application.ViewModels.IHE;
+using EStudy.Application.ViewModels.Subject;
 using EStudy.Application.ViewModels.TestEntity;
 using EStudy.Application.ViewModels.User;
 using EStudy.Domain.Models;
@@ -21,6 +22,8 @@ namespace EStudy.Application
             CreateMap<Department, DepartmentViewModel>().ForMember(d => d.IHE, d => d.MapFrom(s => s.IHE));
             CreateMap<Group, GroupViewModel>().ForMember(g => g.Students, e => e.MapFrom(s => s.Students))
                 .ForMember(d => d.Specialty, s => s.MapFrom(e => e.Specialty));
+            CreateMap<Subject, SubjectViewModel>().ForMember(e => e.FinalMark, d => d.MapFrom(s => s.FinalMark.ToString()))
+                .ForMember(d => d.TypeSubject, e => e.MapFrom(s => s.TypeSubject.ToString()));
         }
     }
 }
