@@ -15,6 +15,8 @@ namespace EStudy.Domain.Models
         public DateTime? DueDate { get; set; }
         public long LessonId { get; set; }
         public Lesson Lesson { get; set; }
+        public List<Homework> Homeworks { get; set; }
+
 
 
 
