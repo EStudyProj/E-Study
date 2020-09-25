@@ -20,5 +20,11 @@ namespace EStudy.MVC.Controllers
         {
             return View();
         }
+
+        [HttpGet("Pay")]
+        public IActionResult PaySub()
+        {
+            return View();
+        }
     }
 }
