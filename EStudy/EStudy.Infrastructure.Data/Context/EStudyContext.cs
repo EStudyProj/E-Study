@@ -17,6 +17,7 @@ namespace EStudy.Infrastructure.Data.Context
         public DbSet<Specialty> Specialties { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Subject> Subjects { get; set; }
+        public DbSet<GroupSubject> GroupSubjects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
