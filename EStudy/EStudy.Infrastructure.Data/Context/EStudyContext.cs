@@ -10,16 +10,21 @@ namespace EStudy.Infrastructure.Data.Context
     {
         public const string LocalConn = "Server=(localdb)\\MSSQLLocalDB;Database=EStudyDb;Trusted_Connection=True;";
         public const string ServerConn = "";
-        public DbSet<TestEntity> TestEntities { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<IHE> IHEs { get; set; }
+
+
         public DbSet<Department> Departments { get; set; }
-        public DbSet<Specialty> Specialties { get; set; }
+        public DbSet<Diploma> Diplomas { get; set; }
         public DbSet<Group> Groups { get; set; }
-        public DbSet<Subject> Subjects { get; set; }
         public DbSet<GroupSubject> GroupSubjects { get; set; }
+        public DbSet<Homework> Homeworks { get; set; }
+        public DbSet<IHE> IHEs { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<Mark> Marks { get; set; }
+        public DbSet<Specialty> Specialties { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<TestEntity> TestEntities { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
