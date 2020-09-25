@@ -4,26 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 namespace EStudy.Domain.Models
 {
-    public class Lesson
+    public class Homework
     {
         [Key]
         public long Id { get; set; }
-        [Required, MinLength(3), MaxLength(100)]
-        public string Theme { get; set; }
-        [Required, MinLength(1), MaxLength(1000)]
+        [Required]
+        public bool IsComplate { get; set; } = false;
+        public int ComplateByStudentId { get; set; }
+        [MinLength(5), MaxLength(5000)]
         public string Text { get; set; }
-        [Required]
-        public DateTime DateLesson { get; set; }
-        [Required]
-        public int AssignedToTeacherId { get; set; }
-        public int? TeacherConductedId { get; set; }
-        [Required]
-        public bool IsHindFromStudent { get; set; } = false;
-        [Required]
-        public bool IsReplacement { get; set; } = false;
-        public int SubjectId { get; set; }
-        public Subject Subject { get; set; }
-        public List<Task> Tasks { get; set; }
+        public int? TeacherSetId { get; set; }
+        public long TaskId { get; set; }
+        public Task Task { get; set; }
 
 
 

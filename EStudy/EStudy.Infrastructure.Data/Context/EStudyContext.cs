@@ -18,6 +18,9 @@ namespace EStudy.Infrastructure.Data.Context
         public DbSet<Group> Groups { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<GroupSubject> GroupSubjects { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<Task> Tasks { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
