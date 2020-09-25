@@ -24,6 +24,7 @@ namespace EStudy.Domain.Models
         public int SubjectId { get; set; }
         public Subject Subject { get; set; }
         public List<Task> Tasks { get; set; }
+        public List<Mark> Marks { get; set; }
 
 
 

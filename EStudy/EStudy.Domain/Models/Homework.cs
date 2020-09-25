@@ -16,6 +16,7 @@ namespace EStudy.Domain.Models
         public int? TeacherSetId { get; set; }
         public long TaskId { get; set; }
         public Task Task { get; set; }
+        public List<Mark> Marks { get; set; }
 
 
 
