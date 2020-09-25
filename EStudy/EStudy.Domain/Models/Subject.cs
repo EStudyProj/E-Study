@@ -35,7 +35,7 @@ namespace EStudy.Domain.Models
         public MarkType FinalMark { get; set; }
         [Required]
         public int NumberSemesters { get; set; }
-        //public List<Lesson> Lessons { get; set; }
+        public List<Lesson> Lessons { get; set; }
         public List<GroupSubject> GroupSubjects { get; set; }
 
 
