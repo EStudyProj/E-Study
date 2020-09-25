@@ -20,6 +20,23 @@ namespace EStudy.Domain.Models
         public bool IsHindFromStudents { get; set; } = false;
         public long? LessonId { get; set; }
         public Lesson Lesson { get; set; }
+
+
+
+
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        [Required, MinLength(3), MaxLength(30)]
+        public string CreatedFromIPAddress { get; set; }
+        [Required]
+        public int CreatedByUserId { get; set; }
+        [Required]
+        public bool IsEdit { get; set; } = false;
+        public DateTime? DateLastEdit { get; set; }
+        [MinLength(3), MaxLength(30)]
+        public string EditedFromIPAddress { get; set; }
+        public int? LastEditedByUserId { get; set; }
     }
 
     public enum TypeMark
