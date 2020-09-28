@@ -22,7 +22,8 @@ namespace EStudy.Domain.Models
         [Required, MaxLength(25)]
         public string Extension { get; set; }
         public TypeFile Type { get; set; }
-
+        [Required, MinLength(25), MaxLength(40)]
+        public string MD5CheckSum { get; set; }
 
 
         [Required]
