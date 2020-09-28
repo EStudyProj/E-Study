@@ -10,6 +10,7 @@ namespace EStudy.Application.ViewModels.IHE
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public string Name { get; set; }
+        public string EnglishName { get; set; }
         public string ShortName { get; set; }
         public TypeIHE TypeIHE { get; set; }
         public string AreaIHE { get; set; } //напрям
