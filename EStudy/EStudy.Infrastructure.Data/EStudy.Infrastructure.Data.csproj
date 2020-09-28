@@ -6,6 +6,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
@@ -21,5 +22,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EStudy.Domain\EStudy.Domain.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Reference Include="Extensions">
+      <HintPath>..\Libraries\Extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
