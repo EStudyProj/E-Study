@@ -14,7 +14,7 @@ namespace EStudy.Application.Services.MVC
     public class GroupService : IGroupService
     {
         private IUnitOfWork unitOfWork;
-        private IMapper mapper;
+        private readonly IMapper mapper;
         public GroupService(IUnitOfWork _unitOfWork, IMapper _mapper)
         {
             unitOfWork = _unitOfWork;

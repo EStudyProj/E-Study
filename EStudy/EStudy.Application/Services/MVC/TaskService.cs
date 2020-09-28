@@ -10,7 +10,7 @@ namespace EStudy.Application.Services.MVC
     public class TaskService : ITaskService
     {
         private readonly IMapper mapper;
-        private IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         public TaskService(IUnitOfWork _unitOfWork, IMapper _mapper)
         {
             unitOfWork = _unitOfWork;

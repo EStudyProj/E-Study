@@ -9,7 +9,7 @@ namespace EStudy.Application.Services.MVC
     public class LessonService : ILessonService
     {
         private readonly IMapper mapper;
-        private IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
         public LessonService(IUnitOfWork _unitOfWork, IMapper _mapper)
         {
             unitOfWork = _unitOfWork;
