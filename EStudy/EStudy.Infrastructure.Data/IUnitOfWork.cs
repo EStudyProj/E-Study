@@ -8,14 +8,19 @@ namespace EStudy.Infrastructure.Data
 {
     public interface IUnitOfWork
     {
-        IIHERepository IHEs { get; }
-        IUserRepository Users { get; }
-        ITestEntityRepository Tests { get; }
         IDepartmentRepository Departments { get; }
-        ISpecialtyRepository Specialties { get; }
-        IGroupRepository Groups { get; }
-        ISubjectRepository Subjects { get; }
-        IGroupSubjectRepository GroupSubjects { get; }
         IDiplomaRepository Diplomas { get; }
+        IFileRepository Files { get; }
+        IGroupRepository Groups { get; }
+        IGroupSubjectRepository GroupSubjects { get; }
+        IHomeworkRepository Homeworks { get; }
+        IIHERepository IHEs { get; }
+        ILessonRepository Lessons { get; }
+        IMarkRepository Marks { get; }
+        ISpecialtyRepository Specialties { get; }
+        ISubjectRepository Subjects { get; }
+        ITaskRepository Tasks { get; }
+        ITestEntityRepository Tests { get; }
+        IUserRepository Users { get; }
     }
 }

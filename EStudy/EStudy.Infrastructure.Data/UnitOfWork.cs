@@ -9,44 +9,67 @@ namespace EStudy.Infrastructure.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private IIHERepository iheRepos;
-        private IUserRepository userRepos;
-        private ITestEntityRepository testEntityRepos;
-        private IDepartmentRepository departRepos;
-        private ISpecialtyRepository specRepos;
-        private IGroupRepository groupRepos;
-        private ISubjectRepository subjRepos;
-        private IGroupSubjectRepository groupsubjRepos;
-        private IDiplomaRepository diplomaRepos;
-        public UnitOfWork(IIHERepository _iheRepos,
-            IUserRepository _userRepos,
-            ITestEntityRepository _testEntityRepos,
+        IDepartmentRepository departRepos;
+        IDiplomaRepository diplomaRepos;
+        IFileRepository fileRepos;
+        IGroupRepository groupRepos;
+        IGroupSubjectRepository groupsubjRepos;
+        IHomeworkRepository homeworkRepos;
+        IIHERepository iheRepos;
+        ILessonRepository lessRepos;
+        IMarkRepository markRepos;
+        ISpecialtyRepository specRepos;
+        ISubjectRepository subjRepos;
+        ITaskRepository taskRepos;
+        ITestEntityRepository testEntityRepos;
+        IUserRepository userRepos;
+
+        public UnitOfWork(
             IDepartmentRepository _departRepos,
-            ISpecialtyRepository _specRepos,
+            IDiplomaRepository _diplomaRepos,
+            IFileRepository _fileRepos,
             IGroupRepository _groupRepos,
-            ISubjectRepository _subjRepos,
             IGroupSubjectRepository _groupsubjRepos,
-            IDiplomaRepository _diplomaRepos)
+            IHomeworkRepository _homeworkRepos,
+            IIHERepository _iheRepos,
+            ILessonRepository _lessRepos,
+            IMarkRepository _markRepos,
+            ISpecialtyRepository _specRepos,
+            ISubjectRepository _subjRepos,
+            ITaskRepository _taskRepos,
+            ITestEntityRepository _testEntityRepos,
+            IUserRepository _userRepos
+            )
         {
-            iheRepos = _iheRepos;
-            userRepos = _userRepos;
-            testEntityRepos = _testEntityRepos;
             departRepos = _departRepos;
-            specRepos = _specRepos;
-            groupRepos = _groupRepos;
-            subjRepos = _subjRepos;
-            groupsubjRepos = _groupsubjRepos;
             diplomaRepos = _diplomaRepos;
+            fileRepos = _fileRepos;
+            groupRepos = _groupRepos;
+            groupsubjRepos = _groupsubjRepos;
+            homeworkRepos = _homeworkRepos;
+            iheRepos = _iheRepos;
+            lessRepos = _lessRepos;
+            markRepos = _markRepos;
+            specRepos = _specRepos;
+            subjRepos = _subjRepos;
+            taskRepos = _taskRepos;
+            testEntityRepos = _testEntityRepos;
+            userRepos = _userRepos;
         }
 
-        public IIHERepository IHEs => iheRepos;
-        public IUserRepository Users => userRepos;
-        public ITestEntityRepository Tests => testEntityRepos;
         public IDepartmentRepository Departments => departRepos;
-        public ISpecialtyRepository Specialties => specRepos;
-        public IGroupRepository Groups => groupRepos;
-        public ISubjectRepository Subjects=> subjRepos;
-        public IGroupSubjectRepository GroupSubjects => groupsubjRepos;
         public IDiplomaRepository Diplomas => diplomaRepos;
+        public IFileRepository Files => fileRepos;
+        public IGroupRepository Groups => groupRepos;
+        public IGroupSubjectRepository GroupSubjects => groupsubjRepos;
+        public IHomeworkRepository Homeworks => homeworkRepos;
+        public IIHERepository IHEs => iheRepos;
+        public ILessonRepository Lessons => lessRepos;
+        public IMarkRepository Marks => markRepos;
+        public ISpecialtyRepository Specialties => specRepos;
+        public ISubjectRepository Subjects=> subjRepos;
+        public ITaskRepository Tasks => taskRepos;
+        public ITestEntityRepository Tests => testEntityRepos;
+        public IUserRepository Users => userRepos;
     }
 }
