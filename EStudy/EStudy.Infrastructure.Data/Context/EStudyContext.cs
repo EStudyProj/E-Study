@@ -31,6 +31,7 @@ namespace EStudy.Infrastructure.Data.Context
         {
             modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
             modelBuilder.ApplyConfiguration(new DiplomaConfiguration());
+            modelBuilder.ApplyConfiguration(new FileConfiguration());
             modelBuilder.ApplyConfiguration(new GroupConfiguration());
             modelBuilder.ApplyConfiguration(new GroupSubjectConfiguration());
             modelBuilder.ApplyConfiguration(new HomeworkConfiguration());
