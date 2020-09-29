@@ -35,6 +35,9 @@ namespace EStudy.Domain.Models
         [Required]
         public bool IsDeleted { get; set; } = false;
         public DateTime? DateDeleted { get; set; }
+        public int? DeletedById { get; set; }
+        [MinLength(3), MaxLength(30)]
+        public string DeletedFromIPAddress { get; set; }
         public DateTime? MaxDateUpToRecovery { get; set; }
     }
 
@@ -42,8 +45,9 @@ namespace EStudy.Domain.Models
     public enum TypeFile
     {
         Image,
-        Document,
+        Music,
         Video,
+        Document,
         File,
         Archive
     }
