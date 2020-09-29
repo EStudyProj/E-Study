@@ -22,7 +22,7 @@ namespace EStudy.Domain.Models
         public string ProfessionalQualification { get; set; } //професійна кваліфікація
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
-
+        public List<Group> Groups { get; set; }
 
 
 
