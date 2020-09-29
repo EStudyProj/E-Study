@@ -44,6 +44,9 @@ namespace EStudy.Infrastructure.IoC
             services.AddScoped<IMarkRepository, MarkRepository>();
             services.AddScoped<IMarkService, MarkService>();
 
+            services.AddScoped<IPresenceRepository, PresenceRepository>();
+            services.AddScoped<IPresenceService, PresenceService>();
+
             services.AddScoped<ISpecialtyRepository, SpecialtyRepository>();
             services.AddScoped<ISpecialtyService, SpecialtyService>();
 
