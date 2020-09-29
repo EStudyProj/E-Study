@@ -26,7 +26,7 @@ namespace EStudy.Domain.Models
         public string PasswordToEmail { get; set; }
         [Required]
         public bool IsShowEmail { get; set; } = true;
-        public int? ClassHeadId { get; set; }
+        public int? GroupHeadId { get; set; }
         public int SpecialtyId { get; set; }
         public Specialty Specialty { get; set; }
         public List<User> Students { get; set; }
