@@ -20,6 +20,7 @@ namespace EStudy.Infrastructure.Data.Context
         public DbSet<IHE> IHEs { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Mark> Marks { get; set; }
+        public DbSet<Presence> Presences { get; set; }
         public DbSet<Specialty> Specialties { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Task> Tasks { get; set; }
@@ -38,6 +39,7 @@ namespace EStudy.Infrastructure.Data.Context
             modelBuilder.ApplyConfiguration(new IHEConfiguration());
             modelBuilder.ApplyConfiguration(new LessonConfiguration());
             modelBuilder.ApplyConfiguration(new MarkConfiguration());
+            modelBuilder.ApplyConfiguration(new PresenceConfiguration());
             modelBuilder.ApplyConfiguration(new SpecialtyConfiguration());
             modelBuilder.ApplyConfiguration(new SubjectConfiguration());
             modelBuilder.ApplyConfiguration(new TaskConfiguration());
