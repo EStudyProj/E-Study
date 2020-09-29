@@ -20,8 +20,8 @@ namespace EStudy.Domain.Models
         public bool IsHindFromStudents { get; set; } = false;
         public long? LessonId { get; set; }
         public Lesson Lesson { get; set; }
-        public long? HomeworkId { get; set; }
-        public Homework Homework { get; set; }
+        public long? TaskId { get; set; }
+        public Task Task { get; set; }
 
 
 

@@ -10,14 +10,12 @@ namespace EStudy.Domain.Models
         public long Id { get; set; }
         [Required]
         public bool IsComplate { get; set; } = false;
-        public int ComplateByStudentId { get; set; }
+        public int? ComplateByStudentId { get; set; }
         [MinLength(5), MaxLength(5000)]
         public string Text { get; set; }
         public int TeacherSetId { get; set; }
         public long TaskId { get; set; }
         public Task Task { get; set; }
-        public List<Mark> Marks { get; set; }
-
 
 
 
