@@ -18,6 +18,7 @@ namespace EStudy.Infrastructure.Data
         IIHERepository iheRepos;
         ILessonRepository lessRepos;
         IMarkRepository markRepos;
+        IPresenceRepository presRepos;
         ISpecialtyRepository specRepos;
         ISubjectRepository subjRepos;
         ITaskRepository taskRepos;
@@ -34,6 +35,7 @@ namespace EStudy.Infrastructure.Data
             IIHERepository _iheRepos,
             ILessonRepository _lessRepos,
             IMarkRepository _markRepos,
+            IPresenceRepository _presRepos,
             ISpecialtyRepository _specRepos,
             ISubjectRepository _subjRepos,
             ITaskRepository _taskRepos,
@@ -50,6 +52,7 @@ namespace EStudy.Infrastructure.Data
             iheRepos = _iheRepos;
             lessRepos = _lessRepos;
             markRepos = _markRepos;
+            presRepos = _presRepos;
             specRepos = _specRepos;
             subjRepos = _subjRepos;
             taskRepos = _taskRepos;
@@ -66,6 +69,7 @@ namespace EStudy.Infrastructure.Data
         public IIHERepository IHEs => iheRepos;
         public ILessonRepository Lessons => lessRepos;
         public IMarkRepository Marks => markRepos;
+        public IPresenceRepository Presences => presRepos;
         public ISpecialtyRepository Specialties => specRepos;
         public ISubjectRepository Subjects=> subjRepos;
         public ITaskRepository Tasks => taskRepos;

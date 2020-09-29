@@ -17,6 +17,7 @@ namespace EStudy.Infrastructure.Data
         IIHERepository IHEs { get; }
         ILessonRepository Lessons { get; }
         IMarkRepository Marks { get; }
+        IPresenceRepository Presences { get; }
         ISpecialtyRepository Specialties { get; }
         ISubjectRepository Subjects { get; }
         ITaskRepository Tasks { get; }
