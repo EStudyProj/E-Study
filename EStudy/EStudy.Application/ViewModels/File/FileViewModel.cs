@@ -14,7 +14,7 @@ namespace EStudy.Application.ViewModels.File
         public string Name { get; set; }
         public string OriginalName { get; set; }
         public string Extension { get; set; }
-        public string Type { get; set; }
+        public TypeFile Type { get; set; }
         public string MD5CheckSum { get; set; }
     }
 }
