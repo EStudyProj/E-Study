@@ -23,4 +23,13 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\DIploma\" />
+    <Folder Include="ViewModels\File\" />
+    <Folder Include="ViewModels\Homework\" />
+    <Folder Include="ViewModels\Lesson\" />
+    <Folder Include="ViewModels\Mark\" />
+    <Folder Include="ViewModels\Task\" />
+  </ItemGroup>
+
 </Project>
