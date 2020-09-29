@@ -18,6 +18,8 @@ namespace EStudy.Domain.Models
         public int HeadById { get; set; }
         [Required, Phone]
         public string Phone { get; set; }
+        [MinLength(15), MaxLength(3000)]
+        public string ContactInformation { get; set; }
         [Required, MinLength(10), MaxLength(300)]
         public string Description { get; set; }
         public int IHEId { get; set; }
