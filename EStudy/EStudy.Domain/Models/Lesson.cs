@@ -16,11 +16,13 @@ namespace EStudy.Domain.Models
         public DateTime DateLesson { get; set; }
         [Required]
         public int AssignedToTeacherId { get; set; }
-        public int? TeacherConductedId { get; set; }
         [Required]
         public bool IsHindFromStudent { get; set; } = false;
         [Required]
         public bool IsReplacement { get; set; } = false;
+        public int? TeacherReplacementId { get; set; }
+        [Required]
+        public TypeLesson TypeLesson { get; set; }
         public int SubjectId { get; set; }
         public Subject Subject { get; set; }
         public List<Task> Tasks { get; set; }
@@ -42,5 +44,14 @@ namespace EStudy.Domain.Models
         [MinLength(3), MaxLength(30)]
         public string EditedFromIPAddress { get; set; }
         public int? LastEditedByUserId { get; set; }
+    }
+
+    public enum TypeLesson
+    {
+        Lecture,
+        Seminar,
+        Laboratory,
+        Independent,
+        Exam
     }
 }
