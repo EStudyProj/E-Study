@@ -13,7 +13,7 @@ namespace EStudy.Infrastructure.Data.Configurations
             builder.HasKey(d => d.Id);
             builder.HasIndex(d => new
             {
-                d.ClassHeadId,
+                d.GroupHeadId,
                 d.CodeForConnect,
                 d.EmailByGroup,
                 d.GroupName,

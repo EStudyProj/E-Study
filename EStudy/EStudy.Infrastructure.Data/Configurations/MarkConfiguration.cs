@@ -17,8 +17,7 @@ namespace EStudy.Infrastructure.Data.Configurations
                 d.TypeMark,
                 d.TeacherSetId,
                 d.IsHindFromStudents,
-                d.LessonId,
-                d.HomeworkId
+                d.LessonId
             });
         }
     }
