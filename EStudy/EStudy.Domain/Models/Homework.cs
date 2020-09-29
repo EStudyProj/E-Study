@@ -11,6 +11,7 @@ namespace EStudy.Domain.Models
         [Required]
         public bool IsComplate { get; set; } = false;
         public int? ComplateByStudentId { get; set; }
+        public DateTime? DateComplated { get; set; }
         [MinLength(5), MaxLength(5000)]
         public string Text { get; set; }
         public int TeacherSetId { get; set; }
