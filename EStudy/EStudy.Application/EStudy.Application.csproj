@@ -23,11 +23,4 @@
     </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\Homework\" />
-    <Folder Include="ViewModels\Lesson\" />
-    <Folder Include="ViewModels\Mark\" />
-    <Folder Include="ViewModels\Task\" />
-  </ItemGroup>
-
 </Project>
