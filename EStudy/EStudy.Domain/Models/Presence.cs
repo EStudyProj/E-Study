@@ -12,6 +12,8 @@ namespace EStudy.Domain.Models
         public int StudentId { get; set; }
         [Required]
         public PresentsType Presents { get; set; }
+        public long LessonId { get; set; }
+        public Lesson Lesson { get; set; }
 
 
 

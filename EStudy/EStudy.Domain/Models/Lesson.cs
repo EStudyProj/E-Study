@@ -27,7 +27,7 @@ namespace EStudy.Domain.Models
         public Subject Subject { get; set; }
         public List<Task> Tasks { get; set; }
         public List<Mark> Marks { get; set; }
-
+        public List<Presence> Presences { get; set; }
 
 
 
