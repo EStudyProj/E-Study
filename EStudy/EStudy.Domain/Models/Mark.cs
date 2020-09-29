@@ -8,8 +8,8 @@ namespace EStudy.Domain.Models
     {
         [Key]
         public long Id { get; set; }
-        [Required, MinLength(1), MaxLength(3)]
-        public string Value { get; set; } // n - not exist, e - exist on lesson, 1-12 mark value
+        [Required]
+        public int Value { get; set; }
         [MinLength(3), MaxLength(75)]
         public string Description { get; set; }
         [Required]
