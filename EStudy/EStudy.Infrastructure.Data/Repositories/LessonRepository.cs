@@ -10,7 +10,7 @@ namespace EStudy.Infrastructure.Data.Repositories
 {
     public class LessonRepository : Repository<Lesson>, ILessonRepository
     {
-        public async Task<Lesson> GetLessonWithSubjectById(int Id)
+        public async Task<Lesson> GetLessonWithSubjectById(long Id)
         {
             return await db.Lessons.AsNoTracking().Include(d => d.Subject).SingleOrDefaultAsync(d => d.Id == Id);
         }
