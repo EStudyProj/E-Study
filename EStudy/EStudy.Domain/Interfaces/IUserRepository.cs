@@ -9,5 +9,6 @@ namespace EStudy.Domain.Interfaces
     public interface IUserRepository : IRepository<User>
     {
         Task<List<User>> GetLastUsers();
+        Task<User> GetUserWithGroup(int Id);
     }
 }
