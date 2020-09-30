@@ -6,6 +6,6 @@ namespace EStudy.Domain.Interfaces
 {
     public interface ITaskRepository : IRepository<Task>
     {
-
+        System.Threading.Tasks.Task<Task> GetTaskWithLessonById(long Id);
     }
 }
