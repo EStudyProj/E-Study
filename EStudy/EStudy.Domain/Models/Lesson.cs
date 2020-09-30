@@ -23,7 +23,7 @@ namespace EStudy.Domain.Models
         public int? TeacherReplacementId { get; set; }
         [Required]
         public TypeLesson TypeLesson { get; set; }
-        public int SubjectId { get; set; }
+        public long SubjectId { get; set; }
         public Subject Subject { get; set; }
         public List<Task> Tasks { get; set; }
         public List<Mark> Marks { get; set; }
