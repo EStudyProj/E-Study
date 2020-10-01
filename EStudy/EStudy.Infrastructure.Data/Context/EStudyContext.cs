@@ -26,6 +26,12 @@ namespace EStudy.Infrastructure.Data.Context
         public DbSet<Task> Tasks { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<TestEntity> TestEntities { get; set; }
+        public DbSet<ClassRoom> ClassRooms { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<TypeOfClass> TypesOfClasses { get; set; }
+        public DbSet<_Сlass> _Сlasses { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

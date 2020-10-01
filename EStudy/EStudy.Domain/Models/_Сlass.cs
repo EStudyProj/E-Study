@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EStudy.Domain.Models
 {
-    public class Сlass//Пара
+    public class _Сlass//Пара
     {
         [Key]
         public int Id { get; set; }
