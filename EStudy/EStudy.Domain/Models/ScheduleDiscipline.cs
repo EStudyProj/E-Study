@@ -14,5 +14,6 @@ namespace EStudy.Domain.Models
         public string ShortDisciplineName { get; set; }
         [MinLength(3), MaxLength(100)]
         public string DisciplineNameEng { get; set; }
+        public List<Schedule> Schedules { get; set; }
     }
 }

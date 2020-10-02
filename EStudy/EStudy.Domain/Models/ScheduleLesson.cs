@@ -14,5 +14,6 @@ namespace EStudy.Domain.Models
         public DateTime Start { get; set; }
         [Required]
         public DateTime End { get; set; }
+        public List<Schedule> Schedules { get; set; }
     }
 }

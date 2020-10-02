@@ -16,5 +16,6 @@ namespace EStudy.Domain.Models
         public string TypeNameEng { get; set; }
         [MinLength(1), MaxLength(5)]
         public string ShortTypeNameEng { get; set; }
+        public List<Schedule> Schedules { get; set; }
     }
 }
