@@ -14,4 +14,5 @@ namespace EStudy.Application.ViewModels.Presence
         public LessonViewModel Lesson { get; set; }
         public bool IsEdit { get; set; }
         public DateTime? DateLastEdit { get; set; }
+    }
 }
