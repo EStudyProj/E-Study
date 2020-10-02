@@ -21,6 +21,14 @@ namespace EStudy.Infrastructure.Data.Context
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Mark> Marks { get; set; }
         public DbSet<Presence> Presences { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<ScheduleAudience> ScheduleAudiences { get; set; }
+        public DbSet<ScheduleDayOfWeek> ScheduleDayOfWeeks { get; set; }
+        public DbSet<ScheduleDiscipline> ScheduleDisciplines { get; set; }
+        public DbSet<ScheduleGroup> ScheduleGroups { get; set; }
+        public DbSet<ScheduleLesson> ScheduleLessons { get; set; }
+        public DbSet<ScheduleParityOfWeek> ScheduleParityOfWeeks { get; set; }
+        public DbSet<ScheduleTypeLesson> ScheduleTypeLessons { get; set; }
         public DbSet<Specialty> Specialties { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Task> Tasks { get; set; }
