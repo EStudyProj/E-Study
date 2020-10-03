@@ -9,8 +9,8 @@ namespace EStudy.Application.Interfaces.MVC
     public interface IScheduleService
     {
         Task<Schedule> GetScheduleById(long Id);
-        Task<List<Schedule>> GetSchedulesByGroupId(int Id, DateTime date);
-        Task<List<Schedule>> GetSchedulesByGroupIdOnWeek(int Id);
-        Task<List<Schedule>> GetSchedulesByGroupIdInRange(int Id, DateTime dateFrom, DateTime dateTo);
+        Task<List<Schedule>> GetSchedulesByGroupId(long Id, DateTime date);
+        Task<List<Schedule>> GetSchedulesByGroupIdOnWeek(long Id);
+        Task<List<Schedule>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo);
     }
 }
