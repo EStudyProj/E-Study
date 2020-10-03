@@ -20,22 +20,22 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<Schedule> GetScheduleById(long Id)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.Schedules.GetScheduleByIdAsync(Id);
         }
 
         public async Task<List<Schedule>> GetSchedulesByGroupId(long Id, DateTime date)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.Schedules.GetSchedulesByGroupIdAsync(Id, date);
         }
 
         public async Task<List<Schedule>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.Schedules.GetSchedulesByGroupIdInRangeAsync(Id, dateFrom, dateTo);
         }
 
         public async Task<List<Schedule>> GetSchedulesByGroupIdOnWeek(long Id)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id);
         }
     }
 }
