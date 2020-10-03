@@ -18,6 +18,14 @@ namespace EStudy.Infrastructure.Data
         ILessonRepository Lessons { get; }
         IMarkRepository Marks { get; }
         IPresenceRepository Presences { get; }
+        IScheduleRepository Schedules { get; }
+        IScheduleAudienceRepository ScheduleAudiences { get; }
+        IScheduleDayOfWeekRepository ScheduleDayOfWeeks { get; }
+        IScheduleDisciplineRepository ScheduleDisciplines { get; }
+        IScheduleGroupRepository ScheduleGroups { get; }
+        IScheduleLessonRepository ScheduleLessons { get; }
+        IScheduleParityOfWeekRepository ScheduleParityOfWeeks { get; }
+        IScheduleTypeLessonRepository ScheduleTypeLessons { get; }
         ISpecialtyRepository Specialties { get; }
         ISubjectRepository Subjects { get; }
         ITaskRepository Tasks { get; }
