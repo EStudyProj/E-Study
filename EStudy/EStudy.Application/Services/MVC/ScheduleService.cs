@@ -1,4 +1,5 @@
 ﻿using EStudy.Application.Interfaces.MVC;
+using EStudy.Application.ViewModels.Schedule;
 using EStudy.Domain.Models;
 using EStudy.Infrastructure.Data;
 using System;
@@ -150,24 +151,24 @@ namespace EStudy.Application.Services.MVC
         #endregion
 
 
-        public async Task<Schedule> GetScheduleById(long Id)
+        public async Task<ScheduleViewModel> GetScheduleById(long Id)
         {
-            return await uniOfWork.Schedules.GetScheduleByIdAsync(Id);
+            return Mapper.GetSchedule(await uniOfWork.Schedules.GetScheduleByIdAsync(Id));
         }
 
-        public async Task<List<Schedule>> GetSchedulesByGroupId(long Id, DateTime date)
+        public async Task<List<ScheduleViewModel>> GetSchedulesByGroupId(long Id, DateTime date)
         {
-            return await uniOfWork.Schedules.GetSchedulesByGroupIdAsync(Id, date);
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdAsync(Id, date));
         }
 
-        public async Task<List<Schedule>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo)
+        public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo)
         {
-            return await uniOfWork.Schedules.GetSchedulesByGroupIdInRangeAsync(Id, dateFrom, dateTo);
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdInRangeAsync(Id, dateFrom, dateTo));
         }
 
-        public async Task<List<Schedule>> GetSchedulesByGroupIdOnWeek(long Id)
+        public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdOnWeek(long Id)
         {
-            return await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id);
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id));
         }
     }
 }

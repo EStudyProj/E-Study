@@ -1,4 +1,5 @@
-﻿using EStudy.Domain.Models;
+﻿using EStudy.Application.ViewModels.Schedule;
+using EStudy.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -32,9 +33,9 @@ namespace EStudy.Application.Interfaces.MVC
         Task<string> RemoveScheduleTypeLesson(int Id);
         #endregion
 
-        Task<Schedule> GetScheduleById(long Id);
-        Task<List<Schedule>> GetSchedulesByGroupId(long Id, DateTime date);
-        Task<List<Schedule>> GetSchedulesByGroupIdOnWeek(long Id);
-        Task<List<Schedule>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo);
+        Task<ScheduleViewModel> GetScheduleById(long Id);
+        Task<List<ScheduleViewModel>> GetSchedulesByGroupId(long Id, DateTime date);
+        Task<List<ScheduleViewModel>> GetSchedulesByGroupIdOnWeek(long Id);
+        Task<List<ScheduleViewModel>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo);
     }
 }
