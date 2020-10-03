@@ -170,5 +170,10 @@ namespace EStudy.Application.Services.MVC
         {
             return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id));
         }
+
+        public async Task<List<ScheduleViewModel>> GetTodaySchedulesByTeacherId(int Id)
+        {
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetTodaySchedulesByTeacherIdAsync(Id));
+        }
     }
 }

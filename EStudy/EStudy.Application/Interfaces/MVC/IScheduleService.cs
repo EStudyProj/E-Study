@@ -37,5 +37,6 @@ namespace EStudy.Application.Interfaces.MVC
         Task<List<ScheduleViewModel>> GetSchedulesByGroupId(long Id, DateTime date);
         Task<List<ScheduleViewModel>> GetSchedulesByGroupIdOnWeek(long Id);
         Task<List<ScheduleViewModel>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo);
+        Task<List<ScheduleViewModel>> GetTodaySchedulesByTeacherId(int Id);
     }
 }
