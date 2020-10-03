@@ -10,5 +10,6 @@ namespace EStudy.Domain.Interfaces
         System.Threading.Tasks.Task<List<Schedule>> GetSchedulesByGroupIdAsync(long Id, DateTime date);
         System.Threading.Tasks.Task<List<Schedule>> GetSchedulesByGroupIdOnWeekAsync(long Id);
         System.Threading.Tasks.Task<List<Schedule>> GetSchedulesByGroupIdInRangeAsync(long Id, DateTime dateFrom, DateTime dateTo);
+        System.Threading.Tasks.Task<List<Schedule>> GetTodaySchedulesByTeacherIdAsync(int Id);
     }
 }
