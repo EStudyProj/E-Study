@@ -12,6 +12,7 @@ namespace EStudy.Application.ViewModels.Schedule
         public string Day { get; set; }
         public string DayEng { get; set; }
         public string ParityWeek { get; set; }
+        public string ParityWeekEng { get; set; }
         public byte Number { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
@@ -19,6 +20,7 @@ namespace EStudy.Application.ViewModels.Schedule
         public string DisciplineName { get; set; }
         public string ShortDisciplineName { get; set; }
         public string DisciplineNameEng { get; set; }
+        public string ShortDisciplineNameEng { get; set; }
         public string LessonTypeName { get; set; }
         public string LessonShortTypeName { get; set; }
         public string LessonTypeNameEng { get; set; }
