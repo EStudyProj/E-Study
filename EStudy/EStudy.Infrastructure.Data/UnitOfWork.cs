@@ -19,6 +19,14 @@ namespace EStudy.Infrastructure.Data
         ILessonRepository lessRepos;
         IMarkRepository markRepos;
         IPresenceRepository presRepos;
+        IScheduleRepository scheduleRepos;
+        IScheduleAudienceRepository scheduleAudienceRepos;
+        IScheduleDayOfWeekRepository scheduleDayOfWeekRepos;
+        IScheduleDisciplineRepository scheduleDisciplineRepos;
+        IScheduleGroupRepository scheduleGroupRepos;
+        IScheduleLessonRepository scheduleLessonRepos;
+        IScheduleParityOfWeekRepository scheduleParityOfWeekRepos;
+        IScheduleTypeLessonRepository scheduleTypeLessonRepos;
         ISpecialtyRepository specRepos;
         ISubjectRepository subjRepos;
         ITaskRepository taskRepos;
@@ -36,6 +44,14 @@ namespace EStudy.Infrastructure.Data
             ILessonRepository _lessRepos,
             IMarkRepository _markRepos,
             IPresenceRepository _presRepos,
+            IScheduleRepository _scheduleRepos,
+            IScheduleAudienceRepository _scheduleAudienceRepos,
+            IScheduleDayOfWeekRepository _scheduleDayOfWeekRepos,
+            IScheduleDisciplineRepository _scheduleDisciplineRepos,
+            IScheduleGroupRepository _scheduleGroupRepos,
+            IScheduleLessonRepository _scheduleLessonRepos,
+            IScheduleParityOfWeekRepository _scheduleParityOfWeekRepos,
+            IScheduleTypeLessonRepository _scheduleTypeLessonRepos,
             ISpecialtyRepository _specRepos,
             ISubjectRepository _subjRepos,
             ITaskRepository _taskRepos,
@@ -53,6 +69,14 @@ namespace EStudy.Infrastructure.Data
             lessRepos = _lessRepos;
             markRepos = _markRepos;
             presRepos = _presRepos;
+            scheduleRepos = _scheduleRepos;
+            scheduleAudienceRepos = _scheduleAudienceRepos;
+            scheduleDayOfWeekRepos = _scheduleDayOfWeekRepos;
+            scheduleDisciplineRepos = _scheduleDisciplineRepos;
+            scheduleGroupRepos = _scheduleGroupRepos;
+            scheduleLessonRepos = _scheduleLessonRepos;
+            scheduleParityOfWeekRepos = _scheduleParityOfWeekRepos;
+            scheduleTypeLessonRepos = _scheduleTypeLessonRepos;
             specRepos = _specRepos;
             subjRepos = _subjRepos;
             taskRepos = _taskRepos;
@@ -70,10 +94,19 @@ namespace EStudy.Infrastructure.Data
         public ILessonRepository Lessons => lessRepos;
         public IMarkRepository Marks => markRepos;
         public IPresenceRepository Presences => presRepos;
+        public IScheduleRepository Schedules => scheduleRepos;
+        public IScheduleAudienceRepository ScheduleAudiences => scheduleAudienceRepos;
+        public IScheduleDayOfWeekRepository ScheduleDayOfWeeks => scheduleDayOfWeekRepos;
+        public IScheduleDisciplineRepository ScheduleDisciplines => scheduleDisciplineRepos;
+        public IScheduleGroupRepository ScheduleGroups => scheduleGroupRepos;
+        public IScheduleLessonRepository ScheduleLessons => scheduleLessonRepos;
+        public IScheduleParityOfWeekRepository ScheduleParityOfWeeks => scheduleParityOfWeekRepos;
+        public IScheduleTypeLessonRepository ScheduleTypeLessons => scheduleTypeLessonRepos;
         public ISpecialtyRepository Specialties => specRepos;
         public ISubjectRepository Subjects=> subjRepos;
         public ITaskRepository Tasks => taskRepos;
         public ITestEntityRepository Tests => testEntityRepos;
         public IUserRepository Users => userRepos;
+
     }
 }
