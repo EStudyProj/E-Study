@@ -1,5 +1,12 @@
 ﻿using EStudy.Application.Interfaces.MVC;
 using EStudy.Application.ViewModels.Schedule;
+using EStudy.Application.ViewModels.Schedule.ScheduleAudience;
+using EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
+using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
+using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
+using EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleTypeLesson;
 using EStudy.Domain.Models;
 using EStudy.Infrastructure.Data;
 using System;
@@ -18,162 +25,169 @@ namespace EStudy.Application.Services.MVC
             uniOfWork = _uniOfWork;
         }
 
-        #region AddOperation
-        public async Task<string> AddScheduleAudience(ScheduleAudience model)
+        public async Task<string> AddScheduleAudience(ScheduleAudienceCreateModel model)
         {
-            return await uniOfWork.ScheduleAudiences.CreateAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> AddScheduleDayOfWeek(ScheduleDayOfWeek model)
+        public async Task<string> AddScheduleDayOfWeek(ScheduleDayOfWeekCreateModel model)
         {
-            return await uniOfWork.ScheduleDayOfWeeks.CreateAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> AddScheduleDiscipline(ScheduleDiscipline model)
+        public async Task<string> AddScheduleDiscipline(ScheduleDisciplineCreateModel model)
         {
-            return await uniOfWork.ScheduleDisciplines.CreateAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> AddScheduleGroup(ScheduleGroup model)
+        public async Task<string> AddScheduleGroup(ScheduleGroupCreateModel model)
         {
-            return await uniOfWork.ScheduleGroups.CreateAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> AddScheduleLesson(ScheduleLesson model)
+        public async Task<string> AddScheduleLesson(ScheduleLessonCreateModel model)
         {
-            return await uniOfWork.ScheduleLessons.CreateAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> AddScheduleParityOfWeek(ScheduleParityOfWeek model)
+        public async Task<string> AddScheduleParityOfWeek(ScheduleParityOfWeekCreateModel model)
         {
-            return await uniOfWork.ScheduleParityOfWeeks.CreateAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> AddScheduleTypeLesson(ScheduleTypeLesson model)
+        public async Task<string> AddScheduleTypeLesson(ScheduleTypeLessonCreateModel model)
         {
-            return await uniOfWork.ScheduleTypeLessons.CreateAsync(model);
-        }
-        #endregion
-
-        #region EditOperation
-        public async Task<string> EditScheduleAudience(ScheduleAudience model)
-        {
-            return await uniOfWork.ScheduleAudiences.EditAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> EditScheduleDayOfWeek(ScheduleDayOfWeek model)
+        public async Task<string> EditScheduleAudience(ScheduleAudienceEditModel model)
         {
-            return await uniOfWork.ScheduleDayOfWeeks.EditAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> EditScheduleDiscipline(ScheduleDiscipline model)
+        public async Task<string> EditScheduleDayOfWeek(ScheduleDayOfWeekEditModel model)
         {
-            return await uniOfWork.ScheduleDisciplines.EditAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> EditScheduleGroup(ScheduleGroup model)
+        public async Task<string> EditScheduleDiscipline(ScheduleDisciplineEditModel model)
         {
-            return await uniOfWork.ScheduleGroups.EditAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> EditScheduleLesson(ScheduleLesson model)
+        public async Task<string> EditScheduleGroup(ScheduleGroupEditModel model)
         {
-            return await uniOfWork.ScheduleLessons.EditAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> EditScheduleParityOfWeek(ScheduleParityOfWeek model)
+        public async Task<string> EditScheduleLesson(ScheduleLessonEditModel model)
         {
-            return await uniOfWork.ScheduleParityOfWeeks.EditAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> EditScheduleTypeLesson(ScheduleTypeLesson model)
+        public async Task<string> EditScheduleParityOfWeek(ScheduleParityOfWeekEditModel model)
         {
-            return await uniOfWork.ScheduleTypeLessons.EditAsync(model);
-        }
-        #endregion
-
-        #region RemoveOperation
-        public async Task<string> RemoveScheduleAudience(int Id)
-        {
-            var model = await uniOfWork.ScheduleAudiences.GetByWhereAsTrackingAsync(d => d.Id == Id);
-            if (model == null)
-                return "Not found";
-            return await uniOfWork.ScheduleAudiences.RemoveAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> RemoveScheduleDayOfWeek(int Id)
+        public async Task<string> EditScheduleTypeLesson(ScheduleTypeLessonEditModel model)
         {
-            var model = await uniOfWork.ScheduleDayOfWeeks.GetByWhereAsTrackingAsync(d => d.Id == Id);
-            if (model == null)
-                return "Not found";
-            return await uniOfWork.ScheduleDayOfWeeks.RemoveAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> RemoveScheduleDiscipline(int Id)
+        public async Task<List<ScheduleAudienceViewModel>> GetAllScheduleAudiences()
         {
-            var model = await uniOfWork.ScheduleDisciplines.GetByWhereAsTrackingAsync(d => d.Id == Id);
-            if (model == null)
-                return "Not found";
-            return await uniOfWork.ScheduleDisciplines.RemoveAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> RemoveScheduleGroup(int Id)
+        public async Task<List<ScheduleDayOfWeekViewModel>> GetAllScheduleDayOfWeeks()
         {
-            var model = await uniOfWork.ScheduleGroups.GetByWhereAsTrackingAsync(d => d.Id == Id);
-            if (model == null)
-                return "Not found";
-            return await uniOfWork.ScheduleGroups.RemoveAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> RemoveScheduleLesson(int Id)
+        public async Task<List<ScheduleDisciplineViewModel>> GetAllScheduleDisciplines()
         {
-            var model = await uniOfWork.ScheduleLessons.GetByWhereAsTrackingAsync(d => d.Id == Id);
-            if (model == null)
-                return "Not found";
-            return await uniOfWork.ScheduleLessons.RemoveAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> RemoveScheduleParityOfWeek(int Id)
+        public async Task<List<ScheduleGroupViewModel>> GetAllScheduleGroups()
         {
-            var model = await uniOfWork.ScheduleParityOfWeeks.GetByWhereAsTrackingAsync(d => d.Id == Id);
-            if (model == null)
-                return "Not found";
-            return await uniOfWork.ScheduleParityOfWeeks.RemoveAsync(model);
+            throw new NotImplementedException();
         }
 
-        public async Task<string> RemoveScheduleTypeLesson(int Id)
+        public async Task<List<ScheduleLessonViewModel>> GetAllScheduleLessons()
         {
-            var model = await uniOfWork.ScheduleTypeLessons.GetByWhereAsTrackingAsync(d => d.Id == Id);
-            if (model == null)
-                return "Not found";
-            return await uniOfWork.ScheduleTypeLessons.RemoveAsync(model);
+            throw new NotImplementedException();
         }
-        #endregion
 
+        public async Task<List<ScheduleParityOfWeekViewModel>> GetAllScheduleParityOfWeeks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<ScheduleTypeLessonViewModel>> GetAllScheduleTypeLessons()
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<ScheduleViewModel> GetScheduleById(long Id)
         {
-            return Mapper.GetSchedule(await uniOfWork.Schedules.GetScheduleByIdAsync(Id));
+            throw new NotImplementedException();
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupId(long Id, DateTime date)
         {
-            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdAsync(Id, date));
+            throw new NotImplementedException();
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo)
         {
-            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdInRangeAsync(Id, dateFrom, dateTo));
+            throw new NotImplementedException();
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdOnWeek(long Id)
         {
-            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id));
+            throw new NotImplementedException();
         }
 
         public async Task<List<ScheduleViewModel>> GetTodaySchedulesByTeacherId(int Id)
         {
-            return Mapper.GetSchedules(await uniOfWork.Schedules.GetTodaySchedulesByTeacherIdAsync(Id));
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveScheduleAudience(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveScheduleDayOfWeek(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveScheduleDiscipline(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveScheduleGroup(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveScheduleLesson(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveScheduleParityOfWeek(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveScheduleTypeLesson(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
