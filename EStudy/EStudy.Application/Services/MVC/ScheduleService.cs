@@ -1,4 +1,5 @@
-﻿using EStudy.Application.Interfaces.MVC;
+﻿using AutoMapper;
+using EStudy.Application.Interfaces.MVC;
 using EStudy.Application.ViewModels.Schedule;
 using EStudy.Application.ViewModels.Schedule.ScheduleAudience;
 using EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek;
@@ -19,10 +20,12 @@ namespace EStudy.Application.Services.MVC
     public class ScheduleService : IScheduleService
     {
         private readonly IUnitOfWork uniOfWork;
+        private readonly IMapper mapper;
 
-        public ScheduleService(IUnitOfWork _uniOfWork)
+        public ScheduleService(IUnitOfWork _uniOfWork, IMapper _mapper)
         {
             uniOfWork = _uniOfWork;
+            mapper = _mapper;
         }
 
         public async Task<string> AddScheduleAudience(ScheduleAudienceCreateModel model)
@@ -130,62 +133,62 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<List<ScheduleAudienceViewModel>> GetAllScheduleAudiences()
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleAudienceViewModel>>(await uniOfWork.ScheduleAudiences.GetAllAsync());
         }
 
         public async Task<List<ScheduleDayOfWeekViewModel>> GetAllScheduleDayOfWeeks()
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleDayOfWeekViewModel>>(await uniOfWork.ScheduleDayOfWeeks.GetAllAsync());
         }
 
         public async Task<List<ScheduleDisciplineViewModel>> GetAllScheduleDisciplines()
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleDisciplineViewModel>>(await uniOfWork.ScheduleDisciplines.GetAllAsync());
         }
 
         public async Task<List<ScheduleGroupViewModel>> GetAllScheduleGroups()
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleGroupViewModel>>(await uniOfWork.ScheduleGroups.GetAllAsync());
         }
 
         public async Task<List<ScheduleLessonViewModel>> GetAllScheduleLessons()
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleLessonViewModel>>(await uniOfWork.ScheduleLessons.GetAllAsync());
         }
 
         public async Task<List<ScheduleParityOfWeekViewModel>> GetAllScheduleParityOfWeeks()
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleParityOfWeekViewModel>>(await uniOfWork.ScheduleParityOfWeeks.GetAllAsync());
         }
 
         public async Task<List<ScheduleTypeLessonViewModel>> GetAllScheduleTypeLessons()
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleTypeLessonViewModel>>(await uniOfWork.ScheduleTypeLessons.GetAllAsync());
         }
 
         public async Task<ScheduleViewModel> GetScheduleById(long Id)
         {
-            throw new NotImplementedException();
+            return mapper.Map<ScheduleViewModel>(await uniOfWork.Schedules.GetScheduleByIdAsync(Id));
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupId(long Id, DateTime date)
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleViewModel>>(await uniOfWork.Schedules.GetSchedulesByGroupIdAsync(Id, date));
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo)
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleViewModel>>(await uniOfWork.Schedules.GetSchedulesByGroupIdInRangeAsync(Id, dateFrom, dateTo));
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdOnWeek(long Id)
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleViewModel>>(await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id));
         }
 
         public async Task<List<ScheduleViewModel>> GetTodaySchedulesByTeacherId(int Id)
         {
-            throw new NotImplementedException();
+            return mapper.Map<List<ScheduleViewModel>>(await uniOfWork.Schedules.GetTodaySchedulesByTeacherIdAsync(Id));
         }
 
         public async Task<string> RemoveScheduleAudience(int Id)
