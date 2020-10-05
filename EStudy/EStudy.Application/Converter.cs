@@ -8,6 +8,13 @@ using EStudy.Application.ViewModels.IHE;
 using EStudy.Application.ViewModels.Lesson;
 using EStudy.Application.ViewModels.Mark;
 using EStudy.Application.ViewModels.Presence;
+using EStudy.Application.ViewModels.Schedule.ScheduleAudience;
+using EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
+using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
+using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
+using EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleTypeLesson;
 using EStudy.Application.ViewModels.Specialty;
 using EStudy.Application.ViewModels.Subject;
 using EStudy.Application.ViewModels.Task;
@@ -41,6 +48,13 @@ namespace EStudy.Application
                 .ForMember(d => d.Lesson, d => d.MapFrom(s => s.Lesson));
             CreateMap<Presence, PresenceViewModel>()
                 .ForMember(d => d.Lesson, d => d.MapFrom(s => s.Lesson));
+            CreateMap<ScheduleAudience, ScheduleAudienceViewModel>();
+            CreateMap<ScheduleDayOfWeek, ScheduleDayOfWeekViewModel>();
+            CreateMap<ScheduleDiscipline, ScheduleDisciplineViewModel>();
+            CreateMap<ScheduleGroup, ScheduleGroupViewModel>();
+            CreateMap<ScheduleLesson, ScheduleLessonViewModel>();
+            CreateMap<ScheduleParityOfWeek, ScheduleParityOfWeekViewModel>();
+            CreateMap<ScheduleTypeLesson, ScheduleTypeLessonViewModel>();
             CreateMap<Specialty, SpecialtyViewModel>()
                 .ForMember(d => d.Groups, d => d.MapFrom(s => s.Groups))
                 .ForMember(d => d.Department, d => d.MapFrom(s => s.Department));
