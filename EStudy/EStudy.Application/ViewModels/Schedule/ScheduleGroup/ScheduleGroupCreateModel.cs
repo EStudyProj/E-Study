@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 namespace EStudy.Application.ViewModels.Schedule.ScheduleGroup
 {
-    class ScheduleGroupCreateModel
+    public class ScheduleGroupCreateModel
     {
         [Required]
         public int GroupId { get; set; }

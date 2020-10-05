@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 namespace EStudy.Application.ViewModels.Schedule.ScheduleGroup
 {
-    class ScheduleGroupViewModel
+    public class ScheduleGroupViewModel
     {
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
