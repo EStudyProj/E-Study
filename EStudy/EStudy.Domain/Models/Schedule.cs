@@ -27,5 +27,10 @@ namespace EStudy.Domain.Models
         public ScheduleTypeLesson ScheduleTypeLesson { get; set; }
         public int ScheduleAudienceId { get; set; }
         public ScheduleAudience ScheduleAudience { get; set; }
+
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? LastEdited { get; set; }
     }
 }

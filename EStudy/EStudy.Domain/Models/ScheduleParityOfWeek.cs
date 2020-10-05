@@ -13,5 +13,10 @@ namespace EStudy.Domain.Models
         [MinLength(2), MaxLength(30)]
         public string WeekEng { get; set; }
         public List<Schedule> Schedules { get; set; }
+
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? LastEdited { get; set; }
     }
 }

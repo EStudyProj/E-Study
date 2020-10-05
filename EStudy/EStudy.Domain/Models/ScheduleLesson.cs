@@ -15,5 +15,10 @@ namespace EStudy.Domain.Models
         [Required]
         public DateTime End { get; set; }
         public List<Schedule> Schedules { get; set; }
+
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? LastEdited { get; set; }
     }
 }
