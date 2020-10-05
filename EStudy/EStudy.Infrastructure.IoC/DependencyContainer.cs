@@ -47,6 +47,23 @@ namespace EStudy.Infrastructure.IoC
             services.AddScoped<IPresenceRepository, PresenceRepository>();
             services.AddScoped<IPresenceService, PresenceService>();
 
+            services.AddScoped<IScheduleAudienceRepository, ScheduleAudienceRepository>();
+
+            services.AddScoped<IScheduleDayOfWeekRepository, ScheduleDayOfWeekRepository>();
+
+            services.AddScoped<IScheduleDisciplineRepository, ScheduleDisciplineRepository>();
+
+            services.AddScoped<IScheduleGroupRepository, ScheduleGroupRepository>();
+
+            services.AddScoped<IScheduleLessonRepository, ScheduleLessonRepository>();
+
+            services.AddScoped<IScheduleParityOfWeekRepository, ScheduleParityOfWeekRepository>();
+
+            services.AddScoped<IScheduleTypeLessonRepository, ScheduleTypeLessonRepository>();
+
+            services.AddScoped<IScheduleRepository, ScheduleRepository>();
+            services.AddScoped<IScheduleService, ScheduleService>();
+
             services.AddScoped<ISpecialtyRepository, SpecialtyRepository>();
             services.AddScoped<ISpecialtyService, SpecialtyService>();
 
