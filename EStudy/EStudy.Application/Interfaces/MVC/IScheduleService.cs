@@ -1,4 +1,11 @@
 ﻿using EStudy.Application.ViewModels.Schedule;
+using EStudy.Application.ViewModels.Schedule.ScheduleAudience;
+using EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
+using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
+using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
+using EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleTypeLesson;
 using EStudy.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -10,26 +17,26 @@ namespace EStudy.Application.Interfaces.MVC
     public interface IScheduleService
     {
         #region ScheduleCRUD
-        Task<string> AddScheduleAudience(ScheduleAudience model);
-        Task<string> EditScheduleAudience(ScheduleAudience model);
+        Task<string> AddScheduleAudience(ScheduleAudienceCreateModel model);
+        Task<string> EditScheduleAudience(ScheduleAudienceEditModel model);
         Task<string> RemoveScheduleAudience(int Id);
-        Task<string> AddScheduleDayOfWeek(ScheduleDayOfWeek model);
-        Task<string> EditScheduleDayOfWeek(ScheduleDayOfWeek model);
+        Task<string> AddScheduleDayOfWeek(ScheduleDayOfWeekCreateModel model);
+        Task<string> EditScheduleDayOfWeek(ScheduleDayOfWeekEditModel model);
         Task<string> RemoveScheduleDayOfWeek(int Id);
-        Task<string> AddScheduleDiscipline(ScheduleDiscipline model);
-        Task<string> EditScheduleDiscipline(ScheduleDiscipline model);
+        Task<string> AddScheduleDiscipline(ScheduleDisciplineCreateModel model);
+        Task<string> EditScheduleDiscipline(ScheduleDisciplineEditModel model);
         Task<string> RemoveScheduleDiscipline(int Id);
-        Task<string> AddScheduleGroup(ScheduleGroup model);
-        Task<string> EditScheduleGroup(ScheduleGroup model);
+        Task<string> AddScheduleGroup(ScheduleGroupCreateModel model);
+        Task<string> EditScheduleGroup(ScheduleGroupEditModel model);
         Task<string> RemoveScheduleGroup(int Id);
-        Task<string> AddScheduleLesson(ScheduleLesson model);
-        Task<string> EditScheduleLesson(ScheduleLesson model);
+        Task<string> AddScheduleLesson(ScheduleLessonCreateModel model);
+        Task<string> EditScheduleLesson(ScheduleLessonEditModel model);
         Task<string> RemoveScheduleLesson(int Id);
-        Task<string> AddScheduleParityOfWeek(ScheduleParityOfWeek model);
-        Task<string> EditScheduleParityOfWeek(ScheduleParityOfWeek model);
+        Task<string> AddScheduleParityOfWeek(ScheduleParityOfWeekCreateModel model);
+        Task<string> EditScheduleParityOfWeek(ScheduleParityOfWeekEditModel model);
         Task<string> RemoveScheduleParityOfWeek(int Id);
-        Task<string> AddScheduleTypeLesson(ScheduleTypeLesson model);
-        Task<string> EditScheduleTypeLesson(ScheduleTypeLesson model);
+        Task<string> AddScheduleTypeLesson(ScheduleTypeLessonCreateModel model);
+        Task<string> EditScheduleTypeLesson(ScheduleTypeLessonEditModel model);
         Task<string> RemoveScheduleTypeLesson(int Id);
         #endregion
 
