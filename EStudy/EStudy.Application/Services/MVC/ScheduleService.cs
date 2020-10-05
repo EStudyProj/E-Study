@@ -27,37 +27,70 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<string> AddScheduleAudience(ScheduleAudienceCreateModel model)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.ScheduleAudiences.CreateAsync(new ScheduleAudience
+            {
+                NameAudience = model.NameAudience,
+                NameAudienceEng = model.NameAudienceEng
+            });
         }
 
         public async Task<string> AddScheduleDayOfWeek(ScheduleDayOfWeekCreateModel model)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.ScheduleDayOfWeeks.CreateAsync(new ScheduleDayOfWeek
+            {
+                Day = model.Day,
+                DayEng = model.DayEng
+            });
         }
 
         public async Task<string> AddScheduleDiscipline(ScheduleDisciplineCreateModel model)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.ScheduleDisciplines.CreateAsync(new ScheduleDiscipline
+            {
+                DisciplineName = model.DisciplineName,
+                DisciplineNameEng = model.DisciplineNameEng,
+                ShortDisciplineName = model.ShortDisciplineName,
+                ShortDisciplineNameEng = model.ShortDisciplineNameEng
+            });
         }
 
         public async Task<string> AddScheduleGroup(ScheduleGroupCreateModel model)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.ScheduleGroups.CreateAsync(new ScheduleGroup
+            {
+                GroupId = model.GroupId,
+                Name = model.Name
+            });
         }
 
         public async Task<string> AddScheduleLesson(ScheduleLessonCreateModel model)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.ScheduleLessons.CreateAsync(new ScheduleLesson
+            {
+                Number = model.Number,
+                Start = model.Start,
+                End = model.End
+            });
         }
 
         public async Task<string> AddScheduleParityOfWeek(ScheduleParityOfWeekCreateModel model)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.ScheduleParityOfWeeks.CreateAsync(new ScheduleParityOfWeek
+            {
+                Week = model.Week,
+                WeekEng = model.WeekEng
+            });
         }
 
         public async Task<string> AddScheduleTypeLesson(ScheduleTypeLessonCreateModel model)
         {
-            throw new NotImplementedException();
+            return await uniOfWork.ScheduleTypeLessons.CreateAsync(new ScheduleTypeLesson
+            {
+                TypeName = model.TypeName,
+                ShortTypeName = model.ShortTypeName,
+                TypeNameEng = model.TypeNameEng,
+                ShortTypeNameEng = model.ShortTypeNameEng
+            });
         }
 
         public async Task<string> EditScheduleAudience(ScheduleAudienceEditModel model)
