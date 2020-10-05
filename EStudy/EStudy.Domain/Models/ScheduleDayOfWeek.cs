@@ -6,7 +6,7 @@ namespace EStudy.Domain.Models
 {
     public class ScheduleDayOfWeek
     {
-        [Required]
+        [Key]
         public int Id { get; set; }
         [Required, MinLength(3), MaxLength(25)]
         public string Day { get; set; }
