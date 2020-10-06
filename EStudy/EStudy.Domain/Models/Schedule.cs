@@ -17,6 +17,8 @@ namespace EStudy.Domain.Models
         public ScheduleDayOfWeek ScheduleDayOfWeek { get; set; }
         public int ScheduleParityOfWeekId { get; set; }
         public ScheduleParityOfWeek ScheduleParityOfWeek { get; set; }
+        public int ScheduleTeacherId { get; set; }
+        public ScheduleTeacher ScheduleTeacher { get; set; }
         public int ScheduleLessonId { get; set; }
         public ScheduleLesson ScheduleLesson { get; set; }
         public int ScheduleGroupId { get; set; }
