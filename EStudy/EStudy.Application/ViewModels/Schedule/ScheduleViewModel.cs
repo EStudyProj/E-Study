@@ -17,6 +17,7 @@ namespace EStudy.Application.ViewModels.Schedule
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public string GroupName { get; set; }
+        public string GroupNameEng { get; set; }
         public string DisciplineName { get; set; }
         public string ShortDisciplineName { get; set; }
         public string DisciplineNameEng { get; set; }
