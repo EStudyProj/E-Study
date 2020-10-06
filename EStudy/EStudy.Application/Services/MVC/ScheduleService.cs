@@ -96,6 +96,41 @@ namespace EStudy.Application.Services.MVC
             });
         }
 
+        public async Task<string> CreateSchedule(ScheduleCreateModel model)
+        {
+            return await uniOfWork.Schedules.CreateAsync(new Schedule
+            {
+                IsReplacement = model.IsReplacement,
+                TeacherId = model.TeacherId,
+                DateLesson = model.DateLesson,
+                ScheduleDayOfWeekId = model.ScheduleDayOfWeekId,
+                ScheduleParityOfWeekId = model.ScheduleParityOfWeekId,
+                ScheduleLessonId = model.ScheduleLessonId,
+                ScheduleGroupId = model.ScheduleGroupId,
+                ScheduleDisciplineId = model.ScheduleDisciplineId,
+                ScheduleTypeLessonId = model.ScheduleTypeLessonId,
+                ScheduleAudienceId = model.ScheduleAudienceId
+            });
+        }
+
+        public async Task<string> EditSchedule(ScheduleEditModel model)
+        {
+            var schedule = await uniOfWork.Schedules.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (schedule == null)
+                return "Not found";
+            schedule.IsReplacement = model.IsReplacement;
+            schedule.TeacherId = model.TeacherId;
+            schedule.DateLesson = model.DateLesson;
+            schedule.ScheduleDayOfWeekId = model.ScheduleDayOfWeekId;
+            schedule.ScheduleParityOfWeekId = model.ScheduleParityOfWeekId;
+            schedule.ScheduleLessonId = model.ScheduleLessonId;
+            schedule.ScheduleGroupId = model.ScheduleGroupId;
+            schedule.ScheduleDisciplineId = model.ScheduleDisciplineId;
+            schedule.ScheduleTypeLessonId = model.ScheduleTypeLessonId;
+            schedule.ScheduleAudienceId = model.ScheduleAudienceId;
+            return await uniOfWork.Schedules.EditAsync(schedule);
+        }
+
         public async Task<string> EditScheduleAudience(ScheduleAudienceEditModel model)
         {
             var scheduleAudience = await uniOfWork.ScheduleAudiences.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
@@ -236,6 +271,14 @@ namespace EStudy.Application.Services.MVC
         public async Task<List<ScheduleViewModel>> GetTodaySchedulesByTeacherId(int Id)
         {
             return mapper.Map<List<ScheduleViewModel>>(await uniOfWork.Schedules.GetTodaySchedulesByTeacherIdAsync(Id));
+        }
+
+        public async Task<string> RemoveSchedule(long Id)
+        {
+            var modelToRemove = await uniOfWork.Schedules.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (modelToRemove == null)
+                return "Not found";
+            return await uniOfWork.Schedules.RemoveAsync(modelToRemove);
         }
 
         public async Task<string> RemoveScheduleAudience(int Id)
