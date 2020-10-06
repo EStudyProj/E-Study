@@ -98,37 +98,84 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<string> EditScheduleAudience(ScheduleAudienceEditModel model)
         {
-            throw new NotImplementedException();
+            var scheduleAudience = await uniOfWork.ScheduleAudiences.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (scheduleAudience == null)
+                return "Not found";
+            scheduleAudience.NameAudience = model.NameAudience;
+            scheduleAudience.NameAudienceEng = model.NameAudienceEng;
+            scheduleAudience.LastEdited = DateTime.Now;
+            return await uniOfWork.ScheduleAudiences.EditAsync(scheduleAudience);
         }
 
         public async Task<string> EditScheduleDayOfWeek(ScheduleDayOfWeekEditModel model)
         {
-            throw new NotImplementedException();
+            var scheduleDayOfWeek = await uniOfWork.ScheduleDayOfWeeks.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (scheduleDayOfWeek == null)
+                return "Not found";
+            scheduleDayOfWeek.Day = model.Day;
+            scheduleDayOfWeek.DayEng = model.DayEng;
+            scheduleDayOfWeek.LastEdited = DateTime.Now;
+            return await uniOfWork.ScheduleDayOfWeeks.EditAsync(scheduleDayOfWeek);
         }
 
         public async Task<string> EditScheduleDiscipline(ScheduleDisciplineEditModel model)
         {
-            throw new NotImplementedException();
+            var scheduleDiscipline = await uniOfWork.ScheduleDisciplines.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (scheduleDiscipline == null)
+                return "Not found";
+            scheduleDiscipline.DisciplineName = model.DisciplineName;
+            scheduleDiscipline.DisciplineNameEng = model.DisciplineNameEng;
+            scheduleDiscipline.ShortDisciplineName = model.ShortDisciplineName;
+            scheduleDiscipline.ShortDisciplineNameEng = model.ShortDisciplineNameEng;
+            scheduleDiscipline.LastEdited = DateTime.Now;
+            return await uniOfWork.ScheduleDisciplines.EditAsync(scheduleDiscipline);
         }
 
         public async Task<string> EditScheduleGroup(ScheduleGroupEditModel model)
         {
-            throw new NotImplementedException();
+            var scheduleGroup = await uniOfWork.ScheduleGroups.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (scheduleGroup == null)
+                return "Not found";
+            scheduleGroup.GroupId = model.GroupId;
+            scheduleGroup.Name = model.Name;
+            scheduleGroup.LastEdited = DateTime.Now;
+            return await uniOfWork.ScheduleGroups.EditAsync(scheduleGroup);
         }
 
         public async Task<string> EditScheduleLesson(ScheduleLessonEditModel model)
         {
-            throw new NotImplementedException();
+            var scheduleLesson = await uniOfWork.ScheduleLessons.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (scheduleLesson == null)
+                return "Not found";
+            scheduleLesson.Start = model.Start;
+            scheduleLesson.End = model.End;
+            scheduleLesson.Number = model.Number;
+            scheduleLesson.LastEdited = DateTime.Now;
+            return await uniOfWork.ScheduleLessons.EditAsync(scheduleLesson);
         }
 
         public async Task<string> EditScheduleParityOfWeek(ScheduleParityOfWeekEditModel model)
         {
-            throw new NotImplementedException();
+            var scheduleParityOfWeek = await uniOfWork.ScheduleParityOfWeeks.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (scheduleParityOfWeek == null)
+                return "Not found";
+            scheduleParityOfWeek.Week = model.Week;
+            scheduleParityOfWeek.WeekEng = model.WeekEng;
+            scheduleParityOfWeek.LastEdited = DateTime.Now;
+            return await uniOfWork.ScheduleParityOfWeeks.EditAsync(scheduleParityOfWeek);
         }
 
         public async Task<string> EditScheduleTypeLesson(ScheduleTypeLessonEditModel model)
         {
-            throw new NotImplementedException();
+            var scheduleTypeLesson = await uniOfWork.ScheduleTypeLessons.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (scheduleTypeLesson == null)
+                return "Not found";
+            scheduleTypeLesson.TypeName = model.TypeName;
+            scheduleTypeLesson.TypeNameEng = model.TypeNameEng;
+            scheduleTypeLesson.ShortTypeName = model.ShortTypeName;
+            scheduleTypeLesson.ShortTypeNameEng = model.ShortTypeNameEng;
+            scheduleTypeLesson.LastEdited = DateTime.Now;
+            return await uniOfWork.ScheduleTypeLessons.EditAsync(scheduleTypeLesson);
         }
 
         public async Task<List<ScheduleAudienceViewModel>> GetAllScheduleAudiences()
