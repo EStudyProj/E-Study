@@ -26,6 +26,7 @@ namespace EStudy.Infrastructure.Data
         IScheduleGroupRepository scheduleGroupRepos;
         IScheduleLessonRepository scheduleLessonRepos;
         IScheduleParityOfWeekRepository scheduleParityOfWeekRepos;
+        IScheduleTeacherRepository scheduleTeacherRepos;
         IScheduleTypeLessonRepository scheduleTypeLessonRepos;
         ISpecialtyRepository specRepos;
         ISubjectRepository subjRepos;
@@ -51,6 +52,7 @@ namespace EStudy.Infrastructure.Data
             IScheduleGroupRepository _scheduleGroupRepos,
             IScheduleLessonRepository _scheduleLessonRepos,
             IScheduleParityOfWeekRepository _scheduleParityOfWeekRepos,
+            IScheduleTeacherRepository _scheduleTeacherRepos,
             IScheduleTypeLessonRepository _scheduleTypeLessonRepos,
             ISpecialtyRepository _specRepos,
             ISubjectRepository _subjRepos,
@@ -76,6 +78,7 @@ namespace EStudy.Infrastructure.Data
             scheduleGroupRepos = _scheduleGroupRepos;
             scheduleLessonRepos = _scheduleLessonRepos;
             scheduleParityOfWeekRepos = _scheduleParityOfWeekRepos;
+            scheduleTeacherRepos = _scheduleTeacherRepos;
             scheduleTypeLessonRepos = _scheduleTypeLessonRepos;
             specRepos = _specRepos;
             subjRepos = _subjRepos;
@@ -101,12 +104,12 @@ namespace EStudy.Infrastructure.Data
         public IScheduleGroupRepository ScheduleGroups => scheduleGroupRepos;
         public IScheduleLessonRepository ScheduleLessons => scheduleLessonRepos;
         public IScheduleParityOfWeekRepository ScheduleParityOfWeeks => scheduleParityOfWeekRepos;
+        public IScheduleTeacherRepository ScheduleTeachers => scheduleTeacherRepos;
         public IScheduleTypeLessonRepository ScheduleTypeLessons => scheduleTypeLessonRepos;
         public ISpecialtyRepository Specialties => specRepos;
         public ISubjectRepository Subjects=> subjRepos;
         public ITaskRepository Tasks => taskRepos;
         public ITestEntityRepository Tests => testEntityRepos;
         public IUserRepository Users => userRepos;
-
     }
 }

@@ -7,6 +7,7 @@ using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
 using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
 using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
 using EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleTeacher;
 using EStudy.Application.ViewModels.Schedule.ScheduleTypeLesson;
 using EStudy.Domain.Models;
 using EStudy.Infrastructure.Data;
@@ -82,6 +83,15 @@ namespace EStudy.Application.Services.MVC
             {
                 Week = model.Week,
                 WeekEng = model.WeekEng
+            });
+        }
+
+        public async Task<string> AddScheduleTeacher(ScheduleTeacherCreateModel model)
+        {
+            return await uniOfWork.ScheduleTeachers.CreateAsync(new ScheduleTeacher
+            {
+                Name = model.Name,
+                NameEng = model.NameEng
             });
         }
 
@@ -200,6 +210,17 @@ namespace EStudy.Application.Services.MVC
             return await uniOfWork.ScheduleParityOfWeeks.EditAsync(scheduleParityOfWeek);
         }
 
+        public async Task<string> EditScheduleTeacher(ScheduleTeacherEditModel model)
+        {
+            var schedTeacher = await uniOfWork.ScheduleTeachers.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (schedTeacher == null)
+                return "Not found";
+            schedTeacher.Name = model.Name;
+            schedTeacher.NameEng = model.NameEng;
+            schedTeacher.LastEdited = DateTime.Now;
+            return await uniOfWork.ScheduleTeachers.EditAsync(schedTeacher);
+        }
+
         public async Task<string> EditScheduleTypeLesson(ScheduleTypeLessonEditModel model)
         {
             var scheduleTypeLesson = await uniOfWork.ScheduleTypeLessons.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
@@ -241,6 +262,11 @@ namespace EStudy.Application.Services.MVC
         public async Task<List<ScheduleParityOfWeekViewModel>> GetAllScheduleParityOfWeeks()
         {
             return mapper.Map<List<ScheduleParityOfWeekViewModel>>(await uniOfWork.ScheduleParityOfWeeks.GetAllAsync());
+        }
+
+        public async Task<List<ScheduleTeacherViewModel>> GetAllScheduleTeachers()
+        {
+            return mapper.Map<List<ScheduleTeacherViewModel>>(await uniOfWork.ScheduleTeachers.GetAllAsync());
         }
 
         public async Task<List<ScheduleTypeLessonViewModel>> GetAllScheduleTypeLessons()
@@ -327,6 +353,14 @@ namespace EStudy.Application.Services.MVC
             if (modelToRemove == null)
                 return "Not found";
             return await uniOfWork.ScheduleParityOfWeeks.RemoveAsync(modelToRemove);
+        }
+
+        public async Task<string> RemoveScheduleTeacher(int Id)
+        {
+            var schedTeacher = await uniOfWork.ScheduleTeachers.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (schedTeacher == null)
+                return "Not found";
+            return await uniOfWork.ScheduleTeachers.RemoveAsync(schedTeacher);
         }
 
         public async Task<string> RemoveScheduleTypeLesson(int Id)

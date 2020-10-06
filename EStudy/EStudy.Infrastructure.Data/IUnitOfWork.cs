@@ -25,6 +25,7 @@ namespace EStudy.Infrastructure.Data
         IScheduleGroupRepository ScheduleGroups { get; }
         IScheduleLessonRepository ScheduleLessons { get; }
         IScheduleParityOfWeekRepository ScheduleParityOfWeeks { get; }
+        IScheduleTeacherRepository ScheduleTeachers { get; }
         IScheduleTypeLessonRepository ScheduleTypeLessons { get; }
         ISpecialtyRepository Specialties { get; }
         ISubjectRepository Subjects { get; }
