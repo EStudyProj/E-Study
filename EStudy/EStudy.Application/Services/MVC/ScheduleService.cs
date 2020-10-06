@@ -276,27 +276,27 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<ScheduleViewModel> GetScheduleById(long Id)
         {
-            return mapper.Map<ScheduleViewModel>(await uniOfWork.Schedules.GetScheduleByIdAsync(Id));
+            return Mapper.GetSchedule(await uniOfWork.Schedules.GetScheduleByIdAsync(Id));
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupId(long Id, DateTime date)
         {
-            return mapper.Map<List<ScheduleViewModel>>(await uniOfWork.Schedules.GetSchedulesByGroupIdAsync(Id, date));
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdAsync(Id, date));
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo)
         {
-            return mapper.Map<List<ScheduleViewModel>>(await uniOfWork.Schedules.GetSchedulesByGroupIdInRangeAsync(Id, dateFrom, dateTo));
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdInRangeAsync(Id, dateFrom, dateTo));
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdOnWeek(long Id)
         {
-            return mapper.Map<List<ScheduleViewModel>>(await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id));
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id));
         }
 
         public async Task<List<ScheduleViewModel>> GetTodaySchedulesByTeacherId(int Id)
         {
-            return mapper.Map<List<ScheduleViewModel>>(await uniOfWork.Schedules.GetTodaySchedulesByTeacherIdAsync(Id));
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetTodaySchedulesByTeacherIdAsync(Id));
         }
 
         public async Task<string> RemoveSchedule(long Id)

@@ -59,6 +59,8 @@ namespace EStudy.Infrastructure.IoC
 
             services.AddScoped<IScheduleParityOfWeekRepository, ScheduleParityOfWeekRepository>();
 
+            services.AddScoped<IScheduleTeacherRepository, ScheduleTeacherRepository>();
+
             services.AddScoped<IScheduleTypeLessonRepository, ScheduleTypeLessonRepository>();
 
             services.AddScoped<IScheduleRepository, ScheduleRepository>();

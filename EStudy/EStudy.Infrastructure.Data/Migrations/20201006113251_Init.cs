@@ -182,6 +182,22 @@ namespace EStudy.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ScheduleTeachers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    NameEng = table.Column<string>(maxLength: 100, nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    LastEdited = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ScheduleTeachers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ScheduleTypeLessons",
                 columns: table => new
                 {
@@ -292,6 +308,7 @@ namespace EStudy.Infrastructure.Data.Migrations
                     DateLesson = table.Column<DateTime>(nullable: false),
                     ScheduleDayOfWeekId = table.Column<int>(nullable: false),
                     ScheduleParityOfWeekId = table.Column<int>(nullable: false),
+                    ScheduleTeacherId = table.Column<int>(nullable: false),
                     ScheduleLessonId = table.Column<int>(nullable: false),
                     ScheduleGroupId = table.Column<int>(nullable: false),
                     ScheduleDisciplineId = table.Column<int>(nullable: false),
@@ -337,6 +354,12 @@ namespace EStudy.Infrastructure.Data.Migrations
                         name: "FK_Schedules_ScheduleParityOfWeeks_ScheduleParityOfWeekId",
                         column: x => x.ScheduleParityOfWeekId,
                         principalTable: "ScheduleParityOfWeeks",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Schedules_ScheduleTeachers_ScheduleTeacherId",
+                        column: x => x.ScheduleTeacherId,
+                        principalTable: "ScheduleTeachers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -822,6 +845,11 @@ namespace EStudy.Infrastructure.Data.Migrations
                 column: "ScheduleParityOfWeekId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Schedules_ScheduleTeacherId",
+                table: "Schedules",
+                column: "ScheduleTeacherId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Schedules_ScheduleTypeLessonId",
                 table: "Schedules",
                 column: "ScheduleTypeLessonId");
@@ -911,6 +939,9 @@ namespace EStudy.Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "ScheduleParityOfWeeks");
+
+            migrationBuilder.DropTable(
+                name: "ScheduleTeachers");
 
             migrationBuilder.DropTable(
                 name: "ScheduleTypeLessons");

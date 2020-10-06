@@ -5,10 +5,10 @@
     ViewBag.Count = Model.Count();
 }
 
-<h1>Розклад на тиждень</h1>
+<h1>Розклад на тиждень (@DateTime.Now.ToShortDateString() - @DateTime.Now.AddDays(7).ToShortDateString())</h1>
 @if (Model == null || Model.Count() == 0)
 {
-
+    <p>Розклад відсутній</p>
 }
 else
 {

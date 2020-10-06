@@ -18,10 +18,11 @@ namespace EStudy.MVC.Controllers
             scheduleService = _scheduleService;
         }
 
-        [HttpGet("Schedule/{GroupId}")]
-        public async Task<IActionResult> GetScheduleOnWeekByGroupId(int GroupId)
+        [HttpGet("Schedule/TeacherToday/{TeacherId}")]
+        public async Task<IActionResult> GetTodayScheduleByTeacherId(int TeacherId)
         {
-            return View(await scheduleService.GetSchedulesByGroupIdOnWeek(GroupId));
+            var scheduls = await scheduleService.GetTodaySchedulesByTeacherId(TeacherId);
+            return View(scheduls);
         }
     }
 }

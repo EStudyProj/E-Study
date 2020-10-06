@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EStudy.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(EStudyContext))]
-    [Migration("20201006104036_Init")]
+    [Migration("20201006113251_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -842,6 +842,9 @@ namespace EStudy.Infrastructure.Data.Migrations
                     b.Property<int>("ScheduleParityOfWeekId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ScheduleTeacherId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ScheduleTypeLessonId")
                         .HasColumnType("int");
 
@@ -861,6 +864,8 @@ namespace EStudy.Infrastructure.Data.Migrations
                     b.HasIndex("ScheduleLessonId");
 
                     b.HasIndex("ScheduleParityOfWeekId");
+
+                    b.HasIndex("ScheduleTeacherId");
 
                     b.HasIndex("ScheduleTypeLessonId");
 
@@ -1038,6 +1043,33 @@ namespace EStudy.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ScheduleParityOfWeeks");
+                });
+
+            modelBuilder.Entity("EStudy.Domain.Models.ScheduleTeacher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LastEdited")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("NameEng")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ScheduleTeachers");
                 });
 
             modelBuilder.Entity("EStudy.Domain.Models.ScheduleTypeLesson", b =>
@@ -1574,6 +1606,12 @@ namespace EStudy.Infrastructure.Data.Migrations
                     b.HasOne("EStudy.Domain.Models.ScheduleParityOfWeek", "ScheduleParityOfWeek")
                         .WithMany("Schedules")
                         .HasForeignKey("ScheduleParityOfWeekId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EStudy.Domain.Models.ScheduleTeacher", "ScheduleTeacher")
+                        .WithMany("Schedules")
+                        .HasForeignKey("ScheduleTeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

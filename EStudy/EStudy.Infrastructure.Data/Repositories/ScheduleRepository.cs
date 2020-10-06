@@ -20,6 +20,7 @@ namespace EStudy.Infrastructure.Data.Repositories
                 .Include(d => d.ScheduleLesson)
                 .Include(d => d.ScheduleGroup)
                 .Include(d => d.ScheduleDiscipline)
+                .Include(d => d.ScheduleTeacher)
                 .Include(d => d.ScheduleTypeLesson)
                 .Include(d => d.ScheduleAudience)
                 .SingleOrDefaultAsync(d => d.Id == Id);
@@ -34,6 +35,7 @@ namespace EStudy.Infrastructure.Data.Repositories
                 .Include(d => d.ScheduleLesson)
                 .Include(d => d.ScheduleGroup)
                 .Include(d => d.ScheduleDiscipline)
+                .Include(d => d.ScheduleTeacher)
                 .Include(d => d.ScheduleTypeLesson)
                 .Include(d => d.ScheduleAudience)
                 .Where(d => d.ScheduleGroupId == Id && d.DateLesson == date)
@@ -49,6 +51,7 @@ namespace EStudy.Infrastructure.Data.Repositories
                 .Include(d => d.ScheduleLesson)
                 .Include(d => d.ScheduleGroup)
                 .Include(d => d.ScheduleDiscipline)
+                .Include(d => d.ScheduleTeacher)
                 .Include(d => d.ScheduleTypeLesson)
                 .Include(d => d.ScheduleAudience)
                 .Where(d => d.ScheduleGroup.Id == Id &&
@@ -65,6 +68,7 @@ namespace EStudy.Infrastructure.Data.Repositories
                 .Include(d => d.ScheduleLesson)
                 .Include(d => d.ScheduleGroup)
                 .Include(d => d.ScheduleDiscipline)
+                .Include(d => d.ScheduleTeacher)
                 .Include(d => d.ScheduleTypeLesson)
                 .Include(d => d.ScheduleAudience)
                 .Where(d => d.ScheduleGroup.Id == Id &&
@@ -81,6 +85,7 @@ namespace EStudy.Infrastructure.Data.Repositories
                 .Include(d => d.ScheduleLesson)
                 .Include(d => d.ScheduleGroup)
                 .Include(d => d.ScheduleDiscipline)
+                .Include(d => d.ScheduleTeacher)
                 .Include(d => d.ScheduleTypeLesson)
                 .Include(d => d.ScheduleAudience)
                 .Where(d => d.TeacherId == Id && d.DateLesson == DateTime.Today)
