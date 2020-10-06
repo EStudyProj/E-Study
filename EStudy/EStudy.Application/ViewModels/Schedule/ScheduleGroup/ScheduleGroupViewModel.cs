@@ -9,6 +9,7 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleGroup
         public DateTime CreatedAt { get; set; }
         public int GroupId { get; set; }
         public string Name { get; set; }
+        public string NameEng { get; set; }
         public DateTime? LastEdited { get; set; }
     }
 }

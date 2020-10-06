@@ -12,6 +12,8 @@ namespace EStudy.Domain.Models
         public int GroupId { get; set; }
         [Required, MinLength(2), MaxLength(10)]
         public string Name { get; set; }
+        [MinLength(2), MaxLength(10)]
+        public string NameEng { get; set; }
         public List<Schedule> Schedules { get; set; }
 
 
