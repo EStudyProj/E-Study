@@ -5,6 +5,7 @@ using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
 using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
 using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
 using EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleTeacher;
 using EStudy.Application.ViewModels.Schedule.ScheduleTypeLesson;
 using EStudy.Domain.Models;
 using System;
@@ -46,6 +47,11 @@ namespace EStudy.Application.Interfaces.MVC
         Task<string> EditScheduleParityOfWeek(ScheduleParityOfWeekEditModel model);
         Task<string> RemoveScheduleParityOfWeek(int Id);
         Task<List<ScheduleParityOfWeekViewModel>> GetAllScheduleParityOfWeeks();
+
+        Task<string> AddScheduleTeacher(ScheduleTeacherCreateModel model);
+        Task<string> EditScheduleTeacher(ScheduleTeacherEditModel model);
+        Task<string> RemoveScheduleTeacher(int Id);
+        Task<List<ScheduleTeacherViewModel>> GetAllScheduleTeachers();
 
         Task<string> AddScheduleTypeLesson(ScheduleTypeLessonCreateModel model);
         Task<string> EditScheduleTypeLesson(ScheduleTypeLessonEditModel model);

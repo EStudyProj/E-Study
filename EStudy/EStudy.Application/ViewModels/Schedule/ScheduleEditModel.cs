@@ -16,6 +16,7 @@ namespace EStudy.Application.ViewModels.Schedule
         public int ScheduleDayOfWeekId { get; set; }
         public int ScheduleParityOfWeekId { get; set; }
         public int ScheduleLessonId { get; set; }
+        public int ScheduleTeacherId { get; set; }
         public int ScheduleGroupId { get; set; }
         public int ScheduleDisciplineId { get; set; }
         public int ScheduleTypeLessonId { get; set; }

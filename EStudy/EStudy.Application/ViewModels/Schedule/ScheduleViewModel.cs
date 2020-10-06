@@ -18,6 +18,8 @@ namespace EStudy.Application.ViewModels.Schedule
         public DateTime End { get; set; }
         public string GroupName { get; set; }
         public string GroupNameEng { get; set; }
+        public string TeacherName { get; set; }
+        public string TeacherNameEng { get; set; }
         public string DisciplineName { get; set; }
         public string ShortDisciplineName { get; set; }
         public string DisciplineNameEng { get; set; }

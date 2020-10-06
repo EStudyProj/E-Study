@@ -14,6 +14,7 @@ using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
 using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
 using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
 using EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleTeacher;
 using EStudy.Application.ViewModels.Schedule.ScheduleTypeLesson;
 using EStudy.Application.ViewModels.Specialty;
 using EStudy.Application.ViewModels.Subject;
@@ -54,6 +55,7 @@ namespace EStudy.Application
             CreateMap<ScheduleGroup, ScheduleGroupViewModel>();
             CreateMap<ScheduleLesson, ScheduleLessonViewModel>();
             CreateMap<ScheduleParityOfWeek, ScheduleParityOfWeekViewModel>();
+            CreateMap<ScheduleTeacher, ScheduleTeacherViewModel>();
             CreateMap<ScheduleTypeLesson, ScheduleTypeLessonViewModel>();
             CreateMap<Specialty, SpecialtyViewModel>()
                 .ForMember(d => d.Groups, d => d.MapFrom(s => s.Groups))
