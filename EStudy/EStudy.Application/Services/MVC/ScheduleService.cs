@@ -240,37 +240,58 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<string> RemoveScheduleAudience(int Id)
         {
-            throw new NotImplementedException();
+            var modelToRemove = await uniOfWork.ScheduleAudiences.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (modelToRemove == null)
+                return "Not found";
+            return await uniOfWork.ScheduleAudiences.RemoveAsync(modelToRemove);
         }
 
         public async Task<string> RemoveScheduleDayOfWeek(int Id)
         {
-            throw new NotImplementedException();
+            var modelToRemove = await uniOfWork.ScheduleDayOfWeeks.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (modelToRemove == null)
+                return "Not found";
+            return await uniOfWork.ScheduleDayOfWeeks.RemoveAsync(modelToRemove);
         }
 
         public async Task<string> RemoveScheduleDiscipline(int Id)
         {
-            throw new NotImplementedException();
+            var modelToRemove = await uniOfWork.ScheduleDisciplines.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (modelToRemove == null)
+                return "Not found";
+            return await uniOfWork.ScheduleDisciplines.RemoveAsync(modelToRemove);
         }
 
         public async Task<string> RemoveScheduleGroup(int Id)
         {
-            throw new NotImplementedException();
+            var modelToRemove = await uniOfWork.ScheduleGroups.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (modelToRemove == null)
+                return "Not found";
+            return await uniOfWork.ScheduleGroups.RemoveAsync(modelToRemove);
         }
 
         public async Task<string> RemoveScheduleLesson(int Id)
         {
-            throw new NotImplementedException();
+            var modelToRemove = await uniOfWork.ScheduleLessons.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (modelToRemove == null)
+                return "Not found";
+            return await uniOfWork.ScheduleLessons.RemoveAsync(modelToRemove);
         }
 
         public async Task<string> RemoveScheduleParityOfWeek(int Id)
         {
-            throw new NotImplementedException();
+            var modelToRemove = await uniOfWork.ScheduleParityOfWeeks.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (modelToRemove == null)
+                return "Not found";
+            return await uniOfWork.ScheduleParityOfWeeks.RemoveAsync(modelToRemove);
         }
 
         public async Task<string> RemoveScheduleTypeLesson(int Id)
         {
-            throw new NotImplementedException();
+            var modelToRemove = await uniOfWork.ScheduleTypeLessons.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (modelToRemove == null)
+                return "Not found";
+            return await uniOfWork.ScheduleTypeLessons.RemoveAsync(modelToRemove);
         }
     }
 }
