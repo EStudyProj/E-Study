@@ -274,9 +274,86 @@ namespace EStudy.Application.Services.MVC
             return mapper.Map<List<ScheduleTypeLessonViewModel>>(await uniOfWork.ScheduleTypeLessons.GetAllAsync());
         }
 
+        public async Task<ScheduleAudienceEditModel> GetScheduleAudienceForEdit(int Id)
+        {
+            var audience = await uniOfWork.ScheduleAudiences.GetByWhereAsync(d => d.Id == Id);
+            if (audience == null) return null;
+            return new ScheduleAudienceEditModel
+            {
+                Id = audience.Id,
+                NameAudience = audience.NameAudience,
+                NameAudienceEng = audience.NameAudienceEng,
+                NumberSeats = audience.NumberSeats
+            };
+        }
+
         public async Task<ScheduleViewModel> GetScheduleById(long Id)
         {
             return Mapper.GetSchedule(await uniOfWork.Schedules.GetScheduleByIdAsync(Id));
+        }
+
+        public async Task<ScheduleDayOfWeekEditModel> GetScheduleDayOfWeekForEdit(int Id)
+        {
+            var dayOfWeek = await uniOfWork.ScheduleDayOfWeeks.GetByWhereAsync(d => d.Id == Id);
+            if (dayOfWeek == null) return null;
+            return new ScheduleDayOfWeekEditModel
+            {
+                Id = dayOfWeek.Id,
+                Day = dayOfWeek.Day,
+                DayEng = dayOfWeek.DayEng
+            };
+        }
+
+        public async Task<ScheduleDisciplineEditModel> GetScheduleDisciplineForEdit(int Id)
+        {
+            var discipline = await uniOfWork.ScheduleDisciplines.GetByWhereAsync(d => d.Id == Id);
+            if (discipline == null) return null;
+            return new ScheduleDisciplineEditModel
+            {
+                Id = discipline.Id,
+                DisciplineName = discipline.DisciplineName,
+                ShortDisciplineName = discipline.ShortDisciplineName,
+                DisciplineNameEng = discipline.DisciplineNameEng,
+                ShortDisciplineNameEng = discipline.ShortDisciplineNameEng
+            };
+        }
+
+        public async Task<ScheduleGroupEditModel> GetScheduleGroupEditForEdit(int Id)
+        {
+            var group = await uniOfWork.ScheduleGroups.GetByWhereAsync(d => d.Id == Id);
+            if (group == null) return null;
+            return new ScheduleGroupEditModel
+            {
+                Id = group.Id,
+                GroupId = group.GroupId,
+                Name = group.Name,
+                NameEng = group.NameEng
+            };
+        }
+
+        public async Task<ScheduleLessonEditModel> GetScheduleLessonForEdit(int Id)
+        {
+            var lesson = await uniOfWork.ScheduleLessons.GetByWhereAsync(d => d.Id == Id);
+            if (lesson == null) return null;
+            return new ScheduleLessonEditModel
+            {
+                Id = lesson.Id,
+                Number = lesson.Number,
+                Start = lesson.Start,
+                End = lesson.End
+            };
+        }
+
+        public async Task<ScheduleParityOfWeekEditModel> GetScheduleParityOfWeekForEdit(int Id)
+        {
+            var parityOfWeek = await uniOfWork.ScheduleParityOfWeeks.GetByWhereAsync(d => d.Id == Id);
+            if (parityOfWeek == null) return null;
+            return new ScheduleParityOfWeekEditModel
+            {
+                Id = parityOfWeek.Id,
+                Week = parityOfWeek.Week,
+                WeekEng = parityOfWeek.WeekEng
+            };
         }
 
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupId(long Id, DateTime date)
@@ -292,6 +369,32 @@ namespace EStudy.Application.Services.MVC
         public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdOnWeek(long Id)
         {
             return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id));
+        }
+
+        public async Task<ScheduleTeacherEditModel> GetScheduleTeacherForEdit(int Id)
+        {
+            var teacher = await uniOfWork.ScheduleTeachers.GetByWhereAsync(d => d.Id == Id);
+            if (teacher == null) return null;
+            return new ScheduleTeacherEditModel
+            {
+                Id = teacher.Id,
+                Name = teacher.Name,
+                NameEng = teacher.NameEng
+            };
+        }
+
+        public async Task<ScheduleTypeLessonEditModel> GetScheduleTypeLessonForEdit(int Id)
+        {
+            var typeLesson = await uniOfWork.ScheduleTypeLessons.GetByWhereAsync(d => d.Id == Id);
+            if (typeLesson == null) return null;
+            return new ScheduleTypeLessonEditModel
+            {
+                Id = typeLesson.Id,
+                TypeName = typeLesson.TypeName,
+                ShortTypeName = typeLesson.ShortTypeName,
+                TypeNameEng = typeLesson.TypeNameEng
+                ShortTypeNameEng = typeLesson.ShortTypeNameEng,
+            };
         }
 
         public async Task<List<ScheduleViewModel>> GetTodaySchedulesByTeacherId(int Id)
