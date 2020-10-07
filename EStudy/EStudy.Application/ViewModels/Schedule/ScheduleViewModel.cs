@@ -30,5 +30,6 @@ namespace EStudy.Application.ViewModels.Schedule
         public string LessonShortTypeNameEng { get; set; }
         public string NameAudience { get; set; }
         public string NameAudienceEng { get; set; }
+        public string NumberSeats { get; set; }
     }
 }

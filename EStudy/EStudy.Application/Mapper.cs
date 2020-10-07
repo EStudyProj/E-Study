@@ -37,7 +37,8 @@ namespace EStudy.Application
                 LessonTypeNameEng = model.ScheduleTypeLesson.TypeNameEng,
                 LessonShortTypeNameEng = model.ScheduleTypeLesson.ShortTypeNameEng,
                 NameAudience = model.ScheduleAudience.NameAudience,
-                NameAudienceEng = model.ScheduleAudience.NameAudienceEng
+                NameAudienceEng = model.ScheduleAudience.NameAudienceEng,
+                NumberSeats = model.ScheduleAudience.NumberSeats
             };
         }
 
@@ -70,7 +71,8 @@ namespace EStudy.Application
                 LessonTypeNameEng = model.ScheduleTypeLesson.TypeNameEng,
                 LessonShortTypeNameEng = model.ScheduleTypeLesson.ShortTypeNameEng,
                 NameAudience = model.ScheduleAudience.NameAudience,
-                NameAudienceEng = model.ScheduleAudience.NameAudienceEng
+                NameAudienceEng = model.ScheduleAudience.NameAudienceEng,
+                NumberSeats = model.ScheduleAudience.NumberSeats
             }).ToList();
         }
     }
