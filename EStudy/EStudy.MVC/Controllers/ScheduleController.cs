@@ -77,5 +77,13 @@ namespace EStudy.MVC.Controllers
                 return View("Error");
             return LocalRedirect("~/Schedule/AllAudiences");
         }
+
+        [HttpGet("DeleteAudience")]
+        public async Task<IActionResult> DeleteAudience(int Id)
+        {
+            if (await scheduleService.RemoveScheduleAudience(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/AllAudiences");
+        }
     }
 }
