@@ -7,7 +7,7 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleAudience
     public class ScheduleAudienceViewModel
     {
         public int Id { get; set; }
-        [DisplayName("Створена")]
+        [DisplayName("Створено")]
         public DateTime CreatedAt { get; set; }
         [DisplayName("Назва аудиторії")]
         public string NameAudience { get; set; }

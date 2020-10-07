@@ -1,22 +1,22 @@
-﻿@model IEnumerable<EStudy.Application.ViewModels.Schedule.ScheduleAudience.ScheduleAudienceViewModel>
+﻿@model IEnumerable<EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek.ScheduleDayOfWeekViewModel>
 
 @{
-    ViewData["Title"] = "Аудиторії";
+    ViewData["Title"] = "Дні тижнів";
     ViewBag.Count = Model.Count();
 }
 
-<h1>Список аудиторій</h1>
+<h1>Список днів тижнів</h1>
 
 <p>
-    <a asp-action="CreateAudience">Додати</a>
+    <a asp-action="CreateDayOfWeek">Додати</a>
 </p>
 <p>
-    <span>Загальна кількість аудиторій - @ViewBag.Count</span>
+    <span>Загальна кількість днів тижнів - @ViewBag.Count</span>
 </p>
 @if (Model == null || Model.Count() == 0)
 {
     <p>
-        <span>Упс, поки аудиторій нема...</span>
+        <span>Упс, поки днів тижнів нема...</span>
     </p>
 }
 else
@@ -28,13 +28,10 @@ else
                     @Html.DisplayNameFor(model => model.Id)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.NameAudience)
+                    @Html.DisplayNameFor(model => model.Day)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.NameAudienceEng)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.NumberSeats)
+                    @Html.DisplayNameFor(model => model.DayEng)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.CreatedAt)
@@ -53,13 +50,10 @@ else
                         @Html.DisplayFor(modelItem => item.Id)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.NameAudience)
+                        @Html.DisplayFor(modelItem => item.Day)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.NameAudienceEng)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumberSeats)
+                        @Html.DisplayFor(modelItem => item.DayEng)
                     </td>
                     <td>
                         @item.CreatedAt.ToShortDateString()
@@ -68,8 +62,8 @@ else
                         @Convert.ToDateTime(item.LastEdited).ToShortTimeString()
                     </td>
                     <td>
-                        @Html.ActionLink("Редагувати", "EditAudience", new { Id = item.Id }) |
-                        @Html.ActionLink("Видалити", "DeleteAudience", new { Id = item.Id })
+                        @Html.ActionLink("Редагувати", "EditDayOfWeek", new { Id = item.Id }) |
+                        @Html.ActionLink("Видалити", "DeleteDayOfWeek", new { Id = item.Id })
                     </td>
                 </tr>
             }
