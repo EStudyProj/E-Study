@@ -34,7 +34,8 @@ namespace EStudy.Application.Services.MVC
             return await uniOfWork.ScheduleAudiences.CreateAsync(new ScheduleAudience
             {
                 NameAudience = model.NameAudience,
-                NameAudienceEng = model.NameAudienceEng
+                NameAudienceEng = model.NameAudienceEng,
+                NumberSeats = model.NumberSeats
             });
         }
 

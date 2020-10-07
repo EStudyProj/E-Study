@@ -59,6 +59,21 @@ namespace EStudy.MVC.Controllers
             return View(await scheduleService.GetAllScheduleAudiences());
         }
 
+        [HttpGet("CreateAudience")]
+        public IActionResult CreateAudience()
+        {
+            return View();
+        }
+
+        [HttpPost("CreateAudience")]
+        public async Task<IActionResult> CreateAudience(ScheduleAudienceCreateModel model)
+        {
+            if (await scheduleService.AddScheduleAudience(model) == "OK")
+                return LocalRedirect("~/Schedule/AllAudiences");
+            return View("Error");
+        }
+
+
         [HttpGet("EditAudience")]
         public async Task<IActionResult> EditAudience(int Id)
         {
