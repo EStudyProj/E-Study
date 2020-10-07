@@ -8,7 +8,7 @@
 <h1>Список усіх аудиторій</h1>
 
 <p>
-    <a asp-action="Create">Додати нову</a>
+    <a asp-action="CreateAudience">Додати нову</a>
 </p>
 <p>
     <span>Загальна кількість аудиторій - @ViewBag.Count</span>
@@ -28,9 +28,6 @@ else
                     @Html.DisplayNameFor(model => model.Id)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CreatedAt)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.NameAudience)
                 </th>
                 <th>
@@ -38,6 +35,9 @@ else
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.NumberSeats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.LastEdited)
@@ -53,9 +53,6 @@ else
                         @Html.DisplayFor(modelItem => item.Id)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CreatedAt)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.NameAudience)
                     </td>
                     <td>
@@ -65,7 +62,10 @@ else
                         @Html.DisplayFor(modelItem => item.NumberSeats)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.LastEdited)
+                        @item.CreatedAt.ToShortDateString()
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(item.LastEdited).ToShortTimeString()
                     </td>
                     <td>
                         @Html.ActionLink("Редагувати", "EditAudience", new { Id = item.Id }) |

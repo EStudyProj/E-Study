@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EStudy.Application.Interfaces.MVC;
+using EStudy.Application.ViewModels.Schedule.ScheduleAudience;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace EStudy.MVC.Controllers
 {
+    [Route("Schedule")]
     public class ScheduleController : Controller
     {
         private ILogger<ScheduleController> logger;
@@ -18,7 +20,7 @@ namespace EStudy.MVC.Controllers
             scheduleService = _scheduleService;
         }
 
-        [HttpGet("Schedule/TeacherToday/{TeacherId}")]
+        [HttpGet("TeacherToday/{TeacherId}")]
         public async Task<IActionResult> GetTodayScheduleByTeacherId(int TeacherId)
         {
             var scheduls = await scheduleService.GetTodaySchedulesByTeacherId(TeacherId);
@@ -51,16 +53,29 @@ namespace EStudy.MVC.Controllers
 
 
 
-        [HttpGet("Schedule/AllAudiences")]
+        [HttpGet("AllAudiences")]
         public async Task<IActionResult> GetAllAudience()
         {
             return View(await scheduleService.GetAllScheduleAudiences());
         }
 
-        [HttpGet("Schedule/EditAudience")]
-        public async Task<IActionResult> GetForEditAudience(int Id)
+        [HttpGet("EditAudience")]
+        public async Task<IActionResult> EditAudience(int Id)
         {
-            var audience = await scheduleService
+            var audience = await scheduleService.GetScheduleAudienceForEdit(Id);
+            if (audience == null)
+                return View("Error");
+            return View(audience);
+        }
+
+        [HttpPost("EditAudience")]
+        public async Task<IActionResult> EditAudience(ScheduleAudienceEditModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            if (await scheduleService.EditScheduleAudience(model) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/AllAudiences");
         }
     }
 }

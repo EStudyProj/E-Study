@@ -148,6 +148,7 @@ namespace EStudy.Application.Services.MVC
                 return "Not found";
             scheduleAudience.NameAudience = model.NameAudience;
             scheduleAudience.NameAudienceEng = model.NameAudienceEng;
+            scheduleAudience.NumberSeats = model.NumberSeats;
             scheduleAudience.LastEdited = DateTime.Now;
             return await uniOfWork.ScheduleAudiences.EditAsync(scheduleAudience);
         }
@@ -392,8 +393,8 @@ namespace EStudy.Application.Services.MVC
                 Id = typeLesson.Id,
                 TypeName = typeLesson.TypeName,
                 ShortTypeName = typeLesson.ShortTypeName,
-                TypeNameEng = typeLesson.TypeNameEng
-                ShortTypeNameEng = typeLesson.ShortTypeNameEng,
+                TypeNameEng = typeLesson.TypeNameEng,
+                ShortTypeNameEng = typeLesson.ShortTypeNameEng
             };
         }
 
