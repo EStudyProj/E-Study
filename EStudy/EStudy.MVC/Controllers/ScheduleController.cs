@@ -51,10 +51,16 @@ namespace EStudy.MVC.Controllers
 
 
 
-        [HttpGet("Schedule/AllAudience")]
+        [HttpGet("Schedule/AllAudiences")]
         public async Task<IActionResult> GetAllAudience()
         {
             return View(await scheduleService.GetAllScheduleAudiences());
+        }
+
+        [HttpGet("Schedule/EditAudience")]
+        public async Task<IActionResult> GetForEditAudience(int Id)
+        {
+            var audience = await scheduleService
         }
     }
 }
