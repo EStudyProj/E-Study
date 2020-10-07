@@ -1,0 +1,78 @@
+﻿@model IEnumerable<EStudy.Application.ViewModels.Schedule.ScheduleAudience.ScheduleAudienceViewModel>
+
+@{
+    ViewData["Title"] = "Аудиторії";
+    ViewBag.Count = Model.Count();
+}
+
+<h1>Список усіх аудиторій</h1>
+
+<p>
+    <a asp-action="Create">Додати нову</a>
+</p>
+<p>
+    <span>Загальна кількість аудиторій - @ViewBag.Count</span>
+</p>
+@if (Model == null || Model.Count() == 0)
+{
+    <p>
+        <span>Упс, поки аудиторій нема...</span>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameAudience)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameAudienceEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberSeats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastEdited)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameAudience)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameAudienceEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberSeats)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastEdited)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Редагувати", "EditAudience", new { Id = item.Id }) |
+                        @Html.ActionLink("Видалити", "DeleteAudience", new { Id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

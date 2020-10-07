@@ -24,5 +24,37 @@ namespace EStudy.MVC.Controllers
             var scheduls = await scheduleService.GetTodaySchedulesByTeacherId(TeacherId);
             return View(scheduls);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        [HttpGet("Schedule/AllAudience")]
+        public async Task<IActionResult> GetAllAudience()
+        {
+            return View(await scheduleService.GetAllScheduleAudiences());
+        }
     }
 }
