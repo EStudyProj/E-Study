@@ -29,6 +29,10 @@ namespace EStudy.MVC.Controllers
         }
 
 
+
+
+
+
         #region Audiences
         [HttpGet("Audiences")]
         public async Task<IActionResult> GetAllAudience()
@@ -77,9 +81,6 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/Audiences");
         }
         #endregion
-
-
-
 
 
         #region DayOfWeek
