@@ -12,6 +12,7 @@ namespace EStudy.Domain.Models
         public string NameAudience { get; set; }
         [MinLength(1), MaxLength(25)]
         public string NameAudienceEng { get; set; }
+        public string NumberSeats { get; set; }
         public List<Schedule> Schedules { get; set; }
 
 
