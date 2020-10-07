@@ -53,7 +53,7 @@ namespace EStudy.MVC.Controllers
 
 
 
-        [HttpGet("AllAudiences")]
+        [HttpGet("Audiences")]
         public async Task<IActionResult> GetAllAudience()
         {
             return View(await scheduleService.GetAllScheduleAudiences());
@@ -69,10 +69,9 @@ namespace EStudy.MVC.Controllers
         public async Task<IActionResult> CreateAudience(ScheduleAudienceCreateModel model)
         {
             if (await scheduleService.AddScheduleAudience(model) == "OK")
-                return LocalRedirect("~/Schedule/AllAudiences");
+                return LocalRedirect("~/Schedule/Audiences");
             return View("Error");
         }
-
 
         [HttpGet("EditAudience")]
         public async Task<IActionResult> EditAudience(int Id)
@@ -90,7 +89,7 @@ namespace EStudy.MVC.Controllers
                 return View(model);
             if (await scheduleService.EditScheduleAudience(model) != "OK")
                 return View("Error");
-            return LocalRedirect("~/Schedule/AllAudiences");
+            return LocalRedirect("~/Schedule/Audiences");
         }
 
         [HttpGet("DeleteAudience")]
@@ -98,7 +97,7 @@ namespace EStudy.MVC.Controllers
         {
             if (await scheduleService.RemoveScheduleAudience(Id) != "OK")
                 return View("Error");
-            return LocalRedirect("~/Schedule/AllAudiences");
+            return LocalRedirect("~/Schedule/Audiences");
         }
     }
 }
