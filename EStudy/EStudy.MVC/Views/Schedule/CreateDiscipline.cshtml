@@ -1,0 +1,46 @@
+﻿@model EStudy.Application.ViewModels.Schedule.ScheduleDiscipline.ScheduleDisciplineCreateModel
+
+@{
+    ViewData["Title"] = "Створення";
+}
+
+<h1>Створення дисципліни</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateDiscipline" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DisciplineName" class="control-label"></label>
+                <input asp-for="DisciplineName" class="form-control" />
+                <span asp-validation-for="DisciplineName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDisciplineName" class="control-label"></label>
+                <input asp-for="ShortDisciplineName" class="form-control" />
+                <span asp-validation-for="ShortDisciplineName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisciplineNameEng" class="control-label"></label>
+                <input asp-for="DisciplineNameEng" class="form-control" />
+                <span asp-validation-for="DisciplineNameEng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDisciplineNameEng" class="control-label"></label>
+                <input asp-for="ShortDisciplineNameEng" class="form-control" />
+                <span asp-validation-for="ShortDisciplineNameEng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Зберегти" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Disciplines">Повернутися до списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -134,7 +134,7 @@ namespace EStudy.MVC.Controllers
         #endregion
 
 
-        #region Discpiline
+        #region Discipline
         [HttpGet("Disciplines")]
         public async Task<IActionResult> GetAllDiscipline()
         {
@@ -158,10 +158,10 @@ namespace EStudy.MVC.Controllers
         [HttpGet("EditDiscipline")]
         public async Task<IActionResult> EditDiscipline(int Id)
         {
-            var dayOfWeek = await scheduleService.GetScheduleDisciplineForEdit(Id);
-            if (dayOfWeek == null)
+            var discipline = await scheduleService.GetScheduleDisciplineForEdit(Id);
+            if (discipline == null)
                 return View("Error");
-            return View(dayOfWeek);
+            return View(discipline);
         }
 
         [HttpPost("EditDiscipline")]
