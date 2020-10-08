@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EStudy.Application.Interfaces.MVC;
 using EStudy.Application.ViewModels.Schedule.ScheduleAudience;
 using EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -129,6 +130,56 @@ namespace EStudy.MVC.Controllers
             if (await scheduleService.RemoveScheduleDayOfWeek(Id) != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/Audiences");
+        }
+        #endregion
+
+
+        #region Discpiline
+        [HttpGet("Disciplines")]
+        public async Task<IActionResult> GetAllDiscipline()
+        {
+            return View(await scheduleService.GetAllScheduleDisciplines());
+        }
+
+        [HttpGet("CreateDiscipline")]
+        public IActionResult CreateDiscipline()
+        {
+            return View();
+        }
+
+        [HttpPost("CreateDiscipline")]
+        public async Task<IActionResult> CreateDiscipline(ScheduleDisciplineCreateModel model)
+        {
+            if (await scheduleService.AddScheduleDiscipline(model) == "OK")
+                return LocalRedirect("~/Schedule/Disciplines");
+            return View("Error");
+        }
+
+        [HttpGet("EditDiscipline")]
+        public async Task<IActionResult> EditDiscipline(int Id)
+        {
+            var dayOfWeek = await scheduleService.GetScheduleDisciplineForEdit(Id);
+            if (dayOfWeek == null)
+                return View("Error");
+            return View(dayOfWeek);
+        }
+
+        [HttpPost("EditDiscipline")]
+        public async Task<IActionResult> EditDiscipline(ScheduleDisciplineEditModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            if (await scheduleService.EditScheduleDiscipline(model) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Disciplines");
+        }
+
+        [HttpGet("DeleteDiscipline")]
+        public async Task<IActionResult> DeleteDiscipline(int Id)
+        {
+            if (await scheduleService.RemoveScheduleDiscipline(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Disciplines");
         }
         #endregion
     }
