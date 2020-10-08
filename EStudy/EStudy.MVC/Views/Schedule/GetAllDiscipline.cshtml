@@ -2,70 +2,80 @@
 
 @{
     ViewData["Title"] = "Дисципліни";
+    ViewBag.Count = Model.Count();
 }
-
-<h1>GetAllDiscipline</h1>
-
+<h1>Список дисциплін</h1>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="CreateDiscipline">Додати</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DisciplineName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShortDisciplineName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DisciplineNameEng)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShortDisciplineNameEng)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastEdited)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisciplineName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShortDisciplineName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisciplineNameEng)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShortDisciplineNameEng)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastEdited)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+<p>
+    <span>Загальна кількість дисциплін @ViewBag.Count</span>
+</p>
+@if (Model == null || Model.Count() == 0)
+{
+    <p>Упс, дисциплін нема...</p>
 }
-    </tbody>
-</table>
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DisciplineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShortDisciplineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DisciplineNameEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShortDisciplineNameEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastEdited)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisciplineName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShortDisciplineName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisciplineNameEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShortDisciplineNameEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastEdited)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
