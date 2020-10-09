@@ -21,6 +21,33 @@
 }
 else
 {
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        Видалити усе
+    </button>
+    <p></p>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Підтвердження видалення</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Ви впевнені, що хочите видалити усі аудиторії?
+                </div>
+                <div class="modal-footer">
+                    <form asp-action="DeleteAllAudiences" asp-controller="Schedule" method="post">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ні</button>
+                        <button type="submit" class="btn btn-primary">Так</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <table class="table">
         <thead>
             <tr>

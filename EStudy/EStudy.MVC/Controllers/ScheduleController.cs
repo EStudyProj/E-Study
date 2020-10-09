@@ -90,7 +90,7 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/Audiences");
         }
 
-        [HttpDelete("DeleteAllAudiences")]
+        [HttpPost("DeleteAllAudiences")]
         public async Task<IActionResult> DeleteAllAudiences()
         {
             if (await scheduleService.RemoveAllAudiences() != "OK")
@@ -148,7 +148,7 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/DayOfWeeks");
         }
 
-        [HttpDelete("DeleteAllDayOfWeeks")]
+        [HttpPost("DeleteAllDayOfWeeks")]
         public async Task<IActionResult> DeleteAllDayOfWeeks()
         {
             if (await scheduleService.RemoveAllDayOfWeeks() != "OK")
@@ -206,7 +206,7 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/Disciplines");
         }
 
-        [HttpDelete("DeleteAllDisciplins")]
+        [HttpPost("DeleteAllDisciplins")]
         public async Task<IActionResult> DeleteAllDisciplins()
         {
             if (await scheduleService.RemoveAllDisciplines() != "OK")
@@ -264,7 +264,7 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/Groups");
         }
 
-        [HttpDelete("DeleteAllGroups")]
+        [HttpPost("DeleteAllGroups")]
         public async Task<IActionResult> DeleteAllGroups()
         {
             if (await scheduleService.RemoveAllGroups() != "OK")
@@ -322,7 +322,7 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/Lessons");
         }
 
-        [HttpDelete("DeleteAllLessons")]
+        [HttpPost("DeleteAllLessons")]
         public async Task<IActionResult> DeleteAllLessons()
         {
             if (await scheduleService.RemoveAllLessons() != "OK")
@@ -380,7 +380,7 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/ParityOfWeeks");
         }
 
-        [HttpDelete("DeleteAllParityOfWeeks")]
+        [HttpPost("DeleteAllParityOfWeeks")]
         public async Task<IActionResult> DeleteAllParityOfWeeks()
         {
             if (await scheduleService.RemoveAllParityOfWeeks() != "OK")
@@ -438,7 +438,7 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/Teachers");
         }
 
-        [HttpDelete("DeleteAllTeachers")]
+        [HttpPost("DeleteAllTeachers")]
         public async Task<IActionResult> DeleteAllTeachers()
         {
             if (await scheduleService.RemoveAllTeachers() != "OK")
@@ -496,7 +496,7 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/TypeLessons");
         }
 
-        [HttpDelete("DeleteAllTypeLessons")]
+        [HttpPost("DeleteAllTypeLessons")]
         public async Task<IActionResult> DeleteAllTypeLessons()
         {
             if (await scheduleService.RemoveAllTypeLessons() != "OK")
