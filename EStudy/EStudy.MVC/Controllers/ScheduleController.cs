@@ -89,6 +89,14 @@ namespace EStudy.MVC.Controllers
                 return View("Error");
             return LocalRedirect("~/Schedule/Audiences");
         }
+
+        [HttpDelete("DeleteAllAudiences")]
+        public async Task<IActionResult> DeleteAllAudiences()
+        {
+            if (await scheduleService.RemoveAllAudiences() != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Audiences");
+        }
         #endregion
 
 
@@ -136,6 +144,14 @@ namespace EStudy.MVC.Controllers
         public async Task<IActionResult> DeleteDayOfWeek(int Id)
         {
             if (await scheduleService.RemoveScheduleDayOfWeek(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/DayOfWeeks");
+        }
+
+        [HttpDelete("DeleteAllDayOfWeeks")]
+        public async Task<IActionResult> DeleteAllDayOfWeeks()
+        {
+            if (await scheduleService.RemoveAllDayOfWeeks() != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/DayOfWeeks");
         }
@@ -189,6 +205,14 @@ namespace EStudy.MVC.Controllers
                 return View("Error");
             return LocalRedirect("~/Schedule/Disciplines");
         }
+
+        [HttpDelete("DeleteAllDisciplins")]
+        public async Task<IActionResult> DeleteAllDisciplins()
+        {
+            if (await scheduleService.RemoveAllDisciplines() != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Disciplines");
+        }
         #endregion
 
 
@@ -236,6 +260,14 @@ namespace EStudy.MVC.Controllers
         public async Task<IActionResult> DeleteGroup(int Id)
         {
             if (await scheduleService.RemoveScheduleGroup(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Groups");
+        }
+
+        [HttpDelete("DeleteAllGroups")]
+        public async Task<IActionResult> DeleteAllGroups()
+        {
+            if (await scheduleService.RemoveAllGroups() != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/Groups");
         }
@@ -289,6 +321,14 @@ namespace EStudy.MVC.Controllers
                 return View("Error");
             return LocalRedirect("~/Schedule/Lessons");
         }
+
+        [HttpDelete("DeleteAllLessons")]
+        public async Task<IActionResult> DeleteAllLessons()
+        {
+            if (await scheduleService.RemoveAllLessons() != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Lessons");
+        }
         #endregion
 
 
@@ -336,6 +376,14 @@ namespace EStudy.MVC.Controllers
         public async Task<IActionResult> DeleteParityOfWeek(int Id)
         {
             if (await scheduleService.RemoveScheduleParityOfWeek(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/ParityOfWeeks");
+        }
+
+        [HttpDelete("DeleteAllParityOfWeeks")]
+        public async Task<IActionResult> DeleteAllParityOfWeeks()
+        {
+            if (await scheduleService.RemoveAllParityOfWeeks() != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/ParityOfWeeks");
         }
@@ -389,6 +437,14 @@ namespace EStudy.MVC.Controllers
                 return View("Error");
             return LocalRedirect("~/Schedule/Teachers");
         }
+
+        [HttpDelete("DeleteAllTeachers")]
+        public async Task<IActionResult> DeleteAllTeachers()
+        {
+            if (await scheduleService.RemoveAllTeachers() != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Teachers");
+        }
         #endregion
 
 
@@ -436,6 +492,14 @@ namespace EStudy.MVC.Controllers
         public async Task<IActionResult> DeleteTypeLesson(int Id)
         {
             if (await scheduleService.RemoveScheduleTypeLesson(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/TypeLessons");
+        }
+
+        [HttpDelete("DeleteAllTypeLessons")]
+        public async Task<IActionResult> DeleteAllTypeLessons()
+        {
+            if (await scheduleService.RemoveAllTypeLessons() != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/TypeLessons");
         }
