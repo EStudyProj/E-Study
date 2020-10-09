@@ -10,6 +10,7 @@ using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
 using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
 using EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek;
 using EStudy.Application.ViewModels.Schedule.ScheduleTeacher;
+using EStudy.Application.ViewModels.Schedule.ScheduleTypeLesson;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -388,6 +389,56 @@ namespace EStudy.MVC.Controllers
             if (await scheduleService.RemoveScheduleTeacher(Id) != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/Teachers");
+        }
+        #endregion
+
+
+        #region TypeLessons
+        [HttpGet("TypeLessons")]
+        public async Task<IActionResult> GetAllTypeLesson()
+        {
+            return View(await scheduleService.GetAllScheduleTypeLessons());
+        }
+
+        [HttpGet("CreateTypeLesson")]
+        public IActionResult CreateTypeLesson()
+        {
+            return View();
+        }
+
+        [HttpPost("CreateTypeLesson")]
+        public async Task<IActionResult> CreateTypeLesson(ScheduleTypeLessonCreateModel model)
+        {
+            if (await scheduleService.AddScheduleTypeLesson(model) == "OK")
+                return LocalRedirect("~/Schedule/TypeLessons");
+            return View("Error");
+        }
+
+        [HttpGet("EditTypeLesson")]
+        public async Task<IActionResult> EditTypeLesson(int Id)
+        {
+            var typeLesson = await scheduleService.GetScheduleTypeLessonForEdit(Id);
+            if (typeLesson == null)
+                return View("Error");
+            return View(typeLesson);
+        }
+
+        [HttpPost("EditTypeLesson")]
+        public async Task<IActionResult> EditTypeLesson(ScheduleTypeLessonEditModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            if (await scheduleService.EditScheduleTypeLesson(model) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/TypeLessons");
+        }
+
+        [HttpGet("DeleteTypeLesson")]
+        public async Task<IActionResult> DeleteTypeLesson(int Id)
+        {
+            if (await scheduleService.RemoveScheduleTypeLesson(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/TypeLessons");
         }
         #endregion
     }
