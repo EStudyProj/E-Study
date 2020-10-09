@@ -7,6 +7,7 @@ using EStudy.Application.ViewModels.Schedule.ScheduleAudience;
 using EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek;
 using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
 using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
+using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -231,6 +232,56 @@ namespace EStudy.MVC.Controllers
             if (await scheduleService.RemoveScheduleGroup(Id) != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/Groups");
+        }
+        #endregion
+
+
+        #region Lesson
+        [HttpGet("Lessons")]
+        public async Task<IActionResult> GetAllLesson()
+        {
+            return View(await scheduleService.GetAllScheduleLessons());
+        }
+
+        [HttpGet("CreateLesson")]
+        public IActionResult CreateLesson()
+        {
+            return View();
+        }
+
+        [HttpPost("CreateLesson")]
+        public async Task<IActionResult> CreateLesson(ScheduleLessonCreateModel model)
+        {
+            if (await scheduleService.AddScheduleLesson(model) == "OK")
+                return LocalRedirect("~/Schedule/Lessons");
+            return View("Error");
+        }
+
+        [HttpGet("EditLesson")]
+        public async Task<IActionResult> EditLesson(int Id)
+        {
+            var discipline = await scheduleService.GetScheduleLessonForEdit(Id);
+            if (discipline == null)
+                return View("Error");
+            return View(discipline);
+        }
+
+        [HttpPost("EditLesson")]
+        public async Task<IActionResult> EditLesson(ScheduleLessonEditModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            if (await scheduleService.EditScheduleLesson(model) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Lessons");
+        }
+
+        [HttpGet("DeleteLesson")]
+        public async Task<IActionResult> DeleteLesson(int Id)
+        {
+            if (await scheduleService.RemoveScheduleLesson(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Lessons");
         }
         #endregion
     }
