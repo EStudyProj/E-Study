@@ -7,8 +7,8 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleTeacher
 {
     public class ScheduleTeacherCreateModel
     {
-        [Required, MinLength(5), MaxLength(100)]
-        [DisplayName("Повне ім'я викладача")]
+        [Required(ErrorMessage = "Ім'я обов'язкове"), MinLength(5), MaxLength(100)]
+        [DisplayName("Повне ім'я викладача *")]
         public string Name { get; set; }
         [MinLength(5), MaxLength(100)]
         [DisplayName("Повне ім'я викладача (англ)")]

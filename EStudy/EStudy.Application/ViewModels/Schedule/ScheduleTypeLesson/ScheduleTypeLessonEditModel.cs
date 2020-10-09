@@ -10,8 +10,8 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleTypeLesson
         [Key]
         [DisplayName("ID")]
         public int Id { get; set; }
-        [Required, MinLength(2), MaxLength(25)]
-        [DisplayName("Назва типу пар")]
+        [Required(ErrorMessage = "Назва обов'язкова"), MinLength(2), MaxLength(25)]
+        [DisplayName("Назва типу пар *")]
         public string TypeName { get; set; }
         [MinLength(1), MaxLength(5)]
         [DisplayName("Скорочена назва типу пар")]

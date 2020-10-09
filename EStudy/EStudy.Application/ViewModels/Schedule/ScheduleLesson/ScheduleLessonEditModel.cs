@@ -10,14 +10,14 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleLesson
         [Key]
         [DisplayName("ID")]
         public int Id { get; set; }
-        [Required]
-        [DisplayName("Номер пари")]
+        [Required(ErrorMessage = "Назва обов`язкова")]
+        [DisplayName("Номер пари *")]
         public byte Number { get; set; }
-        [Required]
-        [DisplayName("Початок пари"), DataType(DataType.Time)]
+        [Required(ErrorMessage = "Час обов'язковий")]
+        [DisplayName("Початок пари *"), DataType(DataType.Time)]
         public DateTime Start { get; set; }
-        [Required]
-        [DisplayName("Кінець пари"), DataType(DataType.Time)]
+        [Required(ErrorMessage = "Час обов'язковий")]
+        [DisplayName("Кінець пари *"), DataType(DataType.Time)]
         public DateTime End { get; set; }
     }
 }

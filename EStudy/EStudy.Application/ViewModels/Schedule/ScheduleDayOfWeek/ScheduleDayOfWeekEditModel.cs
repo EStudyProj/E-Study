@@ -10,8 +10,8 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek
         [Required]
         [DisplayName("ID")]
         public int Id { get; set; }
-        [Required, MinLength(3), MaxLength(25)]
-        [DisplayName("Назва дня")]
+        [Required(ErrorMessage = "Назва обов'язкова"), MinLength(3), MaxLength(25)]
+        [DisplayName("Назва дня *")]
         public string Day { get; set; }
         [MinLength(3), MaxLength(25)]
         [DisplayName("Назва дня (англ)")]

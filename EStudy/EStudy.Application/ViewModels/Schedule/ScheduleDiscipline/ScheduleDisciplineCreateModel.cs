@@ -8,8 +8,8 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleDiscipline
 {
     public class ScheduleDisciplineCreateModel
     {
-        [Required, MinLength(3), MaxLength(100)]
-        [DisplayName("Назва дисципліни")]
+        [Required(ErrorMessage = "Назва обов'язкова"), MinLength(3), MaxLength(100)]
+        [DisplayName("Назва дисципліни *")]
         public string DisciplineName { get; set; }
         [MinLength(1), MaxLength(5)]
         [DisplayName("Коротка назва дисципліни")]

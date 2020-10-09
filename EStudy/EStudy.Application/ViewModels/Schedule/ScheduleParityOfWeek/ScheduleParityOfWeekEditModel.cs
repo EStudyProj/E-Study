@@ -10,8 +10,8 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek
         [Key]
         [DisplayName("ID")]
         public int Id { get; set; }
-        [Required, MinLength(3), MaxLength(25)]
-        [DisplayName("Парність тижня")]
+        [Required(ErrorMessage = "Парність обо'язкова"), MinLength(3), MaxLength(25)]
+        [DisplayName("Парність тижня *")]
         public string Week { get; set; }
         [MinLength(2), MaxLength(30)]
         [DisplayName("Парність тижня (англ)")]

@@ -7,11 +7,11 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleGroup
 {
     public class ScheduleGroupCreateModel
     {
-        [Required]
+        [Required(ErrorMessage = "ID групи обов'язковий")]
         [DisplayName("ID групи")]
         public int GroupId { get; set; }
-        [Required, MinLength(2), MaxLength(10)]
-        [DisplayName("Назва групи")]
+        [Required(ErrorMessage = "Назва обов'язкова"), MinLength(2), MaxLength(10)]
+        [DisplayName("Назва групи *")]
         public string Name { get; set; }
         [MinLength(2), MaxLength(10)]
         [DisplayName("Назва групи (англ)")]
