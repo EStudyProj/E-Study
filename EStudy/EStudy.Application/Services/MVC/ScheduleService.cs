@@ -408,42 +408,50 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<string> RemoveAllAudiences()
         {
-            throw new NotImplementedException();
+            var audiences = await uniOfWork.ScheduleAudiences.GetAllAsTrackingAsync();
+            return audiences == null || audiences.Count == 0 ? "OK" : await uniOfWork.ScheduleAudiences.RemoveRangeAsync(audiences);
         }
 
         public async Task<string> RemoveAllDayOfWeeks()
         {
-            throw new NotImplementedException();
+            var days = await uniOfWork.ScheduleDayOfWeeks.GetAllAsTrackingAsync();
+            return days == null || days.Count == 0 ? "OK" : await uniOfWork.ScheduleDayOfWeeks.RemoveRangeAsync(days);
         }
 
         public async Task<string> RemoveAllDisciplines()
         {
-            throw new NotImplementedException();
+            var disciplines = await uniOfWork.ScheduleDisciplines.GetAllAsTrackingAsync();
+            return disciplines == null || disciplines.Count == 0 ? "OK" : await uniOfWork.ScheduleDisciplines.RemoveRangeAsync(disciplines);
         }
 
         public async Task<string> RemoveAllGroups()
         {
-            throw new NotImplementedException();
+            var groups = await uniOfWork.ScheduleGroups.GetAllAsTrackingAsync();
+            return groups == null || groups.Count == 0 ? "OK" : await uniOfWork.ScheduleGroups.RemoveRangeAsync(groups);
         }
 
         public async Task<string> RemoveAllLessons()
         {
-            throw new NotImplementedException();
+            var lessons = await uniOfWork.ScheduleLessons.GetAllAsTrackingAsync();
+            return lessons == null || lessons.Count == 0 ? "OK" : await uniOfWork.ScheduleLessons.RemoveRangeAsync(lessons);
         }
 
         public async Task<string> RemoveAllParityOfWeeks()
         {
-            throw new NotImplementedException();
+            var parityOfWeeks = await uniOfWork.ScheduleParityOfWeeks.GetAllAsTrackingAsync();
+            return parityOfWeeks == null || parityOfWeeks.Count == 0 ? "OK" : await uniOfWork.ScheduleParityOfWeeks.RemoveRangeAsync(parityOfWeeks);
         }
 
         public async Task<string> RemoveAllTeachers()
         {
-            throw new NotImplementedException();
+            var teachers = await uniOfWork.ScheduleTeachers.GetAllAsTrackingAsync();
+            return teachers == null || teachers.Count == 0 ? "OK" : await uniOfWork.ScheduleTeachers.RemoveRangeAsync(teachers);
         }
 
         public async Task<string> RemoveAllTypeLessons()
         {
-            throw new NotImplementedException();
+            var typeLessons = await uniOfWork.ScheduleTypeLessons.GetAllAsTrackingAsync();
+            return typeLessons == null || typeLessons.Count == 0 ? "OK" : await uniOfWork.ScheduleTypeLessons.RemoveRangeAsync(typeLessons);
         }
 
         public async Task<string> RemoveSchedule(long Id)
