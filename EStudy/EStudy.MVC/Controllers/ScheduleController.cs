@@ -210,10 +210,10 @@ namespace EStudy.MVC.Controllers
         [HttpGet("EditGroup")]
         public async Task<IActionResult> EditGroup(int Id)
         {
-            var discipline = await scheduleService.GetScheduleGroupForEdit(Id);
-            if (discipline == null)
+            var group = await scheduleService.GetScheduleGroupForEdit(Id);
+            if (group == null)
                 return View("Error");
-            return View(discipline);
+            return View(group);
         }
 
         [HttpPost("EditGroup")]
@@ -260,10 +260,10 @@ namespace EStudy.MVC.Controllers
         [HttpGet("EditLesson")]
         public async Task<IActionResult> EditLesson(int Id)
         {
-            var discipline = await scheduleService.GetScheduleLessonForEdit(Id);
-            if (discipline == null)
+            var lesson = await scheduleService.GetScheduleLessonForEdit(Id);
+            if (lesson == null)
                 return View("Error");
-            return View(discipline);
+            return View(lesson);
         }
 
         [HttpPost("EditLesson")]
