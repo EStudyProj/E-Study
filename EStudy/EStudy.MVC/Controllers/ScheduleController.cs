@@ -33,8 +33,12 @@ namespace EStudy.MVC.Controllers
             return View(scheduls);
         }
 
-
-
+        [HttpGet("/")]
+        [HttpGet("")]
+        public IActionResult GetSettingSchedule()
+        {
+            return View();
+        }
 
 
 
