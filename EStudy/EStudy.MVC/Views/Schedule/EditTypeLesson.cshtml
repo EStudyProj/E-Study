@@ -1,0 +1,49 @@
+﻿@model EStudy.Application.ViewModels.Schedule.ScheduleTypeLesson.ScheduleTypeLessonEditModel
+
+@{
+    ViewData["Title"] = $"Редагування {Model.Id}";
+}
+
+<h1>Редагування типу пар</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditTypeLesson">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" type="hidden"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeName" class="control-label"></label>
+                <input asp-for="TypeName" class="form-control" />
+                <span asp-validation-for="TypeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortTypeName" class="control-label"></label>
+                <input asp-for="ShortTypeName" class="form-control" />
+                <span asp-validation-for="ShortTypeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeNameEng" class="control-label"></label>
+                <input asp-for="TypeNameEng" class="form-control" />
+                <span asp-validation-for="TypeNameEng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortTypeNameEng" class="control-label"></label>
+                <input asp-for="ShortTypeNameEng" class="form-control" />
+                <span asp-validation-for="ShortTypeNameEng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Зберегти" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Повернутися до списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

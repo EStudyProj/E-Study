@@ -8,7 +8,7 @@
 <h1>Список типів пар</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="CreateTypeLesson">Додати</a>
 </p>
 <table class="table">
     <thead>
@@ -62,9 +62,8 @@
                 @Html.DisplayFor(modelItem => item.LastEdited)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Редагувати", "EditTypeLesson", new { Id = item.Id }) |
+                @Html.ActionLink("Видалити", "DeleteTypeLesson", new { Id = item.Id })
             </td>
         </tr>
 }
