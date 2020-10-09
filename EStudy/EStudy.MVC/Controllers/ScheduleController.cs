@@ -137,7 +137,7 @@ namespace EStudy.MVC.Controllers
         {
             if (await scheduleService.RemoveScheduleDayOfWeek(Id) != "OK")
                 return View("Error");
-            return LocalRedirect("~/Schedule/Audiences");
+            return LocalRedirect("~/Schedule/DayOfWeeks");
         }
         #endregion
 

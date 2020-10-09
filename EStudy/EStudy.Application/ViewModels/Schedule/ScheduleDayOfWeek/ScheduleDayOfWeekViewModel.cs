@@ -6,6 +6,7 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek
 {
     public class ScheduleDayOfWeekViewModel
     {
+        [DisplayName("ID")]
         public int Id { get; set; }
         [DisplayName("Створено")]
         public DateTime CreatedAt { get; set; }
@@ -13,7 +14,7 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek
         public string Day { get; set; }
         [DisplayName("Назва дня тижня (англ)")]
         public string DayEng { get; set; }
-        [DisplayName("Останій час редагування")]
+        [DisplayName("Останій раз відредаговано")]
         public DateTime? LastEdited { get; set; }
     }
 }

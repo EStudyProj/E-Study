@@ -6,6 +6,7 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleAudience
 {
     public class ScheduleAudienceViewModel
     {
+        [DisplayName("ID")]
         public int Id { get; set; }
         [DisplayName("Створено")]
         public DateTime CreatedAt { get; set; }
@@ -15,7 +16,7 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleAudience
         public string NameAudienceEng { get; set; }
         [DisplayName("Кількість місць")]
         public string NumberSeats { get; set; }
-        [DisplayName("Останій час редагування")]
+        [DisplayName("Останій раз відредаговано")]
         public DateTime? LastEdited { get; set; }
     }
 }

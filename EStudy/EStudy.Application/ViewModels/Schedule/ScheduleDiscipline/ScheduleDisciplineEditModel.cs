@@ -9,6 +9,7 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleDiscipline
     public class ScheduleDisciplineEditModel
     {
         [Key]
+        [DisplayName("ID")]
         public int Id { get; set; }
         [Required, MinLength(3), MaxLength(100)]
         [DisplayName("Назва дисципліни")]

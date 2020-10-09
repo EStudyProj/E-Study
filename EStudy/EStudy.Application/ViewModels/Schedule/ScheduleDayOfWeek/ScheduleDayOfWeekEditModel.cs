@@ -8,6 +8,7 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek
     public class ScheduleDayOfWeekEditModel
     {
         [Required]
+        [DisplayName("ID")]
         public int Id { get; set; }
         [Required, MinLength(3), MaxLength(25)]
         [DisplayName("Назва дня")]

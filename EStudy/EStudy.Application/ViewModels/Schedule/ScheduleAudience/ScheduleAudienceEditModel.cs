@@ -8,6 +8,7 @@ namespace EStudy.Application.ViewModels.Schedule.ScheduleAudience
     public class ScheduleAudienceEditModel
     {
         [Required]
+        [DisplayName("ID")]
         public int Id { get; set; }
         [Required, MinLength(1), MaxLength(25)]
         [DisplayName("Назва аудиторії")]
