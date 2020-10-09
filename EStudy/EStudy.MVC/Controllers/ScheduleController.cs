@@ -9,6 +9,7 @@ using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
 using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
 using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
 using EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek;
+using EStudy.Application.ViewModels.Schedule.ScheduleTeacher;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -333,6 +334,56 @@ namespace EStudy.MVC.Controllers
             if (await scheduleService.RemoveScheduleParityOfWeek(Id) != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/ParityOfWeeks");
+        }
+        #endregion
+
+
+        #region Teachers
+        [HttpGet("Teachers")]
+        public async Task<IActionResult> GetAllTeacher()
+        {
+            return View(await scheduleService.GetAllScheduleTeachers());
+        }
+
+        [HttpGet("CreateTeacher")]
+        public IActionResult CreateTeacher()
+        {
+            return View();
+        }
+
+        [HttpPost("CreateTeacher")]
+        public async Task<IActionResult> CreateTeacher(ScheduleTeacherCreateModel model)
+        {
+            if (await scheduleService.AddScheduleTeacher(model) == "OK")
+                return LocalRedirect("~/Schedule/Teachers");
+            return View("Error");
+        }
+
+        [HttpGet("EditTeacher")]
+        public async Task<IActionResult> EditTeacher(int Id)
+        {
+            var teacher = await scheduleService.GetScheduleTeacherForEdit(Id);
+            if (teacher == null)
+                return View("Error");
+            return View(teacher);
+        }
+
+        [HttpPost("EditTeacher")]
+        public async Task<IActionResult> EditTeacher(ScheduleTeacherEditModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            if (await scheduleService.EditScheduleTeacher(model) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Teachers");
+        }
+
+        [HttpGet("DeleteTeacher")]
+        public async Task<IActionResult> DeleteTeacher(int Id)
+        {
+            if (await scheduleService.RemoveScheduleTeacher(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Teachers");
         }
         #endregion
     }

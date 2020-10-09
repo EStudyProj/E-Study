@@ -1,0 +1,72 @@
+﻿@model IEnumerable<EStudy.Application.ViewModels.Schedule.ScheduleTeacher.ScheduleTeacherViewModel>
+
+@{
+    ViewData["Title"] = "Викладачі";
+    ViewBag.Count = Model.Count();
+}
+
+<h1>Список викладачів</h1>
+
+<p>
+    <a asp-action="CreateTeacher">Додати</a>
+</p>
+<p>
+    <span>Загальна кількість викладачів - @ViewBag.Count</span>
+</p>
+@if (Model == null || Model.Count() == 0)
+{
+    <p>
+        <span>Упс, поки викладачів нема...</span>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastEdited)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastEdited)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Редагувати", "EditTeacher", new { Id = item.Id }) |
+                        @Html.ActionLink("Видалити", "DeleteTeacher", new { Id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
