@@ -6,6 +6,7 @@ using EStudy.Application.Interfaces.MVC;
 using EStudy.Application.ViewModels.Schedule.ScheduleAudience;
 using EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek;
 using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
+using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -180,6 +181,56 @@ namespace EStudy.MVC.Controllers
             if (await scheduleService.RemoveScheduleDiscipline(Id) != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/Disciplines");
+        }
+        #endregion
+
+
+        #region Group
+        [HttpGet("Groups")]
+        public async Task<IActionResult> GetAllGroup()
+        {
+            return View(await scheduleService.GetAllScheduleGroups());
+        }
+
+        [HttpGet("CreateGroup")]
+        public IActionResult CreateGroup()
+        {
+            return View();
+        }
+
+        [HttpPost("CreateGroup")]
+        public async Task<IActionResult> CreateGroup(ScheduleGroupCreateModel model)
+        {
+            if (await scheduleService.AddScheduleGroup(model) == "OK")
+                return LocalRedirect("~/Schedule/Groups");
+            return View("Error");
+        }
+
+        [HttpGet("EditGroup")]
+        public async Task<IActionResult> EditGroup(int Id)
+        {
+            var discipline = await scheduleService.GetScheduleGroupForEdit(Id);
+            if (discipline == null)
+                return View("Error");
+            return View(discipline);
+        }
+
+        [HttpPost("EditGroup")]
+        public async Task<IActionResult> EditGroup(ScheduleGroupEditModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            if (await scheduleService.EditScheduleGroup(model) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Groups");
+        }
+
+        [HttpGet("DeleteGroup")]
+        public async Task<IActionResult> DeleteGroup(int Id)
+        {
+            if (await scheduleService.RemoveScheduleGroup(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/Groups");
         }
         #endregion
     }

@@ -39,7 +39,7 @@ namespace EStudy.Application.Interfaces.MVC
         Task<string> AddScheduleGroup(ScheduleGroupCreateModel model);
         Task<string> EditScheduleGroup(ScheduleGroupEditModel model);
         Task<string> RemoveScheduleGroup(int Id);
-        Task<ScheduleGroupEditModel> GetScheduleGroupEditForEdit(int Id);
+        Task<ScheduleGroupEditModel> GetScheduleGroupForEdit(int Id);
         Task<List<ScheduleGroupViewModel>> GetAllScheduleGroups();
 
         Task<string> AddScheduleLesson(ScheduleLessonCreateModel model);

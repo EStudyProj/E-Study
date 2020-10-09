@@ -64,7 +64,8 @@ namespace EStudy.Application.Services.MVC
             return await uniOfWork.ScheduleGroups.CreateAsync(new ScheduleGroup
             {
                 GroupId = model.GroupId,
-                Name = model.Name
+                Name = model.Name,
+                NameEng = model.NameEng
             });
         }
 
@@ -185,6 +186,7 @@ namespace EStudy.Application.Services.MVC
                 return "Not found";
             scheduleGroup.GroupId = model.GroupId;
             scheduleGroup.Name = model.Name;
+            scheduleGroup.NameEng = model.NameEng;
             scheduleGroup.LastEdited = DateTime.Now;
             return await uniOfWork.ScheduleGroups.EditAsync(scheduleGroup);
         }
@@ -320,7 +322,7 @@ namespace EStudy.Application.Services.MVC
             };
         }
 
-        public async Task<ScheduleGroupEditModel> GetScheduleGroupEditForEdit(int Id)
+        public async Task<ScheduleGroupEditModel> GetScheduleGroupForEdit(int Id)
         {
             var group = await uniOfWork.ScheduleGroups.GetByWhereAsync(d => d.Id == Id);
             if (group == null) return null;
