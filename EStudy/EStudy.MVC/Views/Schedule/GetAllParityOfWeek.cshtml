@@ -1,0 +1,72 @@
+﻿@model IEnumerable<EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek.ScheduleParityOfWeekViewModel>
+
+@{
+    ViewData["Title"] = "Парність тижнів";
+    ViewBag.Count = Model.Count();
+}
+
+<h1>Список парності тижнів</h1>
+
+<p>
+    <a asp-action="CreateParityOfWeek">Додати</a>
+</p>
+<p>
+    <span>Загальна кількість парності @ViewBag.Count</span>
+</p>
+@if (Model == null || Model.Count() == 0)
+{
+    <p>
+        <span>Упс, поки парності тижнів нема...</span>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Week)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WeekEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastEdited)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Week)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WeekEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastEdited)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Редагувати", "EditParityOfWeek", new { Id = item.Id }) |
+                        @Html.ActionLink("Видалити", "DeleteParityOfWeek", new { Id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

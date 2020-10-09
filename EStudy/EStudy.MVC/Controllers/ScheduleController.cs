@@ -8,6 +8,7 @@ using EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek;
 using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
 using EStudy.Application.ViewModels.Schedule.ScheduleGroup;
 using EStudy.Application.ViewModels.Schedule.ScheduleLesson;
+using EStudy.Application.ViewModels.Schedule.ScheduleParityOfWeek;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -282,6 +283,56 @@ namespace EStudy.MVC.Controllers
             if (await scheduleService.RemoveScheduleLesson(Id) != "OK")
                 return View("Error");
             return LocalRedirect("~/Schedule/Lessons");
+        }
+        #endregion
+
+
+        #region ParityOfWeek
+        [HttpGet("ParityOfWeeks")]
+        public async Task<IActionResult> GetAllParityOfWeek()
+        {
+            return View(await scheduleService.GetAllScheduleParityOfWeeks());
+        }
+
+        [HttpGet("CreateParityOfWeek")]
+        public IActionResult CreateParityOfWeek()
+        {
+            return View();
+        }
+
+        [HttpPost("CreateParityOfWeek")]
+        public async Task<IActionResult> CreateParityOfWeek(ScheduleParityOfWeekCreateModel model)
+        {
+            if (await scheduleService.AddScheduleParityOfWeek(model) == "OK")
+                return LocalRedirect("~/Schedule/ParityOfWeeks");
+            return View("Error");
+        }
+
+        [HttpGet("EditParityOfWeek")]
+        public async Task<IActionResult> EditParityOfWeek(int Id)
+        {
+            var parityOfWeek = await scheduleService.GetScheduleParityOfWeekForEdit(Id);
+            if (parityOfWeek == null)
+                return View("Error");
+            return View(parityOfWeek);
+        }
+
+        [HttpPost("EditParityOfWeek")]
+        public async Task<IActionResult> EditParityOfWeek(ScheduleParityOfWeekEditModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            if (await scheduleService.EditScheduleParityOfWeek(model) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/ParityOfWeeks");
+        }
+
+        [HttpGet("DeleteParityOfWeek")]
+        public async Task<IActionResult> DeleteParityOfWeek(int Id)
+        {
+            if (await scheduleService.RemoveScheduleParityOfWeek(Id) != "OK")
+                return View("Error");
+            return LocalRedirect("~/Schedule/ParityOfWeeks");
         }
         #endregion
     }
