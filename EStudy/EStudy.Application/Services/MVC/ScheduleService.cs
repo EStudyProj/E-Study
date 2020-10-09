@@ -406,6 +406,46 @@ namespace EStudy.Application.Services.MVC
             return Mapper.GetSchedules(await uniOfWork.Schedules.GetTodaySchedulesByTeacherIdAsync(Id));
         }
 
+        public async Task<string> RemoveAllAudiences()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveAllDayOfWeeks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveAllDisciplines()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveAllGroups()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveAllLessons()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveAllParityOfWeeks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveAllTeachers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> RemoveAllTypeLessons()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<string> RemoveSchedule(long Id)
         {
             var modelToRemove = await uniOfWork.Schedules.GetByWhereAsTrackingAsync(d => d.Id == Id);
