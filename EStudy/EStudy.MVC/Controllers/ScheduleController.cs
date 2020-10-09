@@ -45,7 +45,7 @@ namespace EStudy.MVC.Controllers
 
         #region Audiences
         [HttpGet("Audiences")]
-        public async Task<IActionResult> GetAllAudience()
+        public async Task<IActionResult> GetAllAudiences()
         {
             return View(await scheduleService.GetAllScheduleAudiences());
         }
@@ -95,7 +95,7 @@ namespace EStudy.MVC.Controllers
 
         #region DayOfWeek
         [HttpGet("DayOfWeeks")]
-        public async Task<IActionResult> GetAllDayOfWeek()
+        public async Task<IActionResult> GetAllDayOfWeeks()
         {
             return View(await scheduleService.GetAllScheduleDayOfWeeks());
         }
@@ -145,7 +145,7 @@ namespace EStudy.MVC.Controllers
 
         #region Discipline
         [HttpGet("Disciplines")]
-        public async Task<IActionResult> GetAllDiscipline()
+        public async Task<IActionResult> GetAllDisciplines()
         {
             return View(await scheduleService.GetAllScheduleDisciplines());
         }
@@ -195,7 +195,7 @@ namespace EStudy.MVC.Controllers
 
         #region Group
         [HttpGet("Groups")]
-        public async Task<IActionResult> GetAllGroup()
+        public async Task<IActionResult> GetAllGroups()
         {
             return View(await scheduleService.GetAllScheduleGroups());
         }
@@ -245,7 +245,7 @@ namespace EStudy.MVC.Controllers
 
         #region Lesson
         [HttpGet("Lessons")]
-        public async Task<IActionResult> GetAllLesson()
+        public async Task<IActionResult> GetAllLessons()
         {
             return View(await scheduleService.GetAllScheduleLessons());
         }
@@ -295,7 +295,7 @@ namespace EStudy.MVC.Controllers
 
         #region ParityOfWeek
         [HttpGet("ParityOfWeeks")]
-        public async Task<IActionResult> GetAllParityOfWeek()
+        public async Task<IActionResult> GetAllParityOfWeeks()
         {
             return View(await scheduleService.GetAllScheduleParityOfWeeks());
         }
@@ -345,7 +345,7 @@ namespace EStudy.MVC.Controllers
 
         #region Teachers
         [HttpGet("Teachers")]
-        public async Task<IActionResult> GetAllTeacher()
+        public async Task<IActionResult> GetAllTeachers()
         {
             return View(await scheduleService.GetAllScheduleTeachers());
         }
@@ -395,7 +395,7 @@ namespace EStudy.MVC.Controllers
 
         #region TypeLessons
         [HttpGet("TypeLessons")]
-        public async Task<IActionResult> GetAllTypeLesson()
+        public async Task<IActionResult> GetAllTypeLessons()
         {
             return View(await scheduleService.GetAllScheduleTypeLessons());
         }
