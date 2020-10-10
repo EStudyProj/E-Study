@@ -75,7 +75,7 @@ namespace EStudy.Application.Interfaces.MVC
         Task<List<ScheduleTypeLessonViewModel>> GetAllScheduleTypeLessons();
         #endregion
 
-        Task<string> CreateTestData();
+        System.Threading.Tasks.Task CreateTestData();
 
         Task<ScheduleViewModel> GetScheduleById(long Id);
         Task<ScheduleEditModel> GetScheduleForEdit(long Id);

@@ -125,9 +125,76 @@ namespace EStudy.Application.Services.MVC
             });
         }
 
-        public async Task<string> CreateTestData()
+        public async System.Threading.Tasks.Task CreateTestData()
         {
-            throw new NotImplementedException();
+            await uniOfWork.ScheduleAudiences.CreateRangeAsync(new List<ScheduleAudience>
+            {
+                new ScheduleAudience { NameAudience = "Актовий зал", NameAudienceEng = "", NumberSeats = "100" },
+                new ScheduleAudience { NameAudience = "Студентський центр", NameAudienceEng = "", NumberSeats = "25" },
+                new ScheduleAudience { NameAudience = "326", NameAudienceEng = "326", NumberSeats = "30" },
+                new ScheduleAudience { NameAudience = "517", NameAudienceEng = "517", NumberSeats = "35" },
+                new ScheduleAudience { NameAudience = "310", NameAudienceEng = "310", NumberSeats = "27" },
+                new ScheduleAudience { NameAudience = "120", NameAudienceEng = "120", NumberSeats = "50" },
+                new ScheduleAudience { NameAudience = "225", NameAudienceEng = "225", NumberSeats = "20" }
+            });
+            await uniOfWork.ScheduleDayOfWeeks.CreateRangeAsync(new List<ScheduleDayOfWeek>
+            {
+                new ScheduleDayOfWeek { Day = "Понеділок", DayEng = "Monday" },
+                new ScheduleDayOfWeek { Day = "Вівторок", DayEng = "Thuesday" },
+                new ScheduleDayOfWeek { Day = "Середа", DayEng = "Wednesday" },
+                new ScheduleDayOfWeek { Day = "Четверг", DayEng = "Threthday" },
+                new ScheduleDayOfWeek { Day = "П'ятниця", DayEng = "Friday" }
+            });
+            await uniOfWork.ScheduleDisciplines.CreateRangeAsync(new List<ScheduleDiscipline>
+            {
+                new ScheduleDiscipline { DisciplineName = "Об'єктно-орієнтоване програмування", DisciplineNameEng = "Object-Oriented Prog", ShortDisciplineName = "C#", ShortDisciplineNameEng = "C#" },
+                new ScheduleDiscipline { DisciplineName = "Вища Математика", DisciplineNameEng = "Hight Math", ShortDisciplineName = "ВМ", ShortDisciplineNameEng = "HM" },
+                new ScheduleDiscipline { DisciplineName = "Філософія", DisciplineNameEng = "Filisofy", ShortDisciplineName = "Фл", ShortDisciplineNameEng = "Fl" },
+                new ScheduleDiscipline { DisciplineName = "Проектування інтерфейсу користувача", DisciplineNameEng = "User interface development", ShortDisciplineName = "ПІК", ShortDisciplineNameEng = "UID" },
+                new ScheduleDiscipline { DisciplineName = "Іноземна мова", DisciplineNameEng = "English", ShortDisciplineName = "ІМ", ShortDisciplineNameEng = "Eng" },
+                new ScheduleDiscipline { DisciplineName = "Web технології та Web дизайн", DisciplineNameEng = "Web tech and Web design", ShortDisciplineName = "Web", ShortDisciplineNameEng = "Web" }
+            });
+            await uniOfWork.ScheduleGroups.CreateRangeAsync(new List<ScheduleGroup>
+            {
+                new ScheduleGroup { GroupId = 1, Name = "ПД-24", NameEng = "PD-24" },
+                new ScheduleGroup { GroupId = 2, Name = "ПД-23", NameEng = "PD-23" },
+                new ScheduleGroup { GroupId = 3, Name = "ПД-22", NameEng = "PD-22" },
+                new ScheduleGroup { GroupId = 4, Name = "ПД-21", NameEng = "PD-21" },
+                new ScheduleGroup { GroupId = 5, Name = "КІД-21", NameEng = "CED-21" },
+                new ScheduleGroup { GroupId = 6, Name = "КІД-22", NameEng = "CED-22" }
+            });
+            await uniOfWork.ScheduleLessons.CreateRangeAsync(new List<ScheduleLesson>
+            {
+                new ScheduleLesson { Number = 1, Start = new DateTime(2000,01,01,8,0,0), End = new DateTime(2000,01,01,9,35,0) },
+                new ScheduleLesson { Number = 2, Start = new DateTime(2000,01,01,9,45,0), End = new DateTime(2000,01,01,11,20,0) },
+                new ScheduleLesson { Number = 3, Start = new DateTime(2000,01,01,11,45,0), End = new DateTime(2000,01,01,13,20,0) },
+                new ScheduleLesson { Number = 4, Start = new DateTime(2000,01,01,15,05,0), End = new DateTime(2000,01,01,16,50,0) },
+                new ScheduleLesson { Number = 5, Start = new DateTime(2000,01,01,17,0,0), End = new DateTime(2000,01,01,18,35,0) },
+                new ScheduleLesson { Number = 6, Start = new DateTime(2000,01,01,18,50,0), End = new DateTime(2000,01,01,20,20,0) }
+            });
+            await uniOfWork.ScheduleParityOfWeeks.CreateRangeAsync(new List<ScheduleParityOfWeek>
+            {
+                new ScheduleParityOfWeek { Week = "Парне", WeekEng = "" },
+                new ScheduleParityOfWeek { Week = "Непарне", WeekEng = "" },
+                new ScheduleParityOfWeek { Week = "Б/в", WeekEng = "" }
+            });
+            await uniOfWork.ScheduleTeachers.CreateRangeAsync(new List<ScheduleTeacher>
+            {
+                new ScheduleTeacher { Name = "Шевченко Галина Володимирівна", NameEng = "Shevchenko Galyna Volodymurivna" },
+                new ScheduleTeacher { Name = "Попершняк Світлана Володимирівна", NameEng = "Popereshnyak Svitlana Volodymurivna" },
+                new ScheduleTeacher { Name = "Гребенюк Віктор Вікторович", NameEng = "Grebenyk Viktor Viktorovich" },
+                new ScheduleTeacher { Name = "Орендарчук Надія Василівна", NameEng = "Orendarchuk Nadiya Vasivlna" },
+                new ScheduleTeacher { Name = "Бондарчук Андрій Петрович", NameEng = "Bondarchuk Adrii Petrovich" },
+                new ScheduleTeacher { Name = "Яскевич Владислав Олександрович", NameEng = "Yascevich Vladyslav Olexandrovich" }
+            });
+            await uniOfWork.ScheduleTypeLessons.CreateRangeAsync(new List<ScheduleTypeLesson>
+            {
+                new ScheduleTypeLesson { ShortTypeName = "Лк", ShortTypeNameEng = "Lc", TypeName = "Лекція", TypeNameEng = "Lecture" },
+                new ScheduleTypeLesson { ShortTypeName = "Сем", ShortTypeNameEng = "Sem", TypeName = "Семінар", TypeNameEng = "Seminar" },
+                new ScheduleTypeLesson { ShortTypeName = "Ср", ShortTypeNameEng = "Iw", TypeName = "Самостійна робота", TypeNameEng = "Indepented work" },
+                new ScheduleTypeLesson { ShortTypeName = "Рр", ShortTypeNameEng = "Cw", TypeName = "Розрахункова робота", TypeNameEng = "Class work" },
+                new ScheduleTypeLesson { ShortTypeName = "Ек", ShortTypeNameEng = "Ex", TypeName = "Екзамен", TypeNameEng = "Exam" }
+            });
         }
 
         public async Task<string> EditSchedule(ScheduleEditModel model)
