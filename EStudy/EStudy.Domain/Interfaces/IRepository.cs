@@ -9,6 +9,7 @@ namespace EStudy.Domain.Interfaces
     public interface IRepository<TEntity> where TEntity : class
     {
         Task<string> CreateAsync(TEntity entity);
+        Task<string> CreateRangeAsync(List<TEntity> entities);
         Task<string> EditAsync(TEntity entity);
         Task<string> EditRangeAsync(IList<TEntity> entities);
         Task<string> RemoveAsync(TEntity entity);
