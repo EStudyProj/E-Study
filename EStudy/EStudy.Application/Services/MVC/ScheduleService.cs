@@ -113,7 +113,6 @@ namespace EStudy.Application.Services.MVC
             return await uniOfWork.Schedules.CreateAsync(new Schedule
             {
                 IsReplacement = model.IsReplacement,
-                TeacherId = model.TeacherId,
                 DateLesson = model.DateLesson,
                 ScheduleDayOfWeekId = model.ScheduleDayOfWeekId,
                 ScheduleParityOfWeekId = model.ScheduleParityOfWeekId,

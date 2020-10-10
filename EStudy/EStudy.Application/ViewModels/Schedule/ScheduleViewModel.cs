@@ -7,7 +7,6 @@ namespace EStudy.Application.ViewModels.Schedule
     {
         public long Id { get; set; }
         public bool IsReplacement { get; set; }
-        public int? TeacherId { get; set; }
         public DateTime DateLesson { get; set; }
         public string Day { get; set; }
         public string DayEng { get; set; }

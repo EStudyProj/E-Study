@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EStudy.Application.Interfaces.MVC;
+using EStudy.Application.ViewModels.Schedule;
 using EStudy.Application.ViewModels.Schedule.ScheduleAudience;
 using EStudy.Application.ViewModels.Schedule.ScheduleDayOfWeek;
 using EStudy.Application.ViewModels.Schedule.ScheduleDiscipline;
@@ -510,7 +511,14 @@ namespace EStudy.MVC.Controllers
         [HttpGet("Create")]
         public async Task<IActionResult> CreateSchedule()
         {
+            ViewBag.Data = await scheduleService.GetAllData();
+            return View();
+        }
 
+        [HttpPost("Create")]
+        public IActionResult CreateSchedule(ScheduleCreateModel model)
+        {
+            return LocalRedirect("~/");
         }
 
         #endregion

@@ -15,7 +15,6 @@ namespace EStudy.Application
             {
                 Id = model.Id,
                 IsReplacement = model.IsReplacement,
-                TeacherId = model.TeacherId,
                 DateLesson = model.DateLesson,
                 Day = model.ScheduleDayOfWeek.Day,
                 DayEng = model.ScheduleDayOfWeek.DayEng,
@@ -49,7 +48,6 @@ namespace EStudy.Application
             {
                 Id = model.Id,
                 IsReplacement = model.IsReplacement,
-                TeacherId = model.TeacherId,
                 DateLesson = model.DateLesson,
                 Day = model.ScheduleDayOfWeek.Day,
                 DayEng = model.ScheduleDayOfWeek.DayEng,
