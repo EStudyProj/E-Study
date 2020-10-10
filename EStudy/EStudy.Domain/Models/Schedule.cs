@@ -10,7 +10,6 @@ namespace EStudy.Domain.Models
         public long Id { get; set; }
         [Required]
         public bool IsReplacement { get; set; } = false;
-        public int? TeacherId { get; set; }
         [Required]
         public DateTime DateLesson { get; set; }
         public int ScheduleDayOfWeekId { get; set; }

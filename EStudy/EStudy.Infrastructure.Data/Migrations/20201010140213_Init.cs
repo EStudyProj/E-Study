@@ -305,7 +305,6 @@ namespace EStudy.Infrastructure.Data.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IsReplacement = table.Column<bool>(nullable: false),
-                    TeacherId = table.Column<int>(nullable: true),
                     DateLesson = table.Column<DateTime>(nullable: false),
                     ScheduleDayOfWeekId = table.Column<int>(nullable: false),
                     ScheduleParityOfWeekId = table.Column<int>(nullable: false),

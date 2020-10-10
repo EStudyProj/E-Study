@@ -846,9 +846,6 @@ namespace EStudy.Infrastructure.Data.Migrations
                     b.Property<int>("ScheduleTypeLessonId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TeacherId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ScheduleAudienceId");

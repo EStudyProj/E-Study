@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EStudy.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(EStudyContext))]
-    [Migration("20201010113826_Init")]
+    [Migration("20201010140213_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -846,9 +846,6 @@ namespace EStudy.Infrastructure.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ScheduleTypeLessonId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TeacherId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
