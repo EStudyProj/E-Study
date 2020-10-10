@@ -131,7 +131,6 @@ namespace EStudy.Application.Services.MVC
             if (schedule == null)
                 return "Not found";
             schedule.IsReplacement = model.IsReplacement;
-            schedule.TeacherId = model.TeacherId;
             schedule.DateLesson = model.DateLesson;
             schedule.ScheduleDayOfWeekId = model.ScheduleDayOfWeekId;
             schedule.ScheduleParityOfWeekId = model.ScheduleParityOfWeekId;
@@ -355,8 +354,7 @@ namespace EStudy.Application.Services.MVC
                 ScheduleLessonId = res.ScheduleLessonId,
                 ScheduleParityOfWeekId = res.ScheduleParityOfWeekId,
                 ScheduleTeacherId = res.ScheduleTeacherId,
-                ScheduleTypeLessonId = res.ScheduleTypeLessonId,
-                TeacherId = res.TeacherId
+                ScheduleTypeLessonId = res.ScheduleTypeLessonId
             };
         }
 
