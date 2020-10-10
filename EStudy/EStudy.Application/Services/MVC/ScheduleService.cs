@@ -396,21 +396,6 @@ namespace EStudy.Application.Services.MVC
             };
         }
 
-        public async Task<List<ScheduleViewModel>> GetSchedulesByGroupId(long Id, DateTime date)
-        {
-            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdAsync(Id, date));
-        }
-
-        public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo)
-        {
-            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdInRangeAsync(Id, dateFrom, dateTo));
-        }
-
-        public async Task<List<ScheduleViewModel>> GetSchedulesByGroupIdOnWeek(long Id)
-        {
-            return Mapper.GetSchedules(await uniOfWork.Schedules.GetSchedulesByGroupIdOnWeekAsync(Id));
-        }
-
         public async Task<ScheduleTeacherEditModel> GetScheduleTeacherForEdit(int Id)
         {
             var teacher = await uniOfWork.ScheduleTeachers.GetByWhereAsync(d => d.Id == Id);
@@ -435,11 +420,6 @@ namespace EStudy.Application.Services.MVC
                 TypeNameEng = typeLesson.TypeNameEng,
                 ShortTypeNameEng = typeLesson.ShortTypeNameEng
             };
-        }
-
-        public async Task<List<ScheduleViewModel>> GetTodaySchedulesByTeacherId(int Id)
-        {
-            return Mapper.GetSchedules(await uniOfWork.Schedules.GetTodaySchedulesByTeacherIdAsync(Id));
         }
 
         public async Task<string> RemoveAllAudiences()
