@@ -76,6 +76,7 @@ namespace EStudy.Application.Interfaces.MVC
         #endregion
 
         Task<ScheduleViewModel> GetScheduleById(long Id);
+        Task<ScheduleEditModel> GetScheduleForEdit(long Id);
         Task<List<ScheduleViewModel>> GetSchedulesByGroupId(long Id, DateTime date);
         Task<List<ScheduleViewModel>> GetSchedulesByGroupIdOnWeek(long Id);
         Task<List<ScheduleViewModel>> GetSchedulesByGroupIdInRange(long Id, DateTime dateFrom, DateTime dateTo);

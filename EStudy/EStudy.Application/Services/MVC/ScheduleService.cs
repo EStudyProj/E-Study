@@ -120,7 +120,8 @@ namespace EStudy.Application.Services.MVC
                 ScheduleGroupId = model.ScheduleGroupId,
                 ScheduleDisciplineId = model.ScheduleDisciplineId,
                 ScheduleTypeLessonId = model.ScheduleTypeLessonId,
-                ScheduleAudienceId = model.ScheduleAudienceId
+                ScheduleAudienceId = model.ScheduleAudienceId,
+                ScheduleTeacherId = model.ScheduleTeacherId
             });
         }
 
@@ -139,6 +140,8 @@ namespace EStudy.Application.Services.MVC
             schedule.ScheduleDisciplineId = model.ScheduleDisciplineId;
             schedule.ScheduleTypeLessonId = model.ScheduleTypeLessonId;
             schedule.ScheduleAudienceId = model.ScheduleAudienceId;
+            schedule.ScheduleTeacherId = model.ScheduleTeacherId;
+            schedule.LastEdited = DateTime.Now;
             return await uniOfWork.Schedules.EditAsync(schedule);
         }
 
@@ -333,6 +336,27 @@ namespace EStudy.Application.Services.MVC
                 ShortDisciplineName = discipline.ShortDisciplineName,
                 DisciplineNameEng = discipline.DisciplineNameEng,
                 ShortDisciplineNameEng = discipline.ShortDisciplineNameEng
+            };
+        }
+
+        public async Task<ScheduleEditModel> GetScheduleForEdit(long Id)
+        {
+            var res = await uniOfWork.Schedules.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (res == null) return null;
+            return new ScheduleEditModel
+            {
+                Id = res.Id,
+                DateLesson = res.DateLesson,
+                IsReplacement = res.IsReplacement,
+                ScheduleAudienceId = res.ScheduleAudienceId,
+                ScheduleDayOfWeekId = res.ScheduleDayOfWeekId,
+                ScheduleDisciplineId = res.ScheduleDisciplineId,
+                ScheduleGroupId = res.ScheduleGroupId,
+                ScheduleLessonId = res.ScheduleLessonId,
+                ScheduleParityOfWeekId = res.ScheduleParityOfWeekId,
+                ScheduleTeacherId = res.ScheduleTeacherId,
+                ScheduleTypeLessonId = res.ScheduleTypeLessonId,
+                TeacherId = res.TeacherId
             };
         }
 

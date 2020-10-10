@@ -509,18 +509,37 @@ namespace EStudy.MVC.Controllers
 
         #region Schedule
         [HttpGet("Create")]
-        public async Task<IActionResult> CreateSchedule()
+        public async Task<IActionResult> Create()
         {
             ViewBag.Data = await scheduleService.GetAllData();
             return View();
         }
 
         [HttpPost("Create")]
-        public IActionResult CreateSchedule(ScheduleCreateModel model)
+        public async Task<IActionResult> Create(ScheduleCreateModel model)
         {
-            return LocalRedirect("~/");
+            if (await scheduleService.CreateSchedule(model) == "OK")
+                return LocalRedirect("~/Schedule/Panel");
+            return View("Error");
         }
 
+        [HttpGet("Edit")]
+        public async Task<IActionResult> Edit(int Id)
+        {
+            var res = await scheduleService.GetScheduleForEdit(Id);
+            if (res == null)
+                return View("Error");
+            ViewBag.Data = await scheduleService.GetAllData();
+            return View(res);
+        }
+
+        [HttpPost("Edit")]
+        public async Task<IActionResult> Edit(ScheduleEditModel model)
+        {
+            if (await scheduleService.EditSchedule(model) == "OK")
+                return LocalRedirect("~/Schedule/Panel");
+            return View("Error");
+        }
         #endregion
     }
 }

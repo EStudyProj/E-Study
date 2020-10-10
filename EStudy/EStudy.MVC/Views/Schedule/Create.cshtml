@@ -8,13 +8,8 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateSchedule">
+        <form asp-action="Create" asp-controller="Schedule" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsReplacement" /> @Html.DisplayNameFor(model => model.IsReplacement)
-                </label>
-            </div>
             <div class="form-group">
                 <label asp-for="ScheduleGroupId" class="control-label"></label>
                 <select asp-for="ScheduleGroupId" class="form-control"
@@ -60,10 +55,10 @@
                 <input asp-for="DateLesson" class="form-control" />
                 <span asp-validation-for="DateLesson" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IsReplacement" class="control-label"></label>
-                <input asp-for="IsReplacement" class="form-control" />
-                <span asp-validation-for="IsReplacement" class="text-danger"></span>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsReplacement" /> @Html.DisplayNameFor(model => model.IsReplacement)
+                </label>
             </div>
             <div class="form-group">
                 <input type="submit" value="Зберегти" class="btn btn-primary" />
