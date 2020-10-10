@@ -504,5 +504,15 @@ namespace EStudy.MVC.Controllers
             return LocalRedirect("~/Schedule/TypeLessons");
         }
         #endregion
+
+
+        #region Schedule
+        [HttpGet("Create")]
+        public async Task<IActionResult> CreateSchedule()
+        {
+
+        }
+
+        #endregion
     }
 }
