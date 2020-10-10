@@ -238,6 +238,21 @@ namespace EStudy.Application.Services.MVC
             return await uniOfWork.ScheduleTypeLessons.EditAsync(scheduleTypeLesson);
         }
 
+        public async Task<ScheduleListEntitiesViewModel> GetAllData()
+        {
+            return new ScheduleListEntitiesViewModel
+            {
+                ScheduleAudiences = mapper.Map<List<ScheduleAudienceViewModel>>(await uniOfWork.ScheduleAudiences.GetAllAsync()),
+                ScheduleDayOfWeeks = mapper.Map<List<ScheduleDayOfWeekViewModel>>(await uniOfWork.ScheduleDayOfWeeks.GetAllAsync()),
+                ScheduleDisciplines = mapper.Map<List<ScheduleDisciplineViewModel>>(await uniOfWork.ScheduleDisciplines.GetAllAsync()),
+                ScheduleGroups = mapper.Map<List<ScheduleGroupViewModel>>(await uniOfWork.ScheduleGroups.GetAllAsync()),
+                ScheduleLessons = mapper.Map<List<ScheduleLessonViewModel>>(await uniOfWork.ScheduleLessons.GetAllAsync()),
+                ScheduleParityOfWeeks = mapper.Map<List<ScheduleParityOfWeekViewModel>>(await uniOfWork.ScheduleParityOfWeeks.GetAllAsync()),
+                ScheduleTeachers = mapper.Map<List<ScheduleTeacherViewModel>>(await uniOfWork.ScheduleTeachers.GetAllAsync()),
+                ScheduleTypeLessons = mapper.Map<List<ScheduleTypeLessonViewModel>>(await uniOfWork.ScheduleTypeLessons.GetAllAsync())
+            };
+        }
+
         public async Task<List<ScheduleAudienceViewModel>> GetAllScheduleAudiences()
         {
             return mapper.Map<List<ScheduleAudienceViewModel>>(await uniOfWork.ScheduleAudiences.GetAllAsync());
