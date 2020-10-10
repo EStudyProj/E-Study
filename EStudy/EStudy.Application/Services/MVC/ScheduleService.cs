@@ -125,6 +125,11 @@ namespace EStudy.Application.Services.MVC
             });
         }
 
+        public async Task<string> CreateTestData()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<string> EditSchedule(ScheduleEditModel model)
         {
             var schedule = await uniOfWork.Schedules.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
