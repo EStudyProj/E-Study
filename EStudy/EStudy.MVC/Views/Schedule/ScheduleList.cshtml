@@ -1,0 +1,191 @@
+﻿@model IEnumerable<EStudy.Application.ViewModels.Schedule.ScheduleViewModel>
+
+@{
+    ViewData["Title"] = "Розклад";
+    ViewBag.Count = Model.Count();
+}
+
+<h1>Розклад</h1>
+
+<p>
+    <a asp-action="Create">Додати</a>
+</p>
+<p>
+    <span>Загальна кількість розкладу - @ViewBag.Count</span>
+</p>
+@if (Model == null || Model.Count() == 0)
+{
+    <p>
+        <span>Упс, поки розкладу нема...</span>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsReplacement)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateLesson)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Day)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DayEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ParityWeek)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ParityWeekEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Start)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.End)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GroupName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GroupNameEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeacherName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeacherNameEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DisciplineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShortDisciplineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DisciplineNameEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShortDisciplineNameEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LessonTypeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LessonShortTypeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LessonTypeNameEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LessonShortTypeNameEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameAudience)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameAudienceEng)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberSeats)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsReplacement)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateLesson)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Day)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DayEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParityWeek)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParityWeekEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Start)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.End)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GroupName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GroupNameEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeacherName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeacherNameEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisciplineName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShortDisciplineName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisciplineNameEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShortDisciplineNameEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LessonTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LessonShortTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LessonTypeNameEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LessonShortTypeNameEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameAudience)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameAudienceEng)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberSeats)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Редагувати", "Edit", new { Id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

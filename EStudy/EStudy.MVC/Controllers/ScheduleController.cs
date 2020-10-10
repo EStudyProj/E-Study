@@ -533,6 +533,18 @@ namespace EStudy.MVC.Controllers
                 return LocalRedirect("~/Schedule/Panel");
             return View("Error");
         }
+
+        [HttpGet("LastAdded")]
+        public async Task<IActionResult> GetLastAddedSchedules(int count = 20)
+        {
+            return View("ScheduleList", await scheduleService.GetLastAddedSchedule(count));
+        }
+
+        [HttpGet("LastEdited")]
+        public async Task<IActionResult> GetLastEditedSchedules(int count = 20)
+        {
+            return View("ScheduleList", await scheduleService.GetLastEditedSchedule(count));
+        }
         #endregion
     }
 }
