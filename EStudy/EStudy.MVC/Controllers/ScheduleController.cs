@@ -34,7 +34,12 @@ namespace EStudy.MVC.Controllers
             return View();
         }
 
-
+        [HttpGet("TestData")]
+        public async Task<IActionResult> LoadTestData()
+        {
+            await scheduleService.CreateTestData();
+            return LocalRedirect("~/Schedule/Audiences");
+        }
 
         #region Audiences
         [HttpGet("Audiences")]
