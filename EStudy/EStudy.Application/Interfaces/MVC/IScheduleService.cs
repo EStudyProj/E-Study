@@ -78,6 +78,9 @@ namespace EStudy.Application.Interfaces.MVC
         Task<ScheduleViewModel> GetScheduleById(long Id);
         Task<ScheduleEditModel> GetScheduleForEdit(long Id);
         Task<ScheduleListEntitiesViewModel> GetAllData();
+        Task<List<ScheduleViewModel>> GetLastAddedSchedule(int count);
+        Task<List<ScheduleViewModel>> GetLastEditedSchedule(int count);
+
 
         Task<string> CreateSchedule(ScheduleCreateModel model);
         Task<string> EditSchedule(ScheduleEditModel model);

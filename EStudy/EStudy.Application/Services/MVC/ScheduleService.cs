@@ -294,6 +294,16 @@ namespace EStudy.Application.Services.MVC
             return mapper.Map<List<ScheduleTypeLessonViewModel>>(await uniOfWork.ScheduleTypeLessons.GetAllAsync());
         }
 
+        public async Task<List<ScheduleViewModel>> GetLastAddedSchedule(int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<ScheduleViewModel>> GetLastEditedSchedule(int count)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<ScheduleAudienceEditModel> GetScheduleAudienceForEdit(int Id)
         {
             var audience = await uniOfWork.ScheduleAudiences.GetByWhereAsync(d => d.Id == Id);
