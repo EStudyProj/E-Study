@@ -83,5 +83,7 @@ namespace EStudy.Application.Interfaces.MVC
         Task<string> CreateSchedule(ScheduleCreateModel model);
         Task<string> EditSchedule(ScheduleEditModel model);
         Task<string> RemoveSchedule(long Id);
+
+        Task<ScheduleListEntitiesViewModel> GetAllData();
     }
 }
