@@ -296,12 +296,12 @@ namespace EStudy.Application.Services.MVC
 
         public async Task<List<ScheduleViewModel>> GetLastAddedSchedule(int count)
         {
-            throw new NotImplementedException();
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetLastAddedSchedules(count));
         }
 
         public async Task<List<ScheduleViewModel>> GetLastEditedSchedule(int count)
         {
-            throw new NotImplementedException();
+            return Mapper.GetSchedules(await uniOfWork.Schedules.GetLastEditedSchedules(count));
         }
 
         public async Task<ScheduleAudienceEditModel> GetScheduleAudienceForEdit(int Id)
