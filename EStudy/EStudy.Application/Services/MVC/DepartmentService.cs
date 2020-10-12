@@ -38,7 +38,20 @@ namespace EStudy.Application.Services.MVC
             return await unitOfWork.Departments.CreateAsync(department);
         }
 
-
+        public async Task<DepartmentEditModel> GetForEditDepartment(int Id)
+        {
+            var depart = await unitOfWork.Departments.GetByWhereAsTrackingAsync(d => d.Id == Id);
+            if (depart == null) return null;
+            return new DepartmentEditModel
+            {
+                Name = depart.Name,
+                InstituteName = depart.InstituteName,
+                Phone = depart.Phone,
+                ContactInformation = depart.ContactInformation,
+                Description = depart.Description,
+                Shifr = depart.Shifr
+            };
+        }
 
         public async Task<string> EditDepartment(DepartmentEditModel model)
         {
