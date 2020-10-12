@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 namespace EStudy.Application.ViewModels.Department
 {
-    public class DepartmentEditModel
+    public class DepartmentEditModel : EditModel
     {
         [Key]
         public int Id { get; set; }

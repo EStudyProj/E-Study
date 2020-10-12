@@ -38,6 +38,23 @@ namespace EStudy.Application.Services.MVC
             return await unitOfWork.Departments.CreateAsync(department);
         }
 
+        public async Task<string> EditDepartment(DepartmentEditModel model)
+        {
+            var editDepart = await unitOfWork.Departments.GetByWhereAsTrackingAsync(d => d.Id == model.Id);
+            if (editDepart == null) return "Not found";
+            editDepart.Name = model.Name;
+            editDepart.Description = model.Description;
+            editDepart.InstituteName = model.InstituteName;
+            editDepart.Shifr = model.Shifr;
+            editDepart.Phone = model.Phone;
+            editDepart.ContactInformation = model.ContactInformation;
+            editDepart.IsEdit = true;
+            editDepart.DateLastEdit = DateTime.Now;
+            editDepart.EditedFromIPAddress = model.IPAddress;
+            editDepart.LastEditedByUserId = model.UserEditId;
+            return await unitOfWork.Departments.EditAsync(editDepart);
+        }
+
         public async Task<DepartmentViewModel> GetDepartmentById(int Id)
         {
             var depart = await unitOfWork.Departments.GetByWhereAsync(d => d.Id == Id);
